@@ -1,11 +1,22 @@
 import React from "react";
-import style from "./App.module.css";
+import { Switch, Route } from "react-router-dom";
+import { ROUTES } from "../constants";
+import Home from "./Home.jsx";
+import Create from "./Create";
+import About from "./About";
+import Navbar from "../components/Navbar";
 
 function App() {
   return (
-    <div className={style.center}>
-      <h1>Meet the characters</h1>
-    </div>
+    <main>
+      <h1>Opera Ballet Vlaanderen</h1>
+      <Navbar />
+      <Switch>
+        <Route path={ROUTES.home} exact strict component={Home} />
+        <Route path={ROUTES.create} exact strict component={Create} />
+        <Route path={ROUTES.about} exact strict component={About} />
+      </Switch>
+    </main>
   );
 }
 
