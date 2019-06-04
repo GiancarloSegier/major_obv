@@ -1,9 +1,12 @@
 import React from "react";
+import { inject, observer, PropTypes } from "mobx-react";
 import MainCharacter from "../components/MainCharacter";
 import UserStory from "../components/UserStory";
 import styles from "./Home.module.css";
 
-const Home = () => {
+const Home = ({ store }) => {
+  const { stories } = store;
+  console.log(stories);
   return (
     <>
       <section id="intro" className="container margin">
@@ -51,18 +54,18 @@ const Home = () => {
           </ul>
         </div>
 
-        {/* foreach database stories */}
         <div className={styles.stories}>
-          <UserStory name="laurens" />
-          <UserStory name="laurens" />
-          <UserStory name="laurens" />
-          <UserStory name="laurens" />
-          <UserStory name="laurens" />
-          <UserStory name="laurens" />
+          {stories.map(story => (
+            <UserStory props={story} key={story.id} />
+          ))}
         </div>
       </section>
     </>
   );
 };
 
-export default Home;
+Home.propTypes = {
+  store: PropTypes.observableObject.isRequired
+};
+
+export default inject(`store`)(observer(Home));

@@ -2,37 +2,30 @@ import uuid from "uuid";
 import { decorate, observable, computed, action } from "mobx";
 
 class Story {
-  constructor(name, id = uuid.v4()) {
+  constructor(title, id = uuid.v4()) {
     this.id = id;
-    this.name = name;
-
-    console.log(this.time);
+    this.title = title;
   }
 
   get values() {
     return {
-      name: this.name,
-      description: this.description,
-      deadline: this.deadline,
-      time: this.time
+      title: this.title
     };
   }
 
   setId = id => (this.id = id);
-  setName = name => (this.name = name);
+  setTitle = title => (this.title = title);
 
   updateFromServer = values => {
     this.setId(values._id);
-    this.setName(values.name);
-
-    console.log(values);
+    this.setTitle(values.title);
   };
 }
 
 decorate(Story, {
   id: observable,
   setId: action,
-  setName: action,
+  setTitle: action,
   values: computed
 });
 
