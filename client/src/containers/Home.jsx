@@ -29,7 +29,7 @@ const Home = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis
           nibh eu bibendum consequat. Donec vel quam molestie, tempor enim ut
         </p>
-        <div className={styles.filter}>
+        <div className={`${styles.filter} margin`}>
           <h3 className="visually-hidden">Filteren</h3>
           <p className={styles.filter__title}>Toon mij:</p>
 
@@ -52,7 +52,10 @@ const Home = () => {
         </div>
 
         {/* foreach database stories */}
-        <div className={styles.characters}>
+        <div className={styles.stories}>
+          <UserStory name="laurens" />
+          <UserStory name="laurens" />
+          <UserStory name="laurens" />
           <UserStory name="laurens" />
           <UserStory name="laurens" />
           <UserStory name="laurens" />

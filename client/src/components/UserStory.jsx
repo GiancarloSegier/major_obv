@@ -1,15 +1,15 @@
 import React from "react";
-import styles from "./MainCharacter.module.css";
+import styles from "./UserStory.module.css";
 
 const UserStory = ({ name }) => {
   return (
-    <article className={styles.character}>
+    <article className={styles.story}>
       <img
-        className={styles.character__image}
+        className={styles.story__image}
         src="./assets/placeholder2.png"
         alt={`foto van ${name}`}
       />
-      <h3 className={styles.character__name}>{name}</h3>
+      <h3 className={styles.story__name}>{name}</h3>
     </article>
   );
 };
