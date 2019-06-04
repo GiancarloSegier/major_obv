@@ -1,0 +1,73 @@
+.title{
+    composes: heading-1 from '../styles/typo.module.css';
+}
+
+.section__title{
+    composes: heading-2 from '../styles/typo.module.css';
+}
+
+.characters{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 4rem;
+}
+
+/* CTA: Call To Action */
+
+.CTA__create{
+    background-color: #D4D4D4;
+    border-radius: 2rem;
+    composes: character from '../components/MainCharacter.module.css';
+    grid-template-rows: 2rem 22rem 1.5rem 3rem 2rem 
+}
+
+.CTA__title{
+
+    grid-row: 2;
+    grid-column: 2 / -2;
+    align-self: flex-end;
+
+    composes: heading-3 from '../styles/typo.module.css';
+}
+.CTA__tag {
+
+    grid-row: 4;
+    grid-column: 2 / -2;
+
+    composes: body from '../styles/typo.module.css';
+    color: #fff;
+    font-weight: bold;
+    border-bottom: .2rem solid #fff;
+}
+
+.description{
+    width: 50%;
+
+    composes: body from '../styles/typo.module.css';
+}
+
+.filter{
+    margin-top: 5rem;
+}
+.filter__title{
+    composes: heading-3 from '../styles/typo.module.css';
+}
+.filter__tags{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.filter__tag{
+    composes: body from '../styles/typo.module.css';
+    color: #b8b8b8;
+    padding: 1rem 2rem;
+    border: .2rem solid #b8b8b8;
+    border-radius: 5rem;
+    margin-right: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.filter__active{
+    background-color: #b8b8b8;
+    color: #fff;
+}

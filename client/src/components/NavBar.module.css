@@ -1,0 +1,22 @@
+.navWrapper {
+    padding: 2.5rem 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.rightNav {
+    display: flex;
+}
+
+.navLink{
+    margin-left: 2rem;
+    text-decoration: none;
+    composes: navbar from "../styles/typo.module.css";
+}
+
+.logo{
+    width: 10rem;
+}

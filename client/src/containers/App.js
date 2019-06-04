@@ -9,7 +9,7 @@ import Navbar from "../components/Navbar";
 function App() {
   return (
     <main>
-      <h1>Opera Ballet Vlaanderen</h1>
+      <h1 className="visually-hidden">Opera Ballet Vlaanderen</h1>
       <Navbar />
       <Switch>
         <Route path={ROUTES.home} exact strict component={Home} />

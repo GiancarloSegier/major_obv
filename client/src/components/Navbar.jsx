@@ -1,23 +1,36 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { ROUTES } from "../constants";
+import navStyles from "./NavBar.module.css";
 
 const Navbar = () => {
   return (
-    <nav>
-      <ul>
+    <nav className={navStyles.navWrapper}>
+      <ul className={`${navStyles.navbar} container`}>
         <li>
-          <img src="./assets/logo.svg" alt="logo operaballet vlaanderen" />
+          <NavLink className={navStyles.navLink} to={ROUTES.home}>
+            <img
+              className={navStyles.logo}
+              src="./assets/logo.svg"
+              alt="logo operaballet vlaanderen"
+            />
+          </NavLink>
         </li>
-        <div>
+        <div className={navStyles.rightNav}>
           <li>
-            <NavLink to={ROUTES.home}>Ons verhaal</NavLink>
+            <NavLink className={navStyles.navLink} to={ROUTES.home}>
+              Ons verhaal
+            </NavLink>
           </li>
           <li>
-            <NavLink to={ROUTES.create}>Jouw verhaal</NavLink>
+            <NavLink className={navStyles.navLink} to={ROUTES.create}>
+              Jouw verhaal
+            </NavLink>
           </li>
           <li>
-            <NavLink to={ROUTES.about}>Over ons</NavLink>
+            <NavLink className={navStyles.navLink} to={ROUTES.about}>
+              Over ons
+            </NavLink>
           </li>
         </div>
       </ul>
