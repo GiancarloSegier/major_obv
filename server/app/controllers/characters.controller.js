@@ -2,7 +2,9 @@ const Character = require("../models/character.model.js");
 
 exports.create = (req, res) => {
   const character = new Character({
-    name: req.body.name
+    name: req.body.name,
+    nickname: req.body.nickname,
+    about: req.body.about
   });
 
   character

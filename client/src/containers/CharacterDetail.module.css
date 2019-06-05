@@ -1,0 +1,33 @@
+.split_grid {
+  display: grid;
+  grid-template-columns: 45% 2fr;
+  height: 100%;
+}
+
+.characterDetail__image {
+  height: 100vh;
+  grid-column: 1/2;
+  width: 45%;
+  left: 0;
+  position: absolute;
+}
+
+.characterDetail__info {
+  grid-column: 2;
+  padding: 10rem;
+  margin-top: 10rem;
+}
+
+.characterDetail__name {
+  composes: heading-1 from "../styles/typo.module.css";
+  margin-bottom: 10rem;
+}
+
+.characterDetail__nickname {
+  composes: heading-3 from "../styles/typo.module.css";
+}
+
+.characterDetail__about {
+  composes: body from "../styles/typo.module.css";
+  margin-bottom: 10rem;
+}
