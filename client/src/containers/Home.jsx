@@ -15,7 +15,7 @@ const Home = ({ store }) => {
         {/* foreach database characters */}
         <div className={styles.characters}>
           {characters.map(character => (
-            <MainCharacter name={character.name} tagline="Eeuwige dromer" />
+            <MainCharacter key={character.id} props={character} />
           ))}
 
           <article className={styles.CTA__create}>

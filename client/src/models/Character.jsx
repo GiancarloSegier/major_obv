@@ -9,7 +9,6 @@ class Character {
 
   get values() {
     return {
-      title: this.title,
       name: this.name
     };
   }
@@ -24,7 +23,6 @@ class Character {
 
   updateFromServer = values => {
     this.setId(values._id);
-
     this.setName(values.name);
 
     console.log(values);
@@ -35,9 +33,7 @@ decorate(Character, {
   id: observable,
   // setValue: action,
   setId: action,
-
   setName: action,
-
   values: computed
 });
 
