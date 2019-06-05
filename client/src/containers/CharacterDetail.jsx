@@ -6,6 +6,9 @@ const CharacterDetail = ({ characterId, store }) => {
   const { characters } = store;
 
   const current = characters.find(character => character.id === characterId);
+  if (!current) {
+    return null;
+  }
   console.log(characters);
   console.log(current.name, current.nickname, current.about);
 

@@ -51,6 +51,7 @@ class Store {
 
 decorate(Store, {
   stories: observable,
+  characters: observable,
   addStory: action,
   addCharacter: action
 });
