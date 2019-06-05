@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./MainCharacter.module.css";
 import { Link } from "react-router-dom";
-import { ROUTES } from "../constants";
 
 const MainCharacter = ({ props }) => {
   const { name, nickname, id } = props;

@@ -4,7 +4,7 @@ const StorySchema = mongoose.Schema(
   {
     title: String,
     name: String,
-    tag: Object,
+    tags: Object,
     location: String,
     age: Number,
     personality: Object,

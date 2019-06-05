@@ -4,7 +4,7 @@ exports.create = (req, res) => {
   const story = new Story({
     title: req.body.title,
     name: req.body.name,
-    tag: req.body.tag,
+    tags: req.body.tags,
     location: req.body.location,
     age: req.body.age,
     personality: req.body.personality,

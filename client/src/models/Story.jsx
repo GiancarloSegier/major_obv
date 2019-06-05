@@ -5,7 +5,7 @@ class Story {
   constructor(
     title,
     name,
-    tag,
+    tags,
     location,
     age,
     personality,
@@ -20,7 +20,7 @@ class Story {
     this.id = id;
     this.title = title;
     this.name = name;
-    this.tag = tag;
+    this.tags = tags;
     this.location = location;
     this.age = age;
     this.personality = personality;
@@ -36,7 +36,7 @@ class Story {
     return {
       title: this.title,
       name: this.name,
-      tag: this.tag,
+      tags: this.tags,
       location: this.location,
       age: this.age,
       personality: this.personality,
@@ -52,7 +52,7 @@ class Story {
   setId = id => (this.id = id);
   setTitle = title => (this.title = title);
   setName = name => (this.name = name);
-  setTag = tag => (this.tag = tag);
+  setTags = tags => (this.tags = tags);
   setLocation = location => (this.location = location);
   setAge = age => (this.age = age);
   setPersonality = personality => (this.personality = personality);
@@ -72,7 +72,7 @@ class Story {
     this.setId(values._id);
     this.setTitle(values.title);
     this.setName(values.name);
-    this.setTag(values.tag);
+    this.setTags(values.tags);
     this.setLocation(values.location);
     this.setAge(values.age);
     this.setPersonality(values.personality);
@@ -92,7 +92,7 @@ decorate(Story, {
   setId: action,
   setTitle: action,
   setName: action,
-  setTag: action,
+  setTags: action,
   setLocation: action,
   setAge: action,
   setPersonality: action,
