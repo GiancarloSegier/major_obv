@@ -9,14 +9,15 @@ class Store {
   characters = [];
 
   constructor() {
-    this.storyApi = new Api(`stories`);
     this.characterApi = new Api(`characters`);
+    this.storyApi = new Api(`stories`);
+
     this.getAll();
   }
 
   getAll = () => {
-    this.storyApi.getAll().then(d => d.forEach(this._addStory));
     this.characterApi.getAll().then(d => d.forEach(this._addCharacter));
+    this.storyApi.getAll().then(d => d.forEach(this._addStory));
   };
 
   addStory = data => {
@@ -50,7 +51,8 @@ class Store {
 
 decorate(Store, {
   stories: observable,
-  addStory: action
+  addStory: action,
+  addCharacter: action
 });
 
 const store = new Store();

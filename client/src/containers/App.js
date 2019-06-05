@@ -5,6 +5,7 @@ import Home from "./Home.jsx";
 import Create from "./Create";
 import About from "./About";
 import Navbar from "../components/Navbar";
+import StoryDetail from "../components/StoryDetail";
 import CharacterDetail from "./CharacterDetail";
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
         <Route path={ROUTES.create} exact strict component={Create} />
         <Route path={ROUTES.about} exact strict component={About} />
         <Route
+          path={ROUTES.story}
+          render={({ match }) => <StoryDetail storyId={match.params.id} />}
           path={ROUTES.character}
           render={({ match }) => (
             <CharacterDetail characterId={match.params.id} />

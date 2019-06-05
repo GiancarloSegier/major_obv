@@ -1,5 +1,18 @@
 const Character = require("../models/character.model.js");
 
+exports.create = (req, res) => {
+  const character = new Character({
+    name: req.body.name
+  });
+
+  character
+    .save()
+    .then(character => res.send(character))
+    .catch(err => {
+      res.status(500).send({ error: err.character || "Error" });
+    });
+};
+
 exports.findAll = async (req, res) => {
   try {
     const characters = await Character.find();

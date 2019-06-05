@@ -2,9 +2,7 @@ const mongoose = require("mongoose");
 
 const CharacterSchema = mongoose.Schema(
   {
-    name: String,
-    nickname: String,
-    about: String
+    name: String
   },
   {
     timestamps: true
