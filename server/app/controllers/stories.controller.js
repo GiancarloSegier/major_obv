@@ -2,7 +2,18 @@ const Story = require("../models/story.model.js");
 
 exports.create = (req, res) => {
   const story = new Story({
-    title: req.body.title
+    title: req.body.title,
+    name: req.body.name,
+    tag: req.body.tag,
+    location: req.body.location,
+    age: req.body.age,
+    personality: req.body.personality,
+    gender: req.body.gender,
+    head: req.body.head,
+    eyes: req.body.eyes,
+    nose: req.body.nose,
+    mouth: req.body.mouth,
+    story: req.body.story
   });
 
   story
@@ -35,53 +46,6 @@ exports.findOne = async (req, res) => {
   } catch (err) {
     if (err.kind === "ObjectId") {
       return res.status(500).send("Geen geldig ID");
-    }
-    return res.status(500).send(err);
-  }
-};
-
-exports.update = async (req, res) => {
-  if (!req.body.name) {
-    return res.status(400).send("name mag niet leeg zijn");
-  }
-
-  try {
-    const story = await Story.findOneAndUpdate(
-      {
-        _id: req.params.storyId
-      },
-      {
-        title: req.body.title
-      },
-      {
-        new: true
-      }
-    );
-
-    if (!story) {
-      return res.status(404).send("No story found");
-    }
-    res.send(story);
-  } catch (err) {
-    if (err.kind === "ObjectId") {
-      return res.status(417).send("Geen geldig ID");
-    }
-    return res.status(500).send(err);
-  }
-};
-
-exports.delete = async (req, res) => {
-  try {
-    const story = await Story.findOneAndRemove({
-      _id: req.params.storyId
-    });
-    if (!story) {
-      return res.status(404).send("No story found");
-    }
-    res.send(story);
-  } catch (err) {
-    if (err.kind === "ObjectId") {
-      return res.status(417).send("Geen geldig ID");
     }
     return res.status(500).send(err);
   }
