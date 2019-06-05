@@ -6,7 +6,7 @@ import styles from "./Home.module.css";
 
 const Home = ({ store }) => {
   const { stories, characters } = store;
-  console.log(stories);
+  // console.log(stories);
   return (
     <>
       <section id="intro" className="container margin">

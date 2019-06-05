@@ -30,7 +30,7 @@ class Store {
   };
 
   _addStory = values => {
-    console.log(values);
+    // console.log(values);
     const story = new Story();
     story.updateFromServer(values);
     runInAction(() => {
@@ -39,7 +39,7 @@ class Store {
   };
 
   _addCharacter = values => {
-    console.log(values);
+    // console.log(values);
     const character = new Character();
     character.updateFromServer(values);
     runInAction(() => {
