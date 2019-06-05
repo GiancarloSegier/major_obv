@@ -25,6 +25,7 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+require("./app/routes/characters.routes.js")(app);
 require("./app/routes/stories.routes.js")(app);
 
 app.get("*", (req, res) => {

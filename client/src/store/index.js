@@ -1,17 +1,22 @@
 import { decorate, observable, configure, action, runInAction } from "mobx";
 import Story from "../models/Story";
+import Character from "../models/Character";
 import Api from "../api";
 
 configure({ enforceActions: `observed` });
 class Store {
   stories = [];
+  characters = [];
 
   constructor() {
+    this.characterApi = new Api(`characters`);
     this.storyApi = new Api(`stories`);
+
     this.getAll();
   }
 
   getAll = () => {
+    this.characterApi.getAll().then(d => d.forEach(this._addCharacter));
     this.storyApi.getAll().then(d => d.forEach(this._addStory));
   };
 
@@ -33,11 +38,21 @@ class Store {
       this.stories.push(story);
     });
   };
+
+  _addCharacter = values => {
+    console.log(values);
+    const character = new Character();
+    character.updateFromServer(values);
+    runInAction(() => {
+      this.characters.push(character);
+    });
+  };
 }
 
 decorate(Store, {
   stories: observable,
-  addStory: action
+  addStory: action,
+  addCharacter: action
 });
 
 const store = new Store();

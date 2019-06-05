@@ -5,7 +5,7 @@ import UserStory from "../components/UserStory";
 import styles from "./Home.module.css";
 
 const Home = ({ store }) => {
-  const { stories } = store;
+  const { stories, characters } = store;
   console.log(stories);
   return (
     <>
@@ -14,9 +14,9 @@ const Home = ({ store }) => {
 
         {/* foreach database characters */}
         <div className={styles.characters}>
-          <MainCharacter name="Clara" tagline="Eeuwige dromer" />
-          <MainCharacter name="Almaviva" tagline="Avontuurlijke rokkenjager" />
-          <MainCharacter name="Pamina" tagline="curious rebel" />
+          {characters.map(character => (
+            <MainCharacter name={character.name} tagline="Eeuwige dromer" />
+          ))}
 
           <article className={styles.CTA__create}>
             <h3 className={styles.CTA__title}>
