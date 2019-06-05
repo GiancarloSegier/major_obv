@@ -11,7 +11,7 @@ const Navbar = () => {
           <NavLink className={navStyles.navLink} to={ROUTES.home}>
             <img
               className={navStyles.logo}
-              src="./assets/logo.svg"
+              src="../assets/logo.svg"
               alt="logo operaballet vlaanderen"
             />
           </NavLink>

@@ -7,12 +7,12 @@ class Store {
   stories = [];
 
   constructor() {
-    this.api = new Api(`stories`);
+    this.storyApi = new Api(`stories`);
     this.getAll();
   }
 
   getAll = () => {
-    this.api.getAll().then(d => d.forEach(this._addStory));
+    this.storyApi.getAll().then(d => d.forEach(this._addStory));
   };
 
   addStory = data => {
@@ -20,7 +20,7 @@ class Store {
     newStory.updateFromServer(data);
     this.stories.push(newStory);
 
-    this.api
+    this.storyApi
       .create(newStory)
       .then(storyValues => newStory.updateFromServer(storyValues));
   };

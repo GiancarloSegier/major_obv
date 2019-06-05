@@ -5,6 +5,7 @@ import Home from "./Home.jsx";
 import Create from "./Create";
 import About from "./About";
 import Navbar from "../components/Navbar";
+import StoryDetail from "../components/StoryDetail";
 
 function App() {
   return (
@@ -15,6 +16,10 @@ function App() {
         <Route path={ROUTES.home} exact strict component={Home} />
         <Route path={ROUTES.create} exact strict component={Create} />
         <Route path={ROUTES.about} exact strict component={About} />
+        <Route
+          path={ROUTES.story}
+          render={({ match }) => <StoryDetail storyId={match.params.id} />}
+        />
       </Switch>
     </main>
   );

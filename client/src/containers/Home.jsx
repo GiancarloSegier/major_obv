@@ -40,17 +40,18 @@ const Home = ({ store }) => {
 
           <ul className={styles.filter__tags}>
             <li className={`${styles.filter__tag} ${styles.filter__active}`}>
-              Avontuurlijk
+              #Avontuurlijk
             </li>
-            <li className={styles.filter__tag}>Triestig</li>
-            <li className={styles.filter__tag}>Avontuurlijk</li>
-            <li className={styles.filter__tag}>Triestig</li>
-            <li className={styles.filter__tag}>Avontuurlijk</li>
-            <li className={styles.filter__tag}>Triestig</li>
-            <li className={styles.filter__tag}>Avontuurlijk</li>
-            <li className={styles.filter__tag}>Triestig</li>
-            <li className={styles.filter__tag}>Avontuurlijk</li>
-            <li className={styles.filter__tag}>Triestig</li>
+            <li className={styles.filter__tag}>#Romantisch</li>
+            <li className={styles.filter__tag}>#Waargebeurd</li>
+            <li className={styles.filter__tag}>#Grappig</li>
+            <li className={styles.filter__tag}>#Actie</li>
+            <li className={styles.filter__tag}>#Avontuurlijk</li>
+            <li className={styles.filter__tag}>#Spannend</li>
+            <li className={styles.filter__tag}>#Gek</li>
+            <li className={styles.filter__tag}>#Mysterieus</li>
+            <li className={styles.filter__tag}>#Ontroerend</li>
+            <li className={styles.filter__tag}>#Onverwacht</li>
           </ul>
         </div>
 
