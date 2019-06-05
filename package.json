@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "git@github.com/GiancarloSegier/major_obv.git",
-  "author": "Giancarlo Segier <giancarlo.segier@hotmail.com>, Laurens Segaert, Linde Raats",
+  "author": "Giancarlo Segier <giancarlo.segier@hotmail.com>, Laurens Segaert <laurens.segaert@student.howest.be>, Linde Raats",
   "license": "MIT",
   "scripts": {
     "start": "cd server/ && yarn && yarn start",

@@ -6,6 +6,7 @@ import Create from "./Create";
 import About from "./About";
 import Navbar from "../components/Navbar";
 import StoryDetail from "../components/StoryDetail";
+import CharacterDetail from "./CharacterDetail";
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
         <Route
           path={ROUTES.story}
           render={({ match }) => <StoryDetail storyId={match.params.id} />}
+          path={ROUTES.character}
+          render={({ match }) => (
+            <CharacterDetail characterId={match.params.id} />
+          )}
         />
       </Switch>
     </main>
