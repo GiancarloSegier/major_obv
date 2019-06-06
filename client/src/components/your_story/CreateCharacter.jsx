@@ -5,10 +5,14 @@ class CreateCharacter extends Component {
   constructor(props) {
     super(props);
     this.state = { index: 1, part: this.props.part };
+    console.log(props);
   }
 
+  getIndex = index => {
+    this.props.getIndex(index);
+  };
+
   getNextImage = e => {
-    e.preventDefault();
     this.currentIndex = this.state.index;
     if (this.currentIndex === 4) {
       this.currentIndex = 1;
@@ -16,10 +20,10 @@ class CreateCharacter extends Component {
       this.currentIndex++;
     }
     this.setState({ index: this.currentIndex });
+    this.getIndex(this.currentIndex);
   };
 
   getPreviousImage = e => {
-    e.preventDefault();
     this.currentIndex = this.state.index;
     if (this.currentIndex === 1) {
       this.currentIndex = 4;
@@ -27,6 +31,7 @@ class CreateCharacter extends Component {
       this.currentIndex--;
     }
     this.setState({ index: this.currentIndex });
+    this.getIndex(this.currentIndex);
   };
   render() {
     return (
@@ -37,10 +42,18 @@ class CreateCharacter extends Component {
           className={styles.character__imageView}
         />
         <div className={styles.buttons}>
-          <button className={styles.buttonLeft} onClick={this.getPreviousImage}>
+          <button
+            type="button"
+            className={styles.buttonLeft}
+            onClick={this.getPreviousImage}
+          >
             Vorige!
           </button>
-          <button className={styles.buttonRight} onClick={this.getNextImage}>
+          <button
+            type="button"
+            className={styles.buttonRight}
+            onClick={this.getNextImage}
+          >
             Volgende!
           </button>
         </div>

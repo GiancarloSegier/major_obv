@@ -12,7 +12,7 @@
     display: flex;
 }
 .story__tag{
-    composes: filter__tag from "./Home.module.css";
+    composes: filter__tag from "../Home.module.css";
 }
 
 .story__image{
@@ -45,17 +45,17 @@
 }
 
 .story__author{
-    composes: heading-3 from "../styles/typo.module.css"
+    composes: heading-3 from "../../styles/typo.module.css"
 }
 .story__title{
-    composes: heading-2 from "../styles/typo.module.css"
+    composes: heading-2 from "../../styles/typo.module.css"
 }
 
 .story__text{
-    composes: body from "../styles/typo.module.css";
+    composes: body from "../../styles/typo.module.css";
     margin-bottom: 2rem;
     font-size: 2.2rem;
 }
 .story__introduction{
-        composes: body from "../styles/typo.module.css";
+        composes: body from "../../styles/typo.module.css";
 }

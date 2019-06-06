@@ -32,22 +32,22 @@ const StoryDetail = ({ storyId, store }) => {
         <div className={styles.story__image}>
           <img
             className={styles.story__imagepart}
-            src={`../assets/img/bodies/body${body}.png`}
+            src={`../assets/img/bodies/${body}.png`}
             alt={`lichaam van het personage`}
           />
           <img
             className={styles.story__imagepart}
-            src={`../assets/img/mouths/mouth${mouth}.png`}
+            src={`../assets/img/mouths/${mouth}.png`}
             alt={`mond van het personage`}
           />
           <img
             className={styles.story__imagepart}
-            src={`../assets/img/eyes/eyes${eyes}.png`}
+            src={`../assets/img/eyes/${eyes}.png`}
             alt={`ogen van het personage`}
           />
           <img
             className={styles.story__imagepart}
-            src={`../assets/img/heads/head${head}.png`}
+            src={`../assets/img/heads/${head}.png`}
             alt={`hoofd van het personage`}
           />
         </div>

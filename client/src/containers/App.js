@@ -2,11 +2,12 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { ROUTES } from "../constants";
 import Home from "./Home.jsx";
-import Create from "./Create";
+import Create from "./your_story/Create";
 import About from "./About";
 import Navbar from "../components/Navbar";
-import StoryDetail from "./StoryDetail";
+import StoryDetail from "./your_story/StoryDetail";
 import CharacterDetail from "./CharacterDetail";
+import CreateStory from "./your_story/CreateStory";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <CharacterDetail characterId={match.params.id} />
           )}
         />
+        <Route path={ROUTES.createStory} exact strict component={CreateStory} />
       </Switch>
     </main>
   );
