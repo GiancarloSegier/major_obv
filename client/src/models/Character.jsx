@@ -25,12 +25,9 @@ class Character {
   updateFromServer = values => {
     this.setId(values._id);
     this.setName(values.name);
-<<<<<<< HEAD
-=======
     this.setNickname(values.nickname);
     this.setAbout(values.about);
     console.log(values);
->>>>>>> experience_story
   };
 }
 
