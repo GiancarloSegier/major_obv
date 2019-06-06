@@ -11,7 +11,7 @@ exports.create = (req, res) => {
     gender: req.body.gender,
     head: req.body.head,
     eyes: req.body.eyes,
-    nose: req.body.nose,
+    body: req.body.body,
     mouth: req.body.mouth,
     story: req.body.story
   });

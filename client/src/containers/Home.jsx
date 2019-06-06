@@ -11,7 +11,7 @@ const Home = ({ store }) => {
   // console.log(stories);
   return (
     <>
-      <section id="intro" className="container margin">
+      <section id="intro" className="container margin margin-top">
         <h2 className={styles.title}>Ontdek ons verhaal</h2>
 
         {/* foreach database characters */}

@@ -11,7 +11,7 @@ const StorySchema = mongoose.Schema(
     gender: String,
     head: Number,
     eyes: Number,
-    nose: Number,
+    body: Number,
     mouth: Number,
     story: String
   },

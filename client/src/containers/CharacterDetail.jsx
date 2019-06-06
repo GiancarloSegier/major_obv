@@ -13,7 +13,7 @@ const CharacterDetail = ({ characterId, store }) => {
   console.log(current.name, current.nickname, current.about);
 
   return (
-    <div className="container">
+    <div className="container margin-top">
       <section id="characterStory" className={styles.split_grid}>
         <img
           className={styles.characterDetail__image}

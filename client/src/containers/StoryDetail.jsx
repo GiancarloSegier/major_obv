@@ -4,8 +4,11 @@ import { inject, observer } from "mobx-react";
 
 const StoryDetail = ({ storyId, store }) => {
   const { stories } = store;
-
   const currentStory = stories.find(story => story.id === storyId);
+  if (!currentStory) {
+    return null;
+  }
+
   const {
     name,
     title,
@@ -16,41 +19,36 @@ const StoryDetail = ({ storyId, store }) => {
     tags,
     head,
     eyes,
-    nose,
+    body,
     mouth,
     story
   } = currentStory;
 
-  if (!currentStory) {
-    return null;
-  }
-
   const splitStory = story.split("\r\n");
-  console.log(splitStory);
 
   return (
-    <section id="story" className={`container ${styles.story}`}>
+    <section id="story" className={`container ${styles.story} margin-top`}>
       <div className={styles.story__about}>
         <div className={styles.story__image}>
           <img
             className={styles.story__imagepart}
-            src={`../assets/heads/head${head}.jpg`}
-            alt={`hoofd van het personage`}
+            src={`../assets/img/bodies/body${body}.png`}
+            alt={`lichaam van het personage`}
           />
           <img
             className={styles.story__imagepart}
-            src={`../assets/eyes/eyes${eyes}.jpg`}
+            src={`../assets/img/mouths/mouth${mouth}.png`}
+            alt={`mond van het personage`}
+          />
+          <img
+            className={styles.story__imagepart}
+            src={`../assets/img/eyes/eyes${eyes}.png`}
             alt={`ogen van het personage`}
           />
           <img
             className={styles.story__imagepart}
-            src={`../assets/noses/nose${nose}.jpg`}
-            alt={`neus van het personage`}
-          />
-          <img
-            className={styles.story__imagepart}
-            src={`../assets/mouths/mouth${mouth}.jpg`}
-            alt={`mond van het personage`}
+            src={`../assets/img/heads/head${head}.png`}
+            alt={`hoofd van het personage`}
           />
         </div>
 
@@ -72,8 +70,10 @@ const StoryDetail = ({ storyId, store }) => {
         <p className={styles.story__author}>{name}</p>
         <h2 className={styles.story__title}>{title}</h2>
 
-        {splitStory.map(p => (
-          <p className={styles.story__text}>{p}</p>
+        {splitStory.map((p, key) => (
+          <p key={key} className={styles.story__text}>
+            {p}
+          </p>
         ))}
       </div>
     </section>

@@ -12,7 +12,7 @@ class Story {
     gender,
     head,
     eyes,
-    nose,
+    body,
     mouth,
     story,
     id = uuid.v4()
@@ -27,7 +27,7 @@ class Story {
     this.gender = gender;
     this.head = head;
     this.eyes = eyes;
-    this.nose = nose;
+    this.body = body;
     this.mouth = mouth;
     this.story = story;
   }
@@ -43,7 +43,7 @@ class Story {
       gender: this.gender,
       head: this.head,
       eyes: this.eyes,
-      nose: this.nose,
+      body: this.body,
       mouth: this.mouth,
       story: this.story
     };
@@ -59,7 +59,7 @@ class Story {
   setGender = gender => (this.gender = gender);
   setHead = head => (this.head = head);
   setEyes = eyes => (this.eyes = eyes);
-  setNose = nose => (this.nose = nose);
+  setBody = body => (this.body = body);
   setMouth = mouth => (this.mouth = mouth);
   setStory = story => (this.story = story);
 
@@ -79,7 +79,7 @@ class Story {
     this.setGender(values.gender);
     this.setHead(values.head);
     this.setEyes(values.eyes);
-    this.setNose(values.nose);
+    this.setBody(values.body);
     this.setMouth(values.mouth);
     this.setStory(values.story);
     // console.log(values);
@@ -99,7 +99,7 @@ decorate(Story, {
   setGender: action,
   setHead: action,
   setEyes: action,
-  setNose: action,
+  setBody: action,
   setMouth: action,
   setStory: action,
   values: computed

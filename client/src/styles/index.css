@@ -31,5 +31,9 @@ body {
 }
 
 .margin{
-  margin-bottom: 10rem;
+  margin: 5rem;
+}
+
+.margin-top{
+  margin-top: 15rem;
 }
