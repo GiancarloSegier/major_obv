@@ -16,16 +16,9 @@ class Character {
   setId = id => (this.id = id);
   setName = name => (this.name = name);
 
-  // setValue = value => {
-  //   this.value = value;
-  //   console.log(this.value);
-  // };
-
   updateFromServer = values => {
     this.setId(values._id);
     this.setName(values.name);
-
-    console.log(values);
   };
 }
 

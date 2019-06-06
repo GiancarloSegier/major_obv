@@ -4,6 +4,7 @@ import styles from "./UserStory.module.css";
 
 const UserStory = ({ props }) => {
   const { name, id } = props;
+
   return (
     <Link to={`/story/${id}`}>
       <article className={styles.story}>

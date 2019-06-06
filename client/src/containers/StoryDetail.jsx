@@ -4,6 +4,7 @@ import { inject, observer } from "mobx-react";
 
 const StoryDetail = ({ storyId, store }) => {
   const { stories } = store;
+
   const currentStory = stories.find(story => story.id === storyId);
   const {
     name,

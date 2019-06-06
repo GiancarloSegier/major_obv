@@ -3,10 +3,11 @@ import { inject, observer, PropTypes } from "mobx-react";
 import MainCharacter from "../components/MainCharacter";
 import UserStory from "../components/UserStory";
 import styles from "./Home.module.css";
+import { ROUTES } from "../constants";
+import { Link } from "react-router-dom";
 
 const Home = ({ store }) => {
   const { stories, characters } = store;
-  console.log(stories);
   return (
     <>
       <section id="intro" className="container margin">
@@ -18,12 +19,14 @@ const Home = ({ store }) => {
             <MainCharacter key={character.id} props={character} />
           ))}
 
-          <article className={styles.CTA__create}>
-            <h3 className={styles.CTA__title}>
-              We kennen hun verhaal, nu is het aan jou
-            </h3>
-            <p className={styles.CTA__tag}>Creeër je eigen verhaal</p>
-          </article>
+          <Link to={ROUTES.create}>
+            <article className={styles.CTA__create}>
+              <h3 className={styles.CTA__title}>
+                We kennen hun verhaal, nu is het aan jou
+              </h3>
+              <p className={styles.CTA__tag}>Creeër je eigen verhaal</p>
+            </article>
+          </Link>
         </div>
       </section>
       <section id="discover" className="container margin">
