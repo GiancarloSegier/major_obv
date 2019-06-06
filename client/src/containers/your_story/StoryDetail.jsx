@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./StoryDetail.module.css";
 import { inject, observer } from "mobx-react";
+import CharacterImage from "../../components/your_story/CharacterImage";
 
 const StoryDetail = ({ storyId, store }) => {
   const { stories } = store;
@@ -30,25 +31,12 @@ const StoryDetail = ({ storyId, store }) => {
     <section id="story" className={`container ${styles.story} margin-top`}>
       <div className={styles.story__about}>
         <div className={styles.story__image}>
-          <img
-            className={styles.story__imagepart}
-            src={`../assets/img/bodies/${chest}.png`}
-            alt={`lichaam van het personage`}
-          />
-          <img
-            className={styles.story__imagepart}
-            src={`../assets/img/mouths/${mouth}.png`}
-            alt={`mond van het personage`}
-          />
-          <img
-            className={styles.story__imagepart}
-            src={`../assets/img/eyes/${eyes}.png`}
-            alt={`ogen van het personage`}
-          />
-          <img
-            className={styles.story__imagepart}
-            src={`../assets/img/heads/${head}.png`}
-            alt={`hoofd van het personage`}
+          <CharacterImage
+            head={head}
+            eyes={eyes}
+            mouth={mouth}
+            chest={chest}
+            name={name}
           />
         </div>
 

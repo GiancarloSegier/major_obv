@@ -1,12 +1,6 @@
 .story{
-    composes: character from '../MainCharacter.module.css';
-    grid-template-rows: 2rem 10rem 1.5rem 3rem 2rem 
-}
-
-.story__image{
-     composes: character__image from '../MainCharacter.module.css';
-}
-
-.story__name{
-    composes: character__name from '../MainCharacter.module.css';
+    height: 17rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
 }

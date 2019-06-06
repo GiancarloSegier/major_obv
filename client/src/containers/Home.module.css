@@ -9,15 +9,19 @@
 .characters{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    grid-gap: 4rem;
+    grid-gap: 3rem;
 }
 
 .stories{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    grid-gap: 4rem;
+    grid-gap: 3rem;
+    margin-top: 10rem;
 }
 
+.stories a:nth-of-type(odd){
+    margin-top: -6rem;
+}
 /* CTA: Call To Action */
 
 .CTA__create{
