@@ -82,6 +82,7 @@ class Story {
     this.setNose(values.nose);
     this.setMouth(values.mouth);
     this.setStory(values.story);
+    // console.log(values);
   };
 }
 

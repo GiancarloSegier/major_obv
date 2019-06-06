@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 const Home = ({ store }) => {
   const { stories, characters } = store;
+  // console.log(stories);
   return (
     <>
       <section id="intro" className="container margin">
