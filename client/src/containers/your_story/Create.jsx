@@ -5,23 +5,6 @@ import { Link } from "react-router-dom";
 import { inject, observer } from "mobx-react";
 
 const Create = ({ store }) => {
-  // const names = [];
-  // const { characters } = store;
-  // let randomPic = ``;
-
-  // characters.map(character => names.push(character.name));
-  // console.log(names);
-
-  // if (names !== []) {
-  //   let i = Math.floor(Math.random() * names.length);
-  //   const imageName = names[i];
-
-  //   randomPic = `../assets/img/${imageName}.jpg`;
-  //   console.log(imageName);
-  // } else {
-  //   randomPic = `../assets/img/Clara.jpg`;
-  // }
-
   return (
     <section className="container margin-top">
       <div className={styles.splitgrid}>

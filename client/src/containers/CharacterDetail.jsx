@@ -9,8 +9,6 @@ const CharacterDetail = ({ characterId, store }) => {
   if (!current) {
     return null;
   }
-  console.log(characters);
-  console.log(current.name, current.nickname, current.about);
 
   return (
     <div className="container margin-top">

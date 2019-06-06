@@ -27,7 +27,6 @@ class Character {
     this.setName(values.name);
     this.setNickname(values.nickname);
     this.setAbout(values.about);
-    console.log(values);
   };
 }
 

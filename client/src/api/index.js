@@ -8,20 +8,6 @@ class Api {
     return await r.json();
   };
 
-  // getOne = async id => {
-  //   console.log(id);
-  //   const r = await fetch(`/api/stories/${id}`);
-  //   console.log(fetch(`/api/stories/5cf6d374cc852431b61758cb`));
-  //   return await r.json();
-  // };
-
-  getOne = async id => {
-    console.log(id);
-    const r = await fetch(`/api/${this.entity}/${id}`);
-
-    return await r.json();
-  };
-
   create = async entity => {
     const r = await fetch(
       `/api/${this.entity}`,

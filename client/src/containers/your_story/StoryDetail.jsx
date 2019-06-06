@@ -19,7 +19,7 @@ const StoryDetail = ({ storyId, store }) => {
     tags,
     head,
     eyes,
-    body,
+    chest,
     mouth,
     story
   } = currentStory;
@@ -32,7 +32,7 @@ const StoryDetail = ({ storyId, store }) => {
         <div className={styles.story__image}>
           <img
             className={styles.story__imagepart}
-            src={`../assets/img/bodies/${body}.png`}
+            src={`../assets/img/bodies/${chest}.png`}
             alt={`lichaam van het personage`}
           />
           <img
