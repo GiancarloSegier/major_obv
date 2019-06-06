@@ -21,6 +21,10 @@ const StoryDetail = ({ storyId, store }) => {
     story
   } = currentStory;
 
+  if (!currentStory) {
+    return null;
+  }
+
   const splitStory = story.split("\r\n");
   console.log(splitStory);
 
