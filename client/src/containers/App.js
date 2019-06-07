@@ -31,16 +31,13 @@ function App() {
             <CharacterDetail characterId={match.params.id} />
           )}
         />
-<<<<<<< HEAD
         <Route path={ROUTES.createStory} exact strict component={CreateStory} />
-=======
         <Route
           path={ROUTES.characterStory}
           render={({ match }) => (
             <CharacterStory characterId={match.params.id} />
           )}
         />
->>>>>>> experience_story
       </Switch>
     </main>
   );
