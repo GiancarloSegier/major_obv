@@ -1,0 +1,18 @@
+.story {
+  margin: 0 auto;
+  text-align: center;
+  composes: heading-1 from "../styles/typo.module.css";
+  display: grid;
+  grid-template-rows: 40rem 3rem;
+}
+
+.story__text {
+  grid-row: 1;
+  align-self: center;
+}
+
+.story__button {
+  width: 10rem;
+  align-self: center;
+  justify-self: center;
+}

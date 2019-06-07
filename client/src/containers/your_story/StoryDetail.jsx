@@ -6,6 +6,7 @@ import CharacterImage from "../../components/your_story/CharacterImage";
 const StoryDetail = ({ storyId, store }) => {
   const { stories } = store;
   const currentStory = stories.find(story => story.id === storyId);
+
   if (!currentStory) {
     return null;
   }

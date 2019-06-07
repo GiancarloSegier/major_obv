@@ -1,6 +1,7 @@
 import React from "react";
 import { inject, observer } from "mobx-react";
 import styles from "./CharacterDetail.module.css";
+import { Link } from "react-router-dom";
 
 const CharacterDetail = ({ characterId, store }) => {
   const { characters } = store;
@@ -23,7 +24,9 @@ const CharacterDetail = ({ characterId, store }) => {
           <h2 className={styles.characterDetail__name}>{current.name}</h2>
           <p className={styles.characterDetail__nickname}>{current.nickname}</p>
           <p className={styles.characterDetail__about}>{current.about}</p>
-          <button>Beleef mijn verhaal</button>
+          <Link to={`/character-story/${characterId}`}>
+            Beleef mijn verhaal
+          </Link>
         </div>
       </section>
     </div>

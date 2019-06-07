@@ -4,5 +4,6 @@ export const ROUTES = {
   create: `/create`,
   story: `/story/:id`,
   character: `/character/:id`,
-  createStory: `/createStory`
+  createStory: `/createStory`,
+  characterStory: `/character-story/:id`
 };
