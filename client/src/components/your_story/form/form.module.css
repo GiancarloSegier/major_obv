@@ -1,0 +1,14 @@
+.pageTitle {
+    composes: heading-1 from "../../../styles/typo.module.css"
+}
+.character__image{
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 2fr 0.5fr .75fr 0.5fr 1fr 0.5fr 1fr;
+  grid-template-columns: 1fr;
+  position: absolute;
+  width: 40vw;
+  top:0;
+  right: 0;
+  object-fit: contain;
+}

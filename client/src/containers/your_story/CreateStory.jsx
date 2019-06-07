@@ -1,28 +1,56 @@
-import React from "react";
+import React, { Component } from "react";
 import styles from "./Create.module.css";
-import CreateCharacter from "../../components/your_story/CreateCharacter";
 import { PropTypes, inject } from "mobx-react";
+import CreateCharacter from "../../components/your_story/form/CreateCharacter";
+import CharacterInfo from "../../components/your_story/form/CharacterInfo";
+import CharacterImage from "../../components/your_story/CharacterImage";
 
-const CreateStory = ({ store }) => {
-  let index = 1;
-  let gender;
-  const headRef = React.createRef();
-  const eyesRef = React.createRef();
-  const mouthRef = React.createRef();
-  const chestRef = React.createRef();
-  const nameRef = React.createRef();
+class CreateStory extends Component {
+  newStory = {};
 
-  const getImageNumber = value => {
-    index = value;
+  constructor(props) {
+    super(props);
+    this.state = { step: 1 };
+
+    this.characterRef = React.createRef();
+    console.log(this.characterRef.getInputs);
+  }
+
+  nextForm = () => {
+    this.currentstep = this.state.step;
+    this.currentstep++;
+    this.setState({ step: this.currentstep });
+    this.setValues();
   };
 
-  const handleSubmitForm = e => {
+  setValues = () => {
+    if (this.characterRef.current != null) {
+      const head = this.characterRef.current.headRef.current.state.index;
+      const eyes = this.characterRef.current.eyesRef.current.state.index;
+      const mouth = this.characterRef.current.mouthRef.current.state.index;
+      const chest = this.characterRef.current.chestRef.current.state.index;
+      const name = this.characterRef.current.nameRef.current.value;
+      const gender = this.characterRef.current.gender;
+      this.newStory.head = head;
+      this.newStory.eyes = eyes;
+      this.newStory.chest = chest;
+      this.newStory.mouth = mouth;
+      this.newStory.name = name;
+      this.newStory.gender = gender;
+    }
+
+    console.log(this.newStory);
+  };
+
+  // send everything to the database
+  handleSubmitForm = e => {
+    console.log(this.story.nameRef.current.value);
     e.preventDefault();
 
-    if (nameRef.current.value) {
-      store.addStory({
+    if (this.story.nameRef.current.value) {
+      this.props.store.addStory({
         title: "test",
-        name: nameRef.current.value,
+        name: this.newStory.name,
         tags: {
           tag1: "positief",
           tag2: "grappig"
@@ -34,91 +62,50 @@ const CreateStory = ({ store }) => {
           personality2: "zorgzaam",
           personality3: "grappig"
         },
-        gender: gender,
-        head: headRef.current.state.index,
-        eyes: eyesRef.current.state.index,
-        chest: chestRef.current.state.index,
-        mouth: mouthRef.current.state.index,
+        gender: this.newStory.gender,
+        head: this.newStory.head,
+        eyes: this.newStory.eyes,
+        chest: this.newStory.chest,
+        mouth: this.newStory.mouth,
         story: "blablablablalbalblalbalbal"
       });
     }
   };
 
-  const genderChange = e => {
-    gender = e.currentTarget.value;
-  };
+  render() {
+    let { step } = this.state;
 
-  return (
-    <section className="container margin-top">
-      <form onSubmit={handleSubmitForm}>
-        <div className={styles.splitgrid}>
-          <div>
-            <h2 className={styles.pageTitle}>Hallo wereld, hier is </h2>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Vul de naam van je karakter in"
-              ref={nameRef}
-            />
-          </div>
-          <div className={styles.character__image}>
-            <CreateCharacter
-              part="bodies"
-              getIndex={getImageNumber}
-              gender={gender}
-              ref={mouthRef}
-            />
-            <CreateCharacter
-              part="mouths"
-              getIndex={getImageNumber}
-              gender={gender}
-              ref={chestRef}
-            />
-            <CreateCharacter
-              part="eyes"
-              getIndex={getImageNumber}
-              gender={gender}
-              ref={eyesRef}
-            />
-            <CreateCharacter
-              part="heads"
-              getIndex={getImageNumber}
-              gender={gender}
-              ref={headRef}
-            />
-            <div className={styles.character__gender}>
-              <input
-                type="radio"
-                name="gender"
-                value="man"
-                onChange={genderChange}
-              />
-              man
-              <input
-                type="radio"
-                name="gender"
-                value="vrouw"
-                defaultChecked
-                onChange={genderChange}
-              />
-              vrouw
-              <input
-                type="radio"
-                name="gender"
-                value="transgender"
-                onChange={genderChange}
-              />
-              transgender
-            </div>
-          </div>
-        </div>
-
-        <input type="submit" value="toevoegen" />
-      </form>
-    </section>
-  );
-};
+    return (
+      <section className="container margin-top">
+        <form onSubmit={this.handleSubmitForm}>
+          {step === 1 ? (
+            <>
+              <div className={styles.splitgrid}>
+                <CreateCharacter ref={this.characterRef} />
+              </div>
+              <input type="button" value="volgende" onClick={this.nextForm} />
+            </>
+          ) : step >= 2 ? (
+            <>
+              <div className={styles.splitgrid}>
+                <CharacterInfo newStory={this.newStory} />
+                <CharacterImage
+                  head={this.newStory.head}
+                  eyes={this.newStory.eyes}
+                  mouth={this.newStory.mouth}
+                  chest={this.newStory.chest}
+                />
+              </div>
+              <input type="button" value="volgende" onClick={this.nextForm} />
+            </>
+          ) : (
+            ""
+          )}
+        </form>
+      </section>
+    );
+  }
+}
 
 CreateStory.propTypes = {
   store: PropTypes.observableObject.isRequired

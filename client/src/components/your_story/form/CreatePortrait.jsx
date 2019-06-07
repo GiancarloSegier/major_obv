@@ -1,15 +1,15 @@
 import React, { Component } from "react";
-import styles from "./CreateCharacter.module.css";
+import styles from "./CreatePortrait.module.css";
 
-class CreateCharacter extends Component {
+class CreatePortrait extends Component {
   constructor(props) {
     super(props);
-    this.getValues();
     this.state = {
-      index: this.min,
+      gender: this.props.gender,
+      index: 1,
       part: this.props.part,
-      max: this.max,
-      min: this.min
+      max: 4,
+      min: 1
     };
   }
 
@@ -17,51 +17,71 @@ class CreateCharacter extends Component {
     this.props.getIndex(index);
   };
 
-  getValues = () => {
-    if (this.props.gender === "vrouw") {
+  setGender = gender => {
+    this.setState({ gender: gender });
+    this.getValues(gender);
+  };
+
+  getValues = gender => {
+    if (gender === "vrouw") {
       this.max = 4;
       this.min = 3;
-
-      this.setState({ index: this.min, max: this.max, min: this.min });
-    } else if (this.props.gender === "man") {
+      this.setState({
+        index: this.min,
+        max: this.max,
+        min: this.min
+      });
+      this.imageNumber = this.min;
+    } else if (gender === "man") {
       this.max = 2;
       this.min = 1;
-    } else {
+      this.setState({
+        index: this.min,
+        max: this.max,
+        min: this.min
+      });
+      this.imageNumber = this.min;
+    } else if (gender === "transgender") {
       this.max = 4;
       this.min = 1;
+      this.setState({
+        index: this.min,
+        max: this.max,
+        min: this.min
+      });
+      this.imageNumber = this.min;
     }
   };
 
   getNextImage = e => {
-    this.getValues();
     this.currentIndex = this.state.index;
-    if (this.currentIndex === this.max) {
-      this.currentIndex = this.min;
+    if (this.currentIndex === this.state.max) {
+      this.currentIndex = this.state.min;
     } else {
       this.currentIndex++;
     }
     this.setState({ index: this.currentIndex });
     this.getIndex(this.currentIndex);
-    this.forceUpdate();
   };
 
   getPreviousImage = e => {
-    this.getValues();
     this.currentIndex = this.state.index;
-    if (this.currentIndex === this.min) {
-      this.currentIndex = this.max;
+    if (this.currentIndex === this.state.min) {
+      this.currentIndex = this.state.max;
     } else {
       this.currentIndex--;
     }
     this.setState({ index: this.currentIndex });
     this.getIndex(this.currentIndex);
   };
+
   render() {
-    this.props.getIndex(this.min);
+    this.props.getIndex(this.state.min);
+    this.imageNumber = this.state.index;
     return (
       <div className={styles.character__imagepart}>
         <img
-          src={`../assets/img/${this.state.part}/${this.state.index}.png`}
+          src={`../assets/img/${this.state.part}/${this.imageNumber}.png`}
           alt="foto"
           className={styles.character__imageView}
         />
@@ -86,4 +106,4 @@ class CreateCharacter extends Component {
   }
 }
 
-export default CreateCharacter;
+export default CreatePortrait;
