@@ -4,6 +4,7 @@ import CreatePortrait from "./CreatePortrait";
 
 class CreateCharacter extends Component {
   constructor(props) {
+    console.log(props);
     super(props);
     this.state = {};
 
@@ -14,16 +15,10 @@ class CreateCharacter extends Component {
     this.eyesRef = React.createRef();
     this.mouthRef = React.createRef();
     this.chestRef = React.createRef();
-    this.nameRef = React.createRef();
   }
 
-  getInputs = () => {
-    this.chest = this.chestRef.current.value;
-    this.eyes = this.eyesRef.current.value;
-    this.mouth = this.mouthRef.current.value;
-    this.head = this.headRef.current.value;
-
-    return this.chest, this.head, this.eyes, this.mouth;
+  sendInfo = (dataname, value) => {
+    this.props.getInfo(dataname, value);
   };
 
   // get the correct imagenumber for the portrait
@@ -55,6 +50,7 @@ class CreateCharacter extends Component {
             placeholder="Vul de naam van je karakter in"
             ref={this.nameRef}
             required
+            onChange={e => this.sendInfo("name", e.currentTarget.value)}
           />
         </div>
         <div className={styles.character__image}>

@@ -4,16 +4,20 @@ import { PropTypes, inject } from "mobx-react";
 import CreateCharacter from "../../components/your_story/form/CreateCharacter";
 import CharacterInfo from "../../components/your_story/form/CharacterInfo";
 import CharacterImage from "../../components/your_story/CharacterImage";
+import CharacterPersona from "../../components/your_story/form/CharacterPersona";
+import StoryInfo from "../../components/your_story/form/StoryInfo";
+import StoryEditor from "../../components/your_story/form/StoryEditor";
 
 class CreateStory extends Component {
-  newStory = {};
+  newStory = new Object();
 
   constructor(props) {
     super(props);
     this.state = { step: 1 };
 
     this.characterRef = React.createRef();
-    console.log(this.characterRef.getInputs);
+    this.characterInfoRef = React.createRef();
+    console.log(this.characterInfoRef);
   }
 
   nextForm = () => {
@@ -29,13 +33,11 @@ class CreateStory extends Component {
       const eyes = this.characterRef.current.eyesRef.current.state.index;
       const mouth = this.characterRef.current.mouthRef.current.state.index;
       const chest = this.characterRef.current.chestRef.current.state.index;
-      const name = this.characterRef.current.nameRef.current.value;
       const gender = this.characterRef.current.gender;
       this.newStory.head = head;
       this.newStory.eyes = eyes;
       this.newStory.chest = chest;
       this.newStory.mouth = mouth;
-      this.newStory.name = name;
       this.newStory.gender = gender;
     }
 
@@ -44,36 +46,21 @@ class CreateStory extends Component {
 
   // send everything to the database
   handleSubmitForm = e => {
-    console.log(this.story.nameRef.current.value);
     e.preventDefault();
 
-    if (this.story.nameRef.current.value) {
-      this.props.store.addStory({
-        title: "test",
-        name: this.newStory.name,
-        tags: {
-          tag1: "positief",
-          tag2: "grappig"
-        },
-        location: "ergens en nergens",
-        age: "25",
-        personality: {
-          personality1: "lief",
-          personality2: "zorgzaam",
-          personality3: "grappig"
-        },
-        gender: this.newStory.gender,
-        head: this.newStory.head,
-        eyes: this.newStory.eyes,
-        chest: this.newStory.chest,
-        mouth: this.newStory.mouth,
-        story: "blablablablalbalblalbalbal"
-      });
-    }
+    this.props.store.addStory(this.newStory);
+  };
+
+  getInfo = (dataname, value) => {
+    console.log(dataname, value);
+    this.newStory[dataname] = value;
+    console.log(this.newStory);
   };
 
   render() {
     let { step } = this.state;
+    console.log(step);
+    console.log(this.newStory);
 
     return (
       <section className="container margin-top">
@@ -81,14 +68,47 @@ class CreateStory extends Component {
           {step === 1 ? (
             <>
               <div className={styles.splitgrid}>
-                <CreateCharacter ref={this.characterRef} />
+                <CreateCharacter
+                  ref={this.characterRef}
+                  getInfo={this.getInfo}
+                />
               </div>
-              <input type="button" value="volgende" onClick={this.nextForm} />
+
+              <button type="button" onClick={this.nextForm}>
+                {" "}
+                Volgende{" "}
+              </button>
             </>
           ) : step >= 2 ? (
             <>
               <div className={styles.splitgrid}>
-                <CharacterInfo step={step} name={this.newStory.name} />
+                {step === 2 ? (
+                  <CharacterInfo
+                    step={step}
+                    name={this.newStory.name}
+                    getInfo={this.getInfo}
+                  />
+                ) : step === 3 ? (
+                  <CharacterPersona
+                    step={step}
+                    name={this.newStory.name}
+                    getInfo={this.getInfo}
+                  />
+                ) : step === 4 ? (
+                  <StoryInfo name={this.newStory.name} getInfo={this.getInfo} />
+                ) : step === 5 ? (
+                  <div>
+                    <h2 className={styles.tagline}>02 Leeftijd & Locatie </h2>
+                    <p className={styles.pageTitle}>
+                      {" "}
+                      Tijd om {this.newStory.name} op avontuur te sturen{" "}
+                    </p>
+                  </div>
+                ) : step === 6 ? (
+                  <StoryEditor step={step} getInfo={this.getInfo} />
+                ) : (
+                  <p>Er is iets misgelopen</p>
+                )}
                 <CharacterImage
                   head={this.newStory.head}
                   eyes={this.newStory.eyes}
@@ -98,7 +118,15 @@ class CreateStory extends Component {
                   full={true}
                 />
               </div>
-              <input type="button" value="volgende" onClick={this.nextForm} />
+
+              {step === 6 ? (
+                <input type="submit" value="versturen" />
+              ) : (
+                <button type="button" onClick={this.nextForm}>
+                  {" "}
+                  Volgende{" "}
+                </button>
+              )}
             </>
           ) : (
             ""

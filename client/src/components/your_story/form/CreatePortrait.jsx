@@ -3,6 +3,7 @@ import styles from "./CreatePortrait.module.css";
 
 class CreatePortrait extends Component {
   constructor(props) {
+    console.log(props);
     super(props);
     this.state = {
       gender: this.props.gender,
@@ -14,7 +15,8 @@ class CreatePortrait extends Component {
   }
 
   getIndex = index => {
-    this.props.getIndex(index);
+    console.log(index);
+    this.props.getIndex(this.props.short, index);
   };
 
   setGender = gender => {

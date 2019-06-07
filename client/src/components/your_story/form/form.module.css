@@ -4,11 +4,21 @@
 .character__image{
   height: 100vh;
   display: grid;
-  grid-template-rows: 2fr 0.5fr .75fr 0.5fr 1fr 0.5fr 1fr;
+  grid-template-rows: 1fr 0.45fr 0.3fr .35fr .45fr .4fr .75fr;
   grid-template-columns: 1fr;
   position: absolute;
-  width: 40vw;
   top:0;
   right: 0;
   object-fit: contain;
 }
+
+  @media screen and (min-width: 0) {
+     .character__image{
+      width: 40%;
+     }
+  }
+     @media screen and (min-width: 1400px) {
+     .character__image{
+      width: 35%;
+     }
+  }
