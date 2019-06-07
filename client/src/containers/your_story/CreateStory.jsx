@@ -88,12 +88,14 @@ class CreateStory extends Component {
           ) : step >= 2 ? (
             <>
               <div className={styles.splitgrid}>
-                <CharacterInfo step={step} />
+                <CharacterInfo step={step} name={this.newStory.name} />
                 <CharacterImage
                   head={this.newStory.head}
                   eyes={this.newStory.eyes}
                   mouth={this.newStory.mouth}
                   chest={this.newStory.chest}
+                  name={this.newStory.name}
+                  full={true}
                 />
               </div>
               <input type="button" value="volgende" onClick={this.nextForm} />

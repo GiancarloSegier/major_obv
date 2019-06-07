@@ -1,12 +1,13 @@
 .story__image{
   display: grid;
-  grid-template-rows: 2fr .75fr 0.25fr 1fr 0.75fr 1fr 1fr;
+  grid-template-rows: 1fr 0.25fr .5fr .25fr .5fr .25fr .75fr;
   grid-template-columns: 1fr;
 }
 .story__imagepart{
     width: 100%;
     margin: 0;
-    object-fit: cover;
+    height: 100%;
+    position: relative;
 }
 
 .story__imagepart:nth-child(4){
@@ -28,4 +29,22 @@
     grid-row: 6 / 8;
     grid-column: 1;
     align-self: flex-start;
+}
+
+.fullImage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.full{
+      height: 100vh;
+  display: grid;
+  grid-template-rows: 2fr 0.5fr .75fr 0.5fr 1fr 0.5fr 1fr;
+  grid-template-columns: 1fr;
+  position: absolute;
+  width: 40vw;
+  top:0;
+  right: 0;
+  object-fit: contain;
 }
