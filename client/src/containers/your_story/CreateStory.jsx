@@ -88,7 +88,7 @@ class CreateStory extends Component {
           ) : step >= 2 ? (
             <>
               <div className={styles.splitgrid}>
-                <CharacterInfo newStory={this.newStory} />
+                <CharacterInfo step={step} />
                 <CharacterImage
                   head={this.newStory.head}
                   eyes={this.newStory.eyes}
