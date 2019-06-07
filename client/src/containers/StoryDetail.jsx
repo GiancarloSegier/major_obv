@@ -6,6 +6,11 @@ const StoryDetail = ({ storyId, store }) => {
   const { stories } = store;
 
   const currentStory = stories.find(story => story.id === storyId);
+
+  if (!currentStory) {
+    return null;
+  }
+
   const {
     name,
     title,
@@ -20,10 +25,6 @@ const StoryDetail = ({ storyId, store }) => {
     mouth,
     story
   } = currentStory;
-
-  if (!currentStory) {
-    return null;
-  }
 
   const splitStory = story.split("\r\n");
   console.log(splitStory);

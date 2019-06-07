@@ -4,7 +4,8 @@ const CharacterSchema = mongoose.Schema(
   {
     name: String,
     nickname: String,
-    about: String
+    about: String,
+    story: Object
   },
   {
     timestamps: true

@@ -7,12 +7,15 @@ import About from "./About";
 import Navbar from "../components/Navbar";
 import StoryDetail from "./StoryDetail";
 import CharacterDetail from "./CharacterDetail";
+import CharacterStory from "./CharacterStory";
 
 function App() {
   return (
     <main>
       <h1 className="visually-hidden">Opera Ballet Vlaanderen</h1>
+
       <Navbar />
+
       <Switch>
         <Route path={ROUTES.home} exact strict component={Home} />
         <Route path={ROUTES.create} exact strict component={Create} />
@@ -25,6 +28,12 @@ function App() {
           path={ROUTES.character}
           render={({ match }) => (
             <CharacterDetail characterId={match.params.id} />
+          )}
+        />
+        <Route
+          path={ROUTES.characterStory}
+          render={({ match }) => (
+            <CharacterStory characterId={match.params.id} />
           )}
         />
       </Switch>

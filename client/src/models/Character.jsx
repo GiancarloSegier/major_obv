@@ -13,7 +13,8 @@ class Character {
     return {
       name: this.name,
       nickname: this.nickname,
-      about: this.about
+      about: this.about,
+      story: this.story
     };
   }
 
@@ -21,13 +22,14 @@ class Character {
   setName = name => (this.name = name);
   setNickname = nickname => (this.nickname = nickname);
   setAbout = about => (this.about = about);
+  setStory = story => (this.story = story);
 
   updateFromServer = values => {
     this.setId(values._id);
     this.setName(values.name);
     this.setNickname(values.nickname);
     this.setAbout(values.about);
-    console.log(values);
+    this.setStory(values.story);
   };
 }
 
@@ -38,6 +40,7 @@ decorate(Character, {
   setName: action,
   setNickname: action,
   setAbout: action,
+  setStory: action,
   values: computed
 });
 

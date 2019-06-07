@@ -4,7 +4,8 @@ exports.create = (req, res) => {
   const character = new Character({
     name: req.body.name,
     nickname: req.body.nickname,
-    about: req.body.about
+    about: req.body.about,
+    story: req.body.story
   });
 
   character
