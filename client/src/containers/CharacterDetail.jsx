@@ -12,7 +12,7 @@ const CharacterDetail = ({ characterId, store }) => {
   }
 
   return (
-    <div className="container margin-top">
+    <div className="container">
       <section id="characterStory" className={styles.split_grid}>
         <img
           className={styles.characterDetail__image}

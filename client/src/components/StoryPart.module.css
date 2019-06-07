@@ -1,7 +1,6 @@
 .story {
   margin: 0 auto;
   text-align: center;
-  composes: heading-1 from "../styles/typo.module.css";
   display: grid;
   grid-template-rows: 40rem 3rem;
 }
@@ -9,6 +8,15 @@
 .story__text {
   grid-row: 1;
   align-self: center;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 37px;
+  line-height: 50px;
+  /* or 135% */
+  text-align: center;
+
+  color: #bec4d0;
 }
 
 .story__button {
