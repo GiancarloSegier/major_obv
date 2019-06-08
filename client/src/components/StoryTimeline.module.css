@@ -1,12 +1,12 @@
 .timeline {
-  display: flex;
-  width: 50vw;
-  justify-content: space-between;
+  display: grid;
 
-  margin: 0 auto;
+  grid-template-columns: auto;
+  grid-auto-flow: column;
+  width: 60%;
   bottom: 10rem;
   position: absolute;
-  left: 50%;
+  left: 45%;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }
@@ -14,6 +14,48 @@
 .bulletpoint {
   width: 10px;
   height: 10px;
-  border: solid grey 2px;
+  border: solid #585f71 2px;
   border-radius: 10px;
+  transition: 1s ease;
+  position: absolute;
+  transition-delay: 2s;
+  transition: 0.5s ease;
+  right: 0;
+}
+.active {
+  background-color: #cf013a;
+  border: solid #cf013a 2px;
+  width: 10px;
+  height: 10px;
+  transition-delay: 0.3s;
+}
+.done {
+  background-color: #585f71;
+}
+.line {
+  position: relative;
+}
+
+.active_line:not(:first-child):before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  background-color: #585f71;
+  height: 3px;
+  width: 100%;
+  z-index: -1;
+  top: 4px;
+  left: 0;
+
+  /* transform: translateX(-100%); */
+  animation: scale-line 0.3s;
+}
+
+@keyframes scale-line {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100;
+  }
 }
