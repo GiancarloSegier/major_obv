@@ -3,7 +3,7 @@
 
   grid-template-columns: auto;
   grid-auto-flow: column;
-  width: 80%;
+  width: 60%;
   bottom: 10rem;
   position: absolute;
   left: 45%;
@@ -14,7 +14,7 @@
 .bulletpoint {
   width: 10px;
   height: 10px;
-  border: solid rgb(231, 231, 231) 2px;
+  border: solid #585f71 2px;
   border-radius: 10px;
   transition: 1s ease;
   position: absolute;
@@ -23,13 +23,14 @@
   right: 0;
 }
 .active {
-  background-color: red;
-  border: solid red 2px;
+  background-color: #cf013a;
+  border: solid #cf013a 2px;
+  width: 10px;
+  height: 10px;
   transition-delay: 0.3s;
 }
 .done {
-  background-color: rgb(231, 231, 231);
-  border: solid rgb(231, 231, 231) 2px;
+  background-color: #585f71;
 }
 .line {
   position: relative;
@@ -39,7 +40,7 @@
   content: "";
   display: inline-block;
   position: absolute;
-  background-color: rgb(231, 231, 231);
+  background-color: #585f71;
   height: 3px;
   width: 100%;
   z-index: -1;

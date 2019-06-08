@@ -8,7 +8,7 @@
 .story__text {
   grid-row: 1;
   align-self: center;
-
+  composes: charter from "../styles/typo.module.css";
   font-style: normal;
   font-weight: normal;
   font-size: 37px;

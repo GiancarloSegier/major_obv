@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "cubano";
-  src: url("./assets/fonts/test.woff") format("woff");
+  font-family: "charter";
+  src: url("../fonts/test.woff") format("woff");
 }
 
 .navbar {
@@ -44,5 +44,5 @@
 }
 
 .charter {
-  font-family: "cubano", serif;
+  font-family: "charter", serif;
 }
