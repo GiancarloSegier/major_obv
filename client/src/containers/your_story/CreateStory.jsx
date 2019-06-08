@@ -100,14 +100,17 @@ class CreateStory extends Component {
                   getInfo={this.getInfo}
                 />
               </div>
-              {pageFilled ? (
-                <button type="button" onClick={this.nextForm}>
-                  {" "}
-                  Volgende{" "}
-                </button>
-              ) : (
-                ""
-              )}
+
+              <button
+                type="button"
+                onClick={this.nextForm}
+                className={
+                  pageFilled ? styles.button__active : styles.button__disable
+                }
+              >
+                {" "}
+                Volgende{" "}
+              </button>
             </>
           ) : (
             <>
