@@ -12,7 +12,7 @@
 
 .splitgrid{
     display: grid;
-    grid-template-columns: 1fr  50%;
+    grid-template-columns: 1fr  40%;
 }
 
 .character__image{

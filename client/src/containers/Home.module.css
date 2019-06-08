@@ -81,3 +81,8 @@
     background-color: #b8b8b8;
     color: #fff;
 }
+
+.splitgrid{
+    display: grid;
+    grid-template-columns: 40% 1fr;
+}

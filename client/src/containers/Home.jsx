@@ -64,6 +64,19 @@ const Home = ({ store }) => {
           ))}
         </div>
       </section>
+
+      <section className={`${styles.container} margin-top`}>
+        <div className={styles.splitgrid}>
+          <img src="./assets/img/almaviva.jpg" alt="" />
+          <div>
+            <h2>Nu is het aan jou</h2>
+            <p>Goesting gekregen om je eigen verhaal te creëren?</p>
+            <Link to={ROUTES.createStory}>
+              <button>Aan de slag</button>
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 };
