@@ -7,7 +7,13 @@ const StoryEditor = ({ step, getInfo }) => {
   return (
     <div>
       <h2 className={styles.tagline}>05 Jouw verhaal </h2>
-      <p className={styles.pageTitle}>Schrijf hier je titel</p>
+      <input
+        className={styles.pageTitle}
+        name="title"
+        id="title"
+        placeholder="Schrijf hier je titel"
+        onChange={e => sendInfo("title", e.currentTarget.value)}
+      />
       <textarea
         name="story"
         id="story"

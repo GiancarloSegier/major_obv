@@ -9,7 +9,7 @@ import StoryInfo from "../../components/your_story/form/StoryInfo";
 import StoryEditor from "../../components/your_story/form/StoryEditor";
 
 class CreateStory extends Component {
-  newStory = new Object();
+  newStory = {};
 
   constructor(props) {
     super(props);
@@ -24,10 +24,12 @@ class CreateStory extends Component {
     this.currentstep = this.state.step;
     this.currentstep++;
     this.setState({ step: this.currentstep });
-    this.setValues();
+    this.setImages();
   };
 
-  setValues = () => {
+  // sets correct number for corresponding image
+
+  setImages = () => {
     if (this.characterRef.current != null) {
       const head = this.characterRef.current.headRef.current.state.index;
       const eyes = this.characterRef.current.eyesRef.current.state.index;
@@ -47,9 +49,10 @@ class CreateStory extends Component {
   // send everything to the database
   handleSubmitForm = e => {
     e.preventDefault();
-
     this.props.store.addStory(this.newStory);
   };
+
+  // sets correct value to correct database property
 
   getInfo = (dataname, value) => {
     console.log(dataname, value);
