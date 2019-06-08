@@ -1,7 +1,8 @@
 import React from "react";
 import styles from "./form.module.css";
+import { inject, observer } from "mobx-react";
 
-const StoryInfo = ({ name, getInfo }) => {
+const StoryInfo = ({ name, nextForm, store }) => {
   const basicTags = [
     "#Romantisch",
     "#Waargebeurd",
@@ -21,8 +22,6 @@ const StoryInfo = ({ name, getInfo }) => {
       tags.push(e.currentTarget.value);
     } else {
       if (tags.includes(e.currentTarget.value)) {
-        // let tagId = tags.findIndex(tag => tag === e.currentTarget.value);
-        // tags.splice(tagId);
         for (var i = 0; i < tags.length; i++) {
           if (tags[i] === e.currentTarget.value) {
             tags.splice(i, 1);
@@ -30,11 +29,18 @@ const StoryInfo = ({ name, getInfo }) => {
         }
       }
     }
-    getInfo("tags", tags);
+    store.getInfo("tags", tags);
+  };
+
+  const nextPage = e => {
+    e.preventDefault();
+    if (tags.length > 0) {
+      nextForm();
+    }
   };
 
   return (
-    <div>
+    <form onSubmit={nextPage}>
       <h2 className={styles.tagline}>02 Leeftijd & Locatie </h2>
       <p className={styles.pageTitle}>{name}'s verhaal is</p>
       {basicTags.map(
@@ -45,7 +51,6 @@ const StoryInfo = ({ name, getInfo }) => {
               <input
                 type="checkbox"
                 id={`tag${i}`}
-                required
                 onClick={setTags}
                 value={tag}
               />
@@ -54,9 +59,9 @@ const StoryInfo = ({ name, getInfo }) => {
           )
         )
       )}
-      ;
-    </div>
+      <button type="submit">Volgende</button>
+    </form>
   );
 };
 
-export default StoryInfo;
+export default inject(`store`)(observer(StoryInfo));

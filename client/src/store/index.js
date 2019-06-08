@@ -7,6 +7,7 @@ configure({ enforceActions: `observed` });
 class Store {
   stories = [];
   characters = [];
+  customStory = {};
 
   constructor() {
     this.characterApi = new Api(`characters`);
@@ -19,6 +20,10 @@ class Store {
     this.storyApi.getAll().then(d => d.forEach(this._addStory));
   };
 
+  getInfo = (dataname, value) => {
+    this.customStory[dataname] = value;
+  };
+
   addStory = data => {
     const newStory = new Story();
     newStory.updateFromServer(data);
@@ -26,7 +31,8 @@ class Store {
 
     this.storyApi
       .create(newStory)
-      .then(storyValues => newStory.updateFromServer(storyValues));
+      .then(storyValues => newStory.updateFromServer(storyValues))
+      .then(this.getAll());
   };
 
   _addStory = values => {
@@ -50,7 +56,8 @@ decorate(Store, {
   stories: observable,
   characters: observable,
   addStory: action,
-  addCharacter: action
+  addCharacter: action,
+  getInfo: action
 });
 
 const store = new Store();

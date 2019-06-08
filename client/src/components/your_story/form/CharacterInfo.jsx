@@ -1,15 +1,19 @@
 import React from "react";
 import styles from "./form.module.css";
+import { inject, observer } from "mobx-react";
 
-const CharacterInfo = ({ name, getInfo }) => {
-  console.log(name);
-
+const CharacterInfo = ({ name, store, nextForm }) => {
   const sendInfo = (dataname, value) => {
-    getInfo(dataname, value);
+    store.getInfo(dataname, value);
+  };
+
+  const nextPage = e => {
+    e.preventDefault();
+    nextForm();
   };
 
   return (
-    <div>
+    <form onSubmit={nextPage}>
       <h2 className={styles.tagline}>02 Leeftijd & Locatie </h2>
       <p className={styles.pageTitle}>
         {name} is{" "}
@@ -30,8 +34,9 @@ const CharacterInfo = ({ name, getInfo }) => {
           onChange={e => sendInfo("location", e.currentTarget.value)}
         />
       </p>
-    </div>
+      <button type="submit">Volgende</button>
+    </form>
   );
 };
 
-export default CharacterInfo;
+export default inject(`store`)(observer(CharacterInfo));

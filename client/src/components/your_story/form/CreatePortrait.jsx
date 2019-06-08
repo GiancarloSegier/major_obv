@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import styles from "./CreatePortrait.module.css";
+import { inject, observer } from "mobx-react";
 
 class CreatePortrait extends Component {
   constructor(props) {
-    console.log(props);
     super(props);
     this.state = {
       gender: this.props.gender,
@@ -12,16 +12,17 @@ class CreatePortrait extends Component {
       max: 4,
       min: 1
     };
+    this.props.store.getInfo("gender", this.props.gender);
   }
 
-  getIndex = index => {
-    console.log(index);
-    this.props.getIndex(this.props.short, index);
+  setImageIndex = (dataname, index) => {
+    this.props.store.getInfo(dataname, index);
   };
 
   setGender = gender => {
     this.setState({ gender: gender });
     this.getValues(gender);
+    this.props.store.getInfo("gender", gender);
   };
 
   getValues = gender => {
@@ -63,7 +64,7 @@ class CreatePortrait extends Component {
       this.currentIndex++;
     }
     this.setState({ index: this.currentIndex });
-    this.getIndex(this.currentIndex);
+    this.setImageIndex(this.props.dataname, this.currentIndex);
   };
 
   getPreviousImage = e => {
@@ -74,12 +75,12 @@ class CreatePortrait extends Component {
       this.currentIndex--;
     }
     this.setState({ index: this.currentIndex });
-    this.getIndex(this.currentIndex);
+    this.setImageIndex(this.props.dataname, this.currentIndex);
   };
 
   render() {
-    this.props.getIndex(this.state.min);
     this.imageNumber = this.state.index;
+    this.setImageIndex(this.props.dataname, this.imageNumber);
     return (
       <div className={styles.character__imagepart}>
         <img
@@ -108,4 +109,4 @@ class CreatePortrait extends Component {
   }
 }
 
-export default CreatePortrait;
+export default inject(`store`)(observer(CreatePortrait));

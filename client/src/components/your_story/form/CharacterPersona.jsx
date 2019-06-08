@@ -1,18 +1,22 @@
 import React from "react";
 import styles from "./form.module.css";
+import { inject, observer } from "mobx-react";
 
-const CharacterPersona = ({ name, getInfo }) => {
+const CharacterPersona = ({ name, nextForm, store }) => {
   const personalities = [];
 
-  const setPersonalities = e => {
-    let currentPersonality = e.currentTarget.id.split("personality")[1] - 1;
+  const setPersonalities = (e, number) => {
+    let currentPersonality = number - 1;
     personalities[currentPersonality] = e.currentTarget.value;
-    console.log(personalities);
-    getInfo("personality", personalities);
+    store.getInfo("personality", personalities);
+  };
+  const nextPage = e => {
+    e.preventDefault();
+    nextForm();
   };
 
   return (
-    <div>
+    <form onSubmit={nextPage}>
       <h2 className={styles.tagline}>03 Karakter </h2>
       <p className={styles.pageTitle}>
         {name} is{" "}
@@ -22,7 +26,7 @@ const CharacterPersona = ({ name, getInfo }) => {
           min="1"
           required
           placeholder="Vul een karaktereigenschap in"
-          onChange={setPersonalities}
+          onChange={e => setPersonalities(e, 1)}
         />{" "}
         ,{" "}
         <input
@@ -30,7 +34,7 @@ const CharacterPersona = ({ name, getInfo }) => {
           id="personality2"
           required
           placeholder="Vul nog een karaktereigenschap in"
-          onChange={setPersonalities}
+          onChange={e => setPersonalities(e, 2)}
         />{" "}
         , maar vooral{" "}
         <input
@@ -38,11 +42,12 @@ const CharacterPersona = ({ name, getInfo }) => {
           id="personality3"
           required
           placeholder="Vul nog een karaktereigenschap in"
-          onChange={setPersonalities}
+          onChange={e => setPersonalities(e, 3)}
         />
       </p>
-    </div>
+      <button type="submit">Volgende</button>
+    </form>
   );
 };
 
-export default CharacterPersona;
+export default inject(`store`)(observer(CharacterPersona));

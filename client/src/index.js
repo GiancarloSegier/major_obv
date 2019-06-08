@@ -6,11 +6,14 @@ import * as serviceWorker from "./serviceWorker";
 import { Provider } from "mobx-react";
 import { BrowserRouter } from "react-router-dom";
 import store from "./store";
+import ScrollToTop from "./components/ScrollToTop";
 
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <ScrollToTop>
+        <App />
+      </ScrollToTop>
     </BrowserRouter>
   </Provider>,
   document.getElementById("root")
