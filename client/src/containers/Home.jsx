@@ -66,7 +66,7 @@ const Home = ({ store }) => {
       </section>
 
       <section className={`${styles.container} margin-top`}>
-        <div className={styles.splitgrid}>
+        <div className={styles.split_grid}>
           <img src="./assets/img/almaviva.jpg" alt="" />
           <div>
             <h2>Nu is het aan jou</h2>

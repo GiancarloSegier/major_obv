@@ -45,7 +45,9 @@ const CharacterPersona = ({ name, nextForm, store }) => {
           onChange={e => setPersonalities(e, 3)}
         />
       </p>
-      <button type="submit">Volgende</button>
+      <button type="submit" className={styles.button}>
+        Volgende
+      </button>
     </form>
   );
 };

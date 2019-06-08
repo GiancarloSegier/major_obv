@@ -1,36 +1,50 @@
 @font-face {
-  font-family: "charter";
-  src: url("../fonts/test.woff") format("woff");
+    font-family: "charter";
+    src: url("./assets/fonts/charter/regular.woff") format('woff');
+    font-weight: normal;
+}
+@font-face {
+    font-family: "charter";
+    src: url("./assets/fonts/charter/italic.woff") format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: "charter";
+    src: url("./assets/fonts/charter/bold.woff") format('woff');
+    font-weight: bold;
+}
+@font-face {
+    font-family: "charter";
+    src: url("./assets/fonts/charter/bold_it.woff") format('woff');
+    font-weight: bold;
+    font-style: italic;
 }
 
 .navbar {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: bold;
   font-size: 1.8rem;
-  color: #000;
+  color: var(--grey-color);
 }
 
 .heading-1 {
-  font-size: 4.2rem;
+  font-size: 8rem;
   font-weight: 900;
-  color: #000;
-  margin-bottom: 2rem;
-  font-family: "charterregular", serif;
+  line-height: 1.2;
+  margin-bottom: 4rem;
 }
 
 .heading-2 {
   font-size: 3rem;
   font-weight: 900;
-  color: #000;
   margin-bottom: 2rem;
 }
 
 .heading-3 {
-  font-size: 2.4rem;
+  font-size: 1rem;
   font-weight: bold;
-  color: #000;
   margin-bottom: 2rem;
+  text-transform: uppercase;
+  color: var(--highlight-color);
 }
 
 .tagline {
@@ -39,10 +53,6 @@
 }
 
 .body {
+  font-family: 'charter', serif;
   font-size: 1.6rem;
-  color: #000;
-}
-
-.charter {
-  font-family: "charter", serif;
 }

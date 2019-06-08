@@ -1,8 +1,11 @@
 @import "./reset.css";
+@import "./colors.module.css";
 
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  background-color: var(--dark-color);
+  color: var(--light-color);
 }
 
 *,
@@ -28,7 +31,7 @@ body {
 }
 
 .container {
-  max-width: 120rem;
+  max-width: 80vw;
   margin: 0 auto;
 }
 

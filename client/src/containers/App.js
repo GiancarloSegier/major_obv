@@ -19,8 +19,8 @@ function App() {
 
       <Switch>
         <Route path={ROUTES.home} exact strict component={Home} />
-        <Route path={ROUTES.create} exact strict component={Create} />
-        <Route path={ROUTES.about} exact strict component={About} />
+        <Route path={ROUTES.create} component={Create} />
+        <Route path={ROUTES.about} component={About} />
         <Route
           path={ROUTES.story}
           render={({ match }) => <StoryDetail storyId={match.params.id} />}
@@ -31,7 +31,7 @@ function App() {
             <CharacterDetail characterId={match.params.id} />
           )}
         />
-        <Route path={ROUTES.createStory} exact strict component={CreateStory} />
+        <Route path={ROUTES.createStory} component={CreateStory} />
         <Route
           path={ROUTES.characterStory}
           render={({ match }) => (

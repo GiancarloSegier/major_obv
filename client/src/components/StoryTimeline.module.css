@@ -14,7 +14,7 @@
 .bulletpoint {
   width: 10px;
   height: 10px;
-  border: solid #585f71 2px;
+  border: solid var(--grey-color) 2px;
   border-radius: 10px;
   transition: 1s ease;
   position: absolute;
@@ -23,14 +23,14 @@
   right: 0;
 }
 .active {
-  background-color: #cf013a;
-  border: solid #cf013a 2px;
+  background-color: var(--highlight-color);
+  border: solid var(--highlight-color) 2px;
   width: 10px;
   height: 10px;
   transition-delay: 0.3s;
 }
 .done {
-  background-color: #585f71;
+  background-color: var(--grey-color);
 }
 .line {
   position: relative;
@@ -40,7 +40,7 @@
   content: "";
   display: inline-block;
   position: absolute;
-  background-color: #585f71;
+  background-color: var(--grey-color);
   height: 3px;
   width: 100%;
   z-index: -1;

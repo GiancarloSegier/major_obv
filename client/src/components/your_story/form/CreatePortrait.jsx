@@ -93,16 +93,12 @@ class CreatePortrait extends Component {
             type="button"
             className={styles.buttonLeft}
             onClick={this.getPreviousImage}
-          >
-            Vorige!
-          </button>
+          />
           <button
             type="button"
             className={styles.buttonRight}
             onClick={this.getNextImage}
-          >
-            Volgende!
-          </button>
+          />
         </div>
       </div>
     );

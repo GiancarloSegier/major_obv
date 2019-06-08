@@ -1,7 +1,6 @@
 .split_grid {
-  display: grid;
-  grid-template-columns: 45% 2fr;
-  height: 100%;
+  composes: split_grid from "../styles/ui.module.css";
+  height: 100vh;
 }
 
 .characterDetail__image {

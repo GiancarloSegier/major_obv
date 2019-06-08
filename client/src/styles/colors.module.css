@@ -1,0 +1,8 @@
+:global(:root){
+  --highlight-color: #CF013A;
+  --dark-color: #11141B;
+  --grey-color: #585F71;
+  --light-grey-color: #BEC4D0;
+  --light-color: #fff;
+}
+

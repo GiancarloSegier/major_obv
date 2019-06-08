@@ -1,0 +1,51 @@
+.button {
+  background: none;
+  border: none;
+  color: var(--light-color);
+  font-size: 1.6rem;
+  border-bottom: .2rem solid var(--highlight-color);
+  padding: 1.5rem 0;
+  width: 15rem;
+  text-align: left;
+  position: relative;
+}
+
+.button:after{
+  content: "";
+  display: block;
+  height: .2rem;
+  width: 2.7rem;
+  background-color: var(--highlight-color);
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+
+.button::before{
+  content: "";
+  display: block;
+  border: .2rem solid var(--highlight-color);
+  border-left: none;
+  border-bottom: none;
+  height: 1.4rem;
+  width: 1.4rem;
+  position: absolute;
+  right: 0.1rem;
+  top: calc(50% - .6rem);
+  transform: rotate(45deg)
+}
+
+.split_grid{
+      display: grid;
+  grid-template-columns: 1fr 50%;
+}
+
+.character__image{
+  height: 100vh;
+  composes: character__image from "./grids.module.css";
+  position: absolute;
+  width: 40%;
+  top:0;
+  right: 0;
+  object-fit: contain;
+}

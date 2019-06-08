@@ -82,7 +82,6 @@
     color: #fff;
 }
 
-.splitgrid{
-    display: grid;
-    grid-template-columns: 40% 1fr;
+.split_grid{
+composes: split_grid from "../styles/ui.module.css"
 }

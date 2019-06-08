@@ -6,24 +6,29 @@ import { inject, observer } from "mobx-react";
 
 const Create = ({ store }) => {
   return (
-    <section className="container margin-top">
-      <div className={styles.splitgrid}>
+    <section className="container ">
+      <div className={styles.split_grid}>
         <div>
-          <p className={styles.subTitle}>Vertel jouw verhaal</p>
-          <h2 className={styles.pageTitle}>
-            We're all just stories in the end
-          </h2>
-          <p className={styles.intro}>
-            Creëer je eigen karakter en deel jouw verhaal. Waargebeurd of
-            verzonnen? Romantisch of vol actie? Aangrijpend of vrolijk? Jij
-            bepaalt het plot.
-          </p>
-          <Link to={ROUTES.createStory}>
-            <button>Aan de slag</button>
-          </Link>
+          <h2 className={styles.pageTitle}>Vertel jouw verhaal</h2>
+          <p className={styles.subTitle}>We're all just stories in the end</p>
+          <div className={styles.margin_left}>
+            <p className={styles.intro}>
+              Creëer je eigen karakter en deel jouw verhaal. Waargebeurd of
+              verzonnen? Romantisch of vol actie? Aangrijpend of vrolijk? Jij
+              bepaalt het plot.
+            </p>
+            <Link to={ROUTES.createStory}>
+              <button className={styles.button}>Aan de slag</button>
+            </Link>
+          </div>
         </div>
-        {/* <img src={randomPic} alt="" /> */}
-        <img src="../assets/img/almaviva.jpg" alt="" />
+        <div className={styles.character__image}>
+          <img
+            src="../assets/img/almaviva.jpg"
+            alt=""
+            className={styles.image}
+          />
+        </div>
       </div>
     </section>
   );

@@ -34,7 +34,9 @@ const CharacterInfo = ({ name, store, nextForm }) => {
           onChange={e => sendInfo("location", e.currentTarget.value)}
         />
       </p>
-      <button type="submit">Volgende</button>
+      <button type="submit" className={styles.button}>
+        Volgende
+      </button>
     </form>
   );
 };

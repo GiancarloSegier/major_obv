@@ -38,7 +38,9 @@ const StoryEditor = ({ step, store, submitForm }) => {
         placeholder="Hier begint jouw verhaal. Een duwtje in de rug nodig? Je vindt hiernaast inspiratie om je op weg te helpen. "
         onChange={e => sendInfo("story", e.currentTarget.value)}
       />
-      <button type="submit">Versturen</button>
+      <button type="submit" className={styles.button}>
+        Versturen
+      </button>
     </form>
   );
 };

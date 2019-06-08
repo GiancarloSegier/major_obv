@@ -59,7 +59,9 @@ const StoryInfo = ({ name, nextForm, store }) => {
           )
         )
       )}
-      <button type="submit">Volgende</button>
+      <button type="submit" className={styles.button}>
+        Volgende
+      </button>
     </form>
   );
 };

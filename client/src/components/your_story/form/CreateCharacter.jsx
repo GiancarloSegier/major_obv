@@ -83,7 +83,7 @@ class CreateCharacter extends Component {
             gender={this.gender}
             ref={this.headRef}
           />
-          <div className={styles.character__gender}>
+          <div className={styles.character__genders}>
             <input
               type="radio"
               name="gender"
@@ -111,7 +111,9 @@ class CreateCharacter extends Component {
             vrouw
           </div>
         </div>
-        <button type="submit">Volgende</button>
+        <button type="submit" className={styles.button}>
+          Volgende
+        </button>
       </form>
     );
   }

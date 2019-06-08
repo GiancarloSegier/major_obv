@@ -1,17 +1,48 @@
 .buttons{
+    position: absolute;
+    top: calc(50% - 2rem);
+    left: 3rem; right: 3rem;
+    display: flex;
+    justify-content: space-between
+}
 
+.buttonLeft, .buttonRight{
+    background: none;
+    border: .2rem solid var(--light-color);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    transition: .3s ease-in-out;
 }
 
 .buttonLeft{
-    position: absolute;
     left: 3rem;
-    top: 50%;
+}
+.buttonRight{
+    right: 3rem;
+}
+.buttonLeft::after, .buttonRight:after{
+    content: "";
+    display: block;
+    height: 1rem;
+    width: 1rem;
+    border: .2rem solid var(--light-color);
+    transform: rotate(45deg);
+    border-left: none;
+    border-bottom: none;
+    transition: .3s ease-in-out;
+}
+.buttonLeft::after{
+    margin-left: .2rem;
+    transform: scale(-1) rotate(45deg);
 }
 
-.buttonRight{
-    position: absolute;
-    right: 3rem;
-    top: 50%
+.buttonLeft:hover, .buttonRight:hover{
+    background-color: var(--light-color);
+    cursor: pointer;
+}
+.buttonLeft:hover::after, .buttonRight:hover::after{
+    border-color: var(--dark-color);
 }
 
 .character__imageView{

@@ -7,6 +7,7 @@ import CharacterImage from "../../components/your_story/CharacterImage";
 import CharacterPersona from "../../components/your_story/form/CharacterPersona";
 import StoryInfo from "../../components/your_story/form/StoryInfo";
 import StoryEditor from "../../components/your_story/form/StoryEditor";
+import CreateTimeline from "../../components/your_story/CreateTimeline";
 class CreateStory extends Component {
   constructor(props) {
     super(props);
@@ -42,59 +43,65 @@ class CreateStory extends Component {
     let { step } = this.state;
     const { customStory } = this.props.store;
     return (
-      <section className="container margin-top">
-        {step === 1 ? (
-          <>
-            <div className={styles.splitgrid}>
-              <CreateCharacter
-                ref={this.characterRef}
-                nextForm={this.nextForm}
-              />
-            </div>
-          </>
-        ) : (
-          <>
-            <div className={styles.splitgrid}>
-              {step === 2 ? (
-                <CharacterInfo
-                  step={step}
-                  name={customStory.name}
+      <>
+        <CreateTimeline step={step} />
+
+        <section className="container margin-top">
+          {step === 1 ? (
+            <>
+              <div className={styles.split_grid}>
+                <CreateCharacter
+                  ref={this.characterRef}
                   nextForm={this.nextForm}
                 />
-              ) : step === 3 ? (
-                <CharacterPersona
-                  step={step}
+              </div>
+            </>
+          ) : (
+            <>
+              <div className={styles.split_grid}>
+                {step === 2 ? (
+                  <CharacterInfo
+                    step={step}
+                    name={customStory.name}
+                    nextForm={this.nextForm}
+                  />
+                ) : step === 3 ? (
+                  <CharacterPersona
+                    step={step}
+                    name={customStory.name}
+                    nextForm={this.nextForm}
+                  />
+                ) : step === 4 ? (
+                  <StoryInfo name={customStory.name} nextForm={this.nextForm} />
+                ) : step === 5 ? (
+                  <div>
+                    <h2 className={styles.tagline}>02 Leeftijd & Locatie </h2>
+                    <p className={styles.pageTitle}>
+                      {" "}
+                      Tijd om {customStory.name} op avontuur te sturen{" "}
+                    </p>
+                    <button onClick={this.nextForm} className={styles.button}>
+                      volgende
+                    </button>
+                  </div>
+                ) : step === 6 ? (
+                  <StoryEditor step={step} submitForm={this.handleSubmitForm} />
+                ) : (
+                  <p>Er is iets misgelopen</p>
+                )}
+                <CharacterImage
+                  head={customStory.head}
+                  eyes={customStory.eyes}
+                  mouth={customStory.mouth}
+                  chest={customStory.chest}
                   name={customStory.name}
-                  nextForm={this.nextForm}
+                  full={true}
                 />
-              ) : step === 4 ? (
-                <StoryInfo name={customStory.name} nextForm={this.nextForm} />
-              ) : step === 5 ? (
-                <div>
-                  <h2 className={styles.tagline}>02 Leeftijd & Locatie </h2>
-                  <p className={styles.pageTitle}>
-                    {" "}
-                    Tijd om {customStory.name} op avontuur te sturen{" "}
-                  </p>
-                  <button onClick={this.nextForm}>volgende</button>
-                </div>
-              ) : step === 6 ? (
-                <StoryEditor step={step} submitForm={this.handleSubmitForm} />
-              ) : (
-                <p>Er is iets misgelopen</p>
-              )}
-              <CharacterImage
-                head={customStory.head}
-                eyes={customStory.eyes}
-                mouth={customStory.mouth}
-                chest={customStory.chest}
-                name={customStory.name}
-                full={true}
-              />
-            </div>
-          </>
-        )}
-      </section>
+              </div>
+            </>
+          )}
+        </section>
+      </>
     );
   }
 }
