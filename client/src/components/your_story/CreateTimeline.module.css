@@ -1,11 +1,10 @@
 .timeline {
-    position: absolute;
-    left: 5vw;
+left: 5vw;
     display: grid;
     grid-template-rows: auto;
     grid-auto-flow: row;
-    height: calc(100% - 15vh);
-    top: 12vh;
+    height: calc(100% - 30vh);
+    top: 22vh;
     position: absolute;
     width: 2rem;
     justify-items: center;

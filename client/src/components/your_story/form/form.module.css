@@ -1,6 +1,17 @@
 .pageTitle {
     composes: heading-1 from "../../../styles/typo.module.css"
 }
+.part__title{
+
+  composes: heading-3 from "../../../styles/typo.module.css";
+  color: var(--grey-color);
+  margin-left: -3.2rem;
+}
+.part__step{
+  color: var(--light-color);
+  display: inline-block;
+  padding-right: 2rem;
+}
 .character__image{
   height: 100vh;
   display: grid;
@@ -21,4 +32,23 @@
   justify-self: center;
   bottom: 0;
   position: absolute;
+}
+
+.margin_left{
+  height: 60vh;
+    padding-left: 6vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inputfield{
+  composes: inputField from "../../../styles/ui.module.css";
+}
+
+.inputfield[id='age']{
+  width: 15rem;
+}
+.inputfield[id='location']{
+  width: 40rem;
 }

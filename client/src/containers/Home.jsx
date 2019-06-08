@@ -65,7 +65,7 @@ const Home = ({ store }) => {
         </div>
       </section>
 
-      <section className={`${styles.container} margin-top`}>
+      <section className={`container margin-top`}>
         <div className={styles.split_grid}>
           <img src="./assets/img/almaviva.jpg" alt="" />
           <div>

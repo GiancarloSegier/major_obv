@@ -45,18 +45,26 @@ class CreateCharacter extends Component {
   render() {
     return (
       <form onSubmit={this.nextPage}>
-        <div>
-          <p>01 Jouw personage </p>
-          <h2 className={styles.pageTitle}>Hallo wereld, hier is </h2>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Vul de naam van je karakter in"
-            ref={this.nameRef}
-            required
-            onChange={this.sendName}
-          />
+        <div className={styles.margin_left}>
+          <p className={styles.part__title}>
+            <span className={styles.part__step}>01</span> Jouw personage{" "}
+          </p>
+          <div>
+            <h2 className={`${styles.pageTitle}`}>Hallo wereld, hier is </h2>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Vul de naam van je karakter in"
+              ref={this.nameRef}
+              required
+              onChange={this.sendName}
+              className={styles.inputfield}
+            />
+          </div>
+          <button type="submit" className={styles.button}>
+            Volgende
+          </button>
         </div>
         <div className={styles.character__image}>
           <CreatePortrait
@@ -111,9 +119,6 @@ class CreateCharacter extends Component {
             vrouw
           </div>
         </div>
-        <button type="submit" className={styles.button}>
-          Volgende
-        </button>
       </form>
     );
   }

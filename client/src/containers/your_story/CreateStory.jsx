@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styles from "./Create.module.css";
+import styles from "./CreateStory.module.css";
 import { PropTypes, inject } from "mobx-react";
 import CreateCharacter from "../../components/your_story/form/CreateCharacter";
 import CharacterInfo from "../../components/your_story/form/CharacterInfo";
@@ -29,14 +29,11 @@ class CreateStory extends Component {
     const title = this.props.store.customStory.title;
 
     this.props.store.addStory(this.props.store.customStory);
-    console.log(
-      this.props.store.stories.find(story => story.title === title).id
-    );
-    this.props.history.push(
-      `/story/${
-        this.props.store.stories.find(story => story.title === title).id
-      }`
-    );
+    // this.props.history.push(
+    //   `/story/${
+    //     this.props.store.stories.find(story => story.title === title).id
+    //   }`
+    // );
   };
 
   render() {
@@ -46,7 +43,7 @@ class CreateStory extends Component {
       <>
         <CreateTimeline step={step} />
 
-        <section className="container margin-top">
+        <section className={`container ${styles.margin_top}`}>
           {step === 1 ? (
             <>
               <div className={styles.split_grid}>
@@ -59,36 +56,47 @@ class CreateStory extends Component {
           ) : (
             <>
               <div className={styles.split_grid}>
-                {step === 2 ? (
-                  <CharacterInfo
-                    step={step}
-                    name={customStory.name}
-                    nextForm={this.nextForm}
-                  />
-                ) : step === 3 ? (
-                  <CharacterPersona
-                    step={step}
-                    name={customStory.name}
-                    nextForm={this.nextForm}
-                  />
-                ) : step === 4 ? (
-                  <StoryInfo name={customStory.name} nextForm={this.nextForm} />
-                ) : step === 5 ? (
-                  <div>
-                    <h2 className={styles.tagline}>02 Leeftijd & Locatie </h2>
-                    <p className={styles.pageTitle}>
-                      {" "}
-                      Tijd om {customStory.name} op avontuur te sturen{" "}
-                    </p>
-                    <button onClick={this.nextForm} className={styles.button}>
-                      volgende
-                    </button>
-                  </div>
-                ) : step === 6 ? (
-                  <StoryEditor step={step} submitForm={this.handleSubmitForm} />
-                ) : (
-                  <p>Er is iets misgelopen</p>
-                )}
+                <div className={styles.margin_left}>
+                  {step === 2 ? (
+                    <CharacterInfo
+                      step={step}
+                      name={customStory.name}
+                      nextForm={this.nextForm}
+                    />
+                  ) : step === 3 ? (
+                    <CharacterPersona
+                      step={step}
+                      name={customStory.name}
+                      nextForm={this.nextForm}
+                    />
+                  ) : step === 4 ? (
+                    <StoryInfo
+                      name={customStory.name}
+                      nextForm={this.nextForm}
+                    />
+                  ) : step === 5 ? (
+                    <div className={styles.margin_left}>
+                      <h2 className={`${styles.part__title} `}>
+                        <span className={styles.part__step}>05</span> Leeftijd &
+                        Locatie{" "}
+                      </h2>
+                      <p className={`${styles.pageTitle}`}>
+                        {" "}
+                        Tijd om {customStory.name} op avontuur te sturen{" "}
+                      </p>
+                      <button onClick={this.nextForm} className={styles.button}>
+                        volgende
+                      </button>
+                    </div>
+                  ) : step === 6 ? (
+                    <StoryEditor
+                      step={step}
+                      submitForm={this.handleSubmitForm}
+                    />
+                  ) : (
+                    <p>Er is iets misgelopen</p>
+                  )}
+                </div>
                 <CharacterImage
                   head={customStory.head}
                   eyes={customStory.eyes}

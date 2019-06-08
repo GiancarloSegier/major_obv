@@ -21,9 +21,16 @@
     font-style: italic;
 }
 
+@font-face {
+    font-family: "oakes";
+    src: url("./assets/fonts/oakes/bold.woff") format('woff');
+    font-weight: bold;
+}
+
 .navbar {
   font-size: 1.8rem;
   color: var(--grey-color);
+  font-family: 'oakes', sans-serif
 }
 
 .heading-1 {
@@ -31,12 +38,14 @@
   font-weight: 900;
   line-height: 1.2;
   margin-bottom: 4rem;
+  font-family: 'oakes', sans-serif
 }
 
 .heading-2 {
   font-size: 3rem;
   font-weight: 900;
   margin-bottom: 2rem;
+    font-family: 'oakes', sans-serif
 }
 
 .heading-3 {
@@ -45,6 +54,7 @@
   margin-bottom: 2rem;
   text-transform: uppercase;
   color: var(--highlight-color);
+    font-family: 'oakes', sans-serif
 }
 
 .tagline {
@@ -55,4 +65,8 @@
 .body {
   font-family: 'charter', serif;
   font-size: 1.6rem;
+}
+
+.oakes{
+  font-family: 'oakes', sans-serif;
 }

@@ -31,8 +31,7 @@ class Store {
 
     this.storyApi
       .create(newStory)
-      .then(storyValues => newStory.updateFromServer(storyValues))
-      .then(this.getAll());
+      .then(storyValues => newStory.updateFromServer(storyValues));
   };
 
   _addStory = values => {

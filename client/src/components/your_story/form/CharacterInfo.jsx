@@ -14,26 +14,34 @@ const CharacterInfo = ({ name, store, nextForm }) => {
 
   return (
     <form onSubmit={nextPage}>
-      <h2 className={styles.tagline}>02 Leeftijd & Locatie </h2>
-      <p className={styles.pageTitle}>
-        {name} is{" "}
-        <input
-          type="number"
-          id="age"
-          min="1"
-          required
-          placeholder="Vul leeftijd in"
-          onChange={e => sendInfo("age", e.currentTarget.value)}
-        />{" "}
-        jaar oud en woont in{" "}
-        <input
-          type="text"
-          id="location"
-          required
-          placeholder="Vul een locatie in"
-          onChange={e => sendInfo("location", e.currentTarget.value)}
-        />
-      </p>
+      <h2 className={styles.part__title}>
+        <span className={styles.part__step}>02</span> Leeftijd & Locatie{" "}
+      </h2>
+      <div>
+        <p className={`${styles.pageTitle}`}>
+          {name} is
+          <br />
+          <input
+            className={styles.inputfield}
+            type="number"
+            id="age"
+            min="1"
+            required
+            placeholder="Vul leeftijd in"
+            onChange={e => sendInfo("age", e.currentTarget.value)}
+          />{" "}
+          jaar oud <br />
+          en woont in
+          <input
+            className={styles.inputfield}
+            type="text"
+            id="location"
+            required
+            placeholder="Vul een locatie in"
+            onChange={e => sendInfo("location", e.currentTarget.value)}
+          />
+        </p>
+      </div>
       <button type="submit" className={styles.button}>
         Volgende
       </button>
