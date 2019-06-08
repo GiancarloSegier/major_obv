@@ -9,7 +9,7 @@ class CreateCharacter extends Component {
     this.state = {};
 
     this.index = 1;
-    this.gender = "";
+    this.gender = "transgender";
 
     this.headRef = React.createRef();
     this.eyesRef = React.createRef();
@@ -17,6 +17,13 @@ class CreateCharacter extends Component {
     this.chestRef = React.createRef();
   }
 
+  //Make sure that the output of the name has a capital first letter
+  sendName = e => {
+    const name = e.currentTarget.value;
+    const nameCapitalized = name.charAt(0).toUpperCase() + name.slice(1);
+    this.sendInfo("name", nameCapitalized);
+    console.log(nameCapitalized);
+  };
   sendInfo = (dataname, value) => {
     this.props.getInfo(dataname, value);
   };
@@ -50,7 +57,7 @@ class CreateCharacter extends Component {
             placeholder="Vul de naam van je karakter in"
             ref={this.nameRef}
             required
-            onChange={e => this.sendInfo("name", e.currentTarget.value)}
+            onChange={this.sendName}
           />
         </div>
         <div className={styles.character__image}>
@@ -101,6 +108,7 @@ class CreateCharacter extends Component {
               value="transgender"
               onChange={this.genderChange}
               required
+              defaultChecked
             />
             transgender
           </div>

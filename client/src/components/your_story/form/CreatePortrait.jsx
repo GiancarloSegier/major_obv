@@ -10,7 +10,7 @@ class CreatePortrait extends Component {
       index: 1,
       part: this.props.part,
       max: 4,
-      min: 1
+      min: 3
     };
   }
 

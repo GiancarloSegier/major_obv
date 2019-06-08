@@ -7,17 +7,16 @@ import CharacterImage from "../../components/your_story/CharacterImage";
 import CharacterPersona from "../../components/your_story/form/CharacterPersona";
 import StoryInfo from "../../components/your_story/form/StoryInfo";
 import StoryEditor from "../../components/your_story/form/StoryEditor";
-
 class CreateStory extends Component {
   newStory = {};
 
   constructor(props) {
     super(props);
-    this.state = { step: 1 };
+    this.state = { step: 1, pageFilled: false };
 
     this.characterRef = React.createRef();
     this.characterInfoRef = React.createRef();
-    console.log(this.characterInfoRef);
+    console.log(this.state);
   }
 
   nextForm = () => {
@@ -25,10 +24,10 @@ class CreateStory extends Component {
     this.currentstep++;
     this.setState({ step: this.currentstep });
     this.setImages();
+    this.setState({ pageFilled: false });
   };
 
   // sets correct number for corresponding image
-
   setImages = () => {
     if (this.characterRef.current != null) {
       const head = this.characterRef.current.headRef.current.state.index;
@@ -58,12 +57,37 @@ class CreateStory extends Component {
     console.log(dataname, value);
     this.newStory[dataname] = value;
     console.log(this.newStory);
+    this.checkForm();
+  };
+
+  // form validation
+  checkForm = () => {
+    if (this.state.step === 1 && this.newStory["name"]) {
+      this.setState({ pageFilled: true });
+    } else if (
+      this.state.step === 2 &&
+      this.newStory["age"] &&
+      this.newStory["location"]
+    ) {
+      this.setState({ pageFilled: true });
+    } else if (
+      this.state.step === 3 &&
+      this.newStory["personality"].length === 3
+    ) {
+      this.setState({ pageFilled: true });
+    } else if (this.state.step === 4 && this.newStory["tags"]) {
+      this.setState({ pageFilled: true });
+    } else if (
+      this.state.step === 6 &&
+      this.newStory["title"] &&
+      this.newStory["story"]
+    ) {
+      this.setState({ pageFilled: true });
+    }
   };
 
   render() {
-    let { step } = this.state;
-    console.log(step);
-    console.log(this.newStory);
+    let { step, pageFilled } = this.state;
 
     return (
       <section className="container margin-top">
@@ -76,13 +100,16 @@ class CreateStory extends Component {
                   getInfo={this.getInfo}
                 />
               </div>
-
-              <button type="button" onClick={this.nextForm}>
-                {" "}
-                Volgende{" "}
-              </button>
+              {pageFilled ? (
+                <button type="button" onClick={this.nextForm}>
+                  {" "}
+                  Volgende{" "}
+                </button>
+              ) : (
+                ""
+              )}
             </>
-          ) : step >= 2 ? (
+          ) : (
             <>
               <div className={styles.splitgrid}>
                 {step === 2 ? (
@@ -123,16 +150,28 @@ class CreateStory extends Component {
               </div>
 
               {step === 6 ? (
-                <input type="submit" value="versturen" />
+                <input
+                  type="submit"
+                  value="versturen"
+                  className={
+                    pageFilled ? styles.button__active : styles.button__disable
+                  }
+                />
               ) : (
-                <button type="button" onClick={this.nextForm}>
+                <button
+                  type="button"
+                  onClick={this.nextForm}
+                  className={
+                    pageFilled || step === 5
+                      ? styles.button__active
+                      : styles.button__disable
+                  }
+                >
                   {" "}
                   Volgende{" "}
                 </button>
               )}
             </>
-          ) : (
-            ""
           )}
         </form>
       </section>

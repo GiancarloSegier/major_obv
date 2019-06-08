@@ -43,7 +43,7 @@ const StoryDetail = ({ storyId, store }) => {
 
         <h2 className={styles.story__author}>Over de Auteur</h2>
         <p className={styles.story__introduction}>
-          {name} is een {age}-jarige {gender} uit {location}. Hij is{" "}
+          {name} is een {age}-jarige {gender} uit {location}. {name} is{" "}
           {personality[0]}, {personality[1]}, maar vooral {personality[2]}.
         </p>
       </div>
