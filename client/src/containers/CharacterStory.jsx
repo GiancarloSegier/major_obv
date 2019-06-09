@@ -7,14 +7,42 @@ import styles from "../containers/CharacterStory.module.css";
 class CharacterStory extends Component {
   constructor(props) {
     super(props);
-    this.state = { part: 0 };
+    this.state = { part: 0, show: true, music: true };
   }
 
-  goToNextPart = () => {
+  clearAuto = () => {
+    clearInterval(this.timerAuto);
+  };
+  lauchSounds = () => {
+    // this.audio = new Audio("../assets/sounds/background.mp3");
+    // this.audio.play();
+  };
+  componentDidMount = () => {
+    console.log("component mount");
+
+    this.timerAuto = setInterval(this.goToNextPart, 5000);
+    this.timerClearAuto = setInterval(this.clearAuto, 25000);
+  };
+  hide = () => {
+    this.setState({ show: false });
+    clearInterval(this.timerHide);
+  };
+  show = () => {
+    this.setState({ show: true });
+    clearInterval(this.timerShow);
+  };
+  changetext = () => {
+    console.log("change text");
     this.currentpage = this.state.part;
     this.currentpage++;
     this.setState({ part: this.currentpage });
-    console.log("bam");
+    clearInterval(this.timerText);
+  };
+
+  goToNextPart = () => {
+    this.timerHide = setInterval(this.hide, 100);
+    this.timerText = setInterval(this.changetext, 300);
+    this.timerShow = setInterval(this.show, 500);
   };
 
   render() {
@@ -27,16 +55,18 @@ class CharacterStory extends Component {
     }
 
     return (
-      <div className={styles.background}>
-        <div className="container full_view">
-          <StoryPart
-            state={this.state}
-            story={current.story}
-            handleClick={this.goToNextPart}
-          />
-          <StoryTimeline state={this.state} story={current.story} />
+      <>
+        <div className={styles.background}>
+          <div className="container full_view">
+            <StoryPart
+              state={this.state}
+              story={current.story}
+              handleClick={this.goToNextPart}
+            />
+            <StoryTimeline state={this.state} story={current.story} />
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 }

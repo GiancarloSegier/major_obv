@@ -3,18 +3,19 @@
   border: none;
   color: var(--light-color);
   font-size: 1.6rem;
-  border-bottom: .2rem solid var(--highlight-color);
+  border-bottom: 0.2rem solid var(--highlight-color);
   padding: 1.5rem 0;
-  width: 15rem;
+  padding-right: 4rem;
+  width: auto + 5rem;
   text-align: left;
   position: relative;
   composes: oakes from "./typo.module.css";
 }
 
-.button:after{
+.button:after {
   content: "";
   display: block;
-  height: .2rem;
+  height: 0.2rem;
   width: 2.7rem;
   background-color: var(--highlight-color);
   position: absolute;
@@ -22,51 +23,50 @@
   top: 50%;
 }
 
-.button::before{
+.button::before {
   content: "";
   display: block;
-  border: .2rem solid var(--highlight-color);
+  border: 0.2rem solid var(--highlight-color);
   border-left: none;
   border-bottom: none;
   height: 1.4rem;
   width: 1.4rem;
   position: absolute;
   right: 0.1rem;
-  top: calc(50% - .6rem);
-  transform: rotate(45deg)
+  top: calc(50% - 0.6rem);
+  transform: rotate(45deg);
 }
 
-.split_grid{
-    display: grid;
+.split_grid {
+  display: grid;
   grid-template-columns: 1fr 38%;
   grid-gap: 5rem;
 }
 
-.character__image{
+.character__image {
   height: 100vh;
   composes: character__image from "./grids.module.css";
   position: absolute;
   width: 40%;
-  top:0;
+  top: 0;
   right: 0;
   object-fit: contain;
 }
 
-.inputField{
+.inputField {
   background: none;
   border: none;
-  border-bottom: .2rem solid var(--light-color);
+  border-bottom: 0.2rem solid var(--light-color);
   color: var(--light-color);
   font-size: 5rem;
   font-weight: bold;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
   margin-top: -5rem;
   line-height: 1;
   composes: oakes from "./typo.module.css";
   width: 100%;
-
 }
-.inputField::placeholder{
+.inputField::placeholder {
   color: var(--light-color);
   font-size: 1.4rem;
   display: block;

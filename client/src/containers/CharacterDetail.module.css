@@ -1,31 +1,82 @@
-.split_grid {
-  composes: split_grid from "../styles/ui.module.css";
-  height: 100vh;
-}
-
-.characterDetail__image {
-  height: 100vh;
-  grid-column: 2;
-  width: 45%;
-  right: 0;
-  position: absolute;
-}
-
-.characterDetail__info {
-  grid-column: 1;
-  margin-top: 30rem;
-}
-
-.characterDetail__name {
-  composes: heading-1 from "../styles/typo.module.css";
-  margin-bottom: 10rem;
-}
-
-.characterDetail__nickname {
+.pageTitle {
   composes: heading-3 from "../styles/typo.module.css";
 }
 
-.characterDetail__about {
+.subTitle {
+  composes: heading-1 from "../styles/typo.module.css";
+  -webkit-text-stroke: 0.2rem;
+  -webkit-text-stroke-color: var(--light-color);
+  color: transparent;
+  font-size: 12.1rem;
+}
+
+.intro {
   composes: body from "../styles/typo.module.css";
-  margin-bottom: 10rem;
+  font-size: 2rem;
+  color: var(--light-grey-color);
+  margin-bottom: 5rem;
+  width: 80%;
+  line-height: 3.2rem;
+}
+
+.split_grid {
+  composes: split_grid from "../styles/ui.module.css";
+  height: 100vh;
+  align-content: center;
+}
+
+.character__image {
+  composes: character__image from "../styles/ui.module.css";
+}
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.button {
+  composes: button from "../styles/ui.module.css";
+}
+
+.margin_left {
+  margin-left: 10rem;
+}
+/**/
+.button_back {
+  margin-bottom: 5rem;
+  background: none;
+  border: none;
+  color: var(--light-color);
+  font-size: 1.6rem;
+  padding: 1.5rem 0;
+  padding-right: 4rem;
+  width: auto + 5rem;
+  text-align: left;
+  position: relative;
+  composes: oakes from "../styles/typo.module.css";
+}
+
+.button_back:after {
+  content: "";
+  display: block;
+  height: 0.2rem;
+  width: 2.7rem;
+  background-color: var(--highlight-color);
+  position: absolute;
+  left: -5rem;
+  top: 50%;
+}
+
+.button_back::before {
+  content: "";
+  display: block;
+  border: 0.2rem solid var(--highlight-color);
+  border-left: none;
+  border-bottom: none;
+  height: 1.4rem;
+  width: 1.4rem;
+  position: absolute;
+  left: -5rem;
+  top: calc(50% - 0.5rem);
+  transform: rotate(225deg);
 }

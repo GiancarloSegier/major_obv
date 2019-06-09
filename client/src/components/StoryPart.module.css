@@ -8,14 +8,14 @@
 .story__text {
   grid-row: 1;
   align-self: center;
-  composes: charter from "../styles/typo.module.css";
+  composes: body from "../styles/typo.module.css";
   font-style: normal;
   font-weight: normal;
   font-size: 37px;
   line-height: 50px;
   /* or 135% */
   text-align: center;
-
+  transition: all 0.3s ease-in;
   color: #bec4d0;
 }
 
@@ -23,4 +23,11 @@
   width: 10rem;
   align-self: center;
   justify-self: center;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: white;
 }
