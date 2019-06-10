@@ -98,9 +98,15 @@ padding-left: 33px;
 .editorGrid{
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: 2fr .25fr 1fr;
+  grid-template-columns: 2fr .25fr 20%;
   grid-gap: 5rem;
 }
 .hints{
-  grid-column: 3;
+position: fixed;
+    right: 10vw;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    height: 60vh;
+    justify-content: space-between;
 }

@@ -29,11 +29,11 @@ class CreateStory extends Component {
     const title = this.props.store.customStory.title;
 
     this.props.store.addStory(this.props.store.customStory);
-    // this.props.history.push(
-    //   `/story/${
-    //     this.props.store.stories.find(story => story.title === title).id
-    //   }`
-    // );
+    this.props.history.push(
+      `/story/${
+        this.props.store.stories.find(story => story.title === title).id
+      }`
+    );
   };
 
   render() {

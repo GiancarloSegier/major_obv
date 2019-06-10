@@ -1,0 +1,17 @@
+
+
+.hints__title{
+    composes: heading-3 from "../../../styles/typo.module.css";
+  color: var(--light-color);
+  font-size: 1.4rem;
+}
+.hint{
+    composes: tagline from '../../../styles/typo.module.css';
+    padding: 3rem 0;
+    border-bottom: .2rem solid var(--grey-color)
+}
+
+.button {
+   composes: check__button from '../../../styles/ui.module.css';
+   width: 20rem;
+}

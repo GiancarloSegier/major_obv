@@ -59,7 +59,8 @@
 
 .tagline {
   font-size: 1.4rem;
-  color: #b8b8b8;
+  color: var(--grey-color);
+  font-family: 'oakes'
 }
 
 .body {

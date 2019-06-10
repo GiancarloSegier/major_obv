@@ -1,23 +1,27 @@
 import { decorate, observable, configure, action, runInAction } from "mobx";
 import Story from "../models/Story";
 import Character from "../models/Character";
+import Hint from "../models/Hint";
 import Api from "../api";
 
 configure({ enforceActions: `observed` });
 class Store {
   stories = [];
   characters = [];
+  hints = [];
   customStory = {};
 
   constructor() {
     this.characterApi = new Api(`characters`);
     this.storyApi = new Api(`stories`);
+    this.hintApi = new Api(`hints`);
     this.getAll();
   }
 
   getAll = () => {
     this.characterApi.getAll().then(d => d.forEach(this._addCharacter));
     this.storyApi.getAll().then(d => d.forEach(this._addStory));
+    this.hintApi.getAll().then(d => d.forEach(this._addHint));
   };
 
   getInfo = (dataname, value) => {
@@ -49,11 +53,19 @@ class Store {
       this.characters.push(character);
     });
   };
+  _addHint = values => {
+    const hint = new Hint();
+    hint.updateFromServer(values);
+    runInAction(() => {
+      this.hints.push(hint);
+    });
+  };
 }
 
 decorate(Store, {
   stories: observable,
   characters: observable,
+  hints: observable,
   addStory: action,
   addCharacter: action,
   getInfo: action
