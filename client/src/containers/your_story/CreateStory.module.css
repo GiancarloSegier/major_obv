@@ -1,5 +1,7 @@
 .pageTitle {
-    composes: heading-3 from "../../styles/typo.module.css"
+    composes: heading-1 from "../../styles/typo.module.css";
+        font-size: 4.5rem;
+    margin: 0;
 }
 .part__title{
 
@@ -16,7 +18,7 @@
 
 .split_grid{
     composes: split_grid from "../../styles/ui.module.css";
-    grid-template-columns: 58% 50%;
+    grid-template-columns: 58% calc(42% - 5rem);
 }
 
 .character__image{
@@ -31,6 +33,7 @@
 
 .button {
     composes: button from '../../styles/ui.module.css';
+    width: 15rem;
 }
 
 .margin_top{

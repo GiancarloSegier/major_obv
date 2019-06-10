@@ -1,8 +1,9 @@
 .pageTitle {
-    composes: heading-1 from "../../../styles/typo.module.css"
+    composes: heading-1 from "../../../styles/typo.module.css";
+    font-size: 4.5rem;
+    margin: 0;
 }
 .part__title{
-
   composes: heading-3 from "../../../styles/typo.module.css";
   color: var(--grey-color);
   margin-left: -3.2rem;
@@ -21,11 +22,12 @@
   top:0;
   right: 0;
   object-fit: contain;
-  width: 40%;
+  width: 35%;
 }
 
 .button {
    composes: button from '../../../styles/ui.module.css';
+   width: 15rem;
 }
 
 .character__genders{
@@ -41,14 +43,64 @@
     flex-direction: column;
     justify-content: space-between;
 }
+.textEditor{
+padding-left: 33px;
+}
 
 .inputfield{
   composes: inputField from "../../../styles/ui.module.css";
 }
 
-.inputfield[id='age']{
-  width: 15rem;
+.titleField{
+    composes: storyTitle from "../../../styles/ui.module.css";
 }
-.inputfield[id='location']{
-  width: 40rem;
+
+.textField{
+      composes: textField from "../../../styles/ui.module.css";
+}
+.inputfield[id='name'], .inputfield[id='location']{
+  width: 50%;
+}
+.inputfield[id='age']{
+  width: 20%;
+  text-align: center;
+}
+
+.inputfield[id='personality1'], .inputfield[id='personality2'], .inputfield[id='personality3']{
+  width: 55%;
+}
+
+.inputfield[id='name'], .inputfield[id='location'], .inputfield[id='personality3']{
+  display: block;
+
+}
+.moveUp{
+    transform: translateY(-1rem);
+    display: inline-block;
+}
+
+.tags{
+  width: 80%;
+}
+
+.tag{
+  composes: tag from "../../../styles/ui.module.css";
+}
+
+.tag__input{
+    composes: tag__input from "../../../styles/ui.module.css"
+}
+
+.tag__checkBox{
+      composes: tag__checkBox from "../../../styles/ui.module.css"
+}
+
+.editorGrid{
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 2fr .25fr 1fr;
+  grid-gap: 5rem;
+}
+.hints{
+  grid-column: 3;
 }

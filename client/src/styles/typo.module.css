@@ -36,7 +36,7 @@
 .heading-1 {
   font-size: 8rem;
   font-weight: 900;
-  line-height: 1.2;
+  line-height: 1.5;
   margin-bottom: 4rem;
   font-family: "oakes", sans-serif;
 }
@@ -65,6 +65,7 @@
 .body {
   font-family: "charter", serif;
   font-size: 1.6rem;
+  line-height: 1.6;
 }
 
 .oakes {

@@ -46,11 +46,14 @@ class CreateCharacter extends Component {
     return (
       <form onSubmit={this.nextPage}>
         <div className={styles.margin_left}>
-          <p className={styles.part__title}>
+          <h2 className={styles.part__title}>
             <span className={styles.part__step}>01</span> Jouw personage{" "}
-          </p>
+          </h2>
           <div>
-            <h2 className={`${styles.pageTitle}`}>Hallo wereld, hier is </h2>
+            <h2 className={`${styles.pageTitle}`}>
+              Hallo wereld, <br />
+              hier is{" "}
+            </h2>
             <input
               type="text"
               name="name"

@@ -4,16 +4,16 @@ import { inject, observer } from "mobx-react";
 
 const StoryInfo = ({ name, nextForm, store }) => {
   const basicTags = [
-    "#Romantisch",
-    "#Waargebeurd",
-    "#Ontroerend",
-    "#Spannend",
-    "#Gek",
-    "#Mysterieus",
-    "#Grappig",
-    "#Avontuurlijk",
-    "#Onverwacht",
-    "#Actievol"
+    "Romantisch",
+    "Waargebeurd",
+    "Ontroerend",
+    "Spannend",
+    "Gek",
+    "Mysterieus",
+    "Grappig",
+    "Avontuurlijk",
+    "Onverwacht",
+    "Actievol"
   ];
   let i = 0;
   const tags = [];
@@ -41,27 +41,36 @@ const StoryInfo = ({ name, nextForm, store }) => {
 
   return (
     <form onSubmit={nextPage}>
-      <h2 className={styles.tagline}>02 Leeftijd & Locatie </h2>
-      <p className={styles.pageTitle}>{name}'s verhaal is</p>
-      {basicTags.map(
-        tag => (
-          i++,
-          (
-            <label key={i}>
-              <input
-                type="checkbox"
-                id={`tag${i}`}
-                onClick={setTags}
-                value={tag}
-              />
-              {tag}
-            </label>
-          )
-        )
-      )}
-      <button type="submit" className={styles.button}>
-        Volgende
-      </button>
+      <div className={styles.margin_left}>
+        <h2 className={styles.tagline}>02 Leeftijd & Locatie </h2>
+        <div>
+          <p className={styles.pageTitle}>
+            {name}'s <br /> verhaal is
+          </p>
+          <div className={styles.tags}>
+            {basicTags.map(
+              tag => (
+                i++,
+                (
+                  <label key={i} className={styles.tag}>
+                    <input
+                      type="checkbox"
+                      id={`tag${i}`}
+                      onClick={setTags}
+                      value={tag}
+                      className={styles.tag__input}
+                    />
+                    <div className={styles.tag__checkBox}>{tag}</div>
+                  </label>
+                )
+              )
+            )}
+          </div>
+        </div>
+        <button type="submit" className={styles.button}>
+          Volgende
+        </button>
+      </div>
     </form>
   );
 };

@@ -11,6 +11,11 @@
   position: relative;
   composes: oakes from "./typo.module.css";
 }
+.button:hover{
+  cursor: pointer;
+}
+
+
 
 .button:after {
   content: "";
@@ -21,6 +26,7 @@
   position: absolute;
   right: 0;
   top: 50%;
+    transition: .2s ease-in-out;
 }
 
 .button::before {
@@ -35,6 +41,14 @@
   right: 0.1rem;
   top: calc(50% - 0.6rem);
   transform: rotate(45deg);
+    transition: .2s ease-in-out;
+}
+.button:hover:after{
+  transform: translateX(2rem);
+}
+
+.button:hover:before {
+  transform: translateX(2rem) rotate(45deg);
 }
 
 .split_grid {
@@ -53,21 +67,98 @@
   object-fit: contain;
 }
 
-.inputField {
+/* Form elements */
+
+.inputField, .storyTitle {
   background: none;
   border: none;
   border-bottom: 0.2rem solid var(--light-color);
   color: var(--light-color);
-  font-size: 5rem;
+  font-size: 3rem;
   font-weight: bold;
   padding: 0.5rem 0;
-  margin-top: -5rem;
-  line-height: 1;
   composes: oakes from "./typo.module.css";
   width: 100%;
+  transition: .2s ease-in-out;
+
 }
 .inputField::placeholder {
   color: var(--light-color);
   font-size: 1.4rem;
   display: block;
+  text-align: left;
+}
+.storyTitle{
+  border-color: transparent;
+  margin-bottom: 3rem;
+      font-size: 4.5rem;
+}
+.textField{
+  width: 100%;
+  max-width: 100%;
+  background: none;
+  composes: body from "./typo.module.css";
+  font-size: 2rem;
+  border: none;
+
+  color: var(--light-grey-color);
+  border-left: 0.2rem solid transparent;
+  padding-left: 0;
+  padding-right: 2rem;
+  transition: .2s ease-in-out;
+  resize: none;
+}
+.textField::placeholder{
+  color: var(--light-grey-color);
+}
+.storyTitle::placeholder{
+  color: var(--light-color)
+}
+
+.inputField:focus, .storyTitle:focus{
+  outline: none;
+  border-color: var(--highlight-color)
+}
+
+ .textField:focus{
+  outline: none;
+  border-color: var(--highlight-color);
+  padding-left: 2rem;
+  padding-right: 0;
+}
+
+
+
+/* tags */
+
+.tag{
+  display: inline-block;
+    composes: oakes from "./typo.module.css";
+  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+}
+
+.tag:hover .tag__checkBox{
+  border-color: var(--highlight-color);
+  cursor: pointer;
+}
+
+.tag__input:checked + .tag{
+  background-color: red;
+}
+
+.tag__input{
+  display: none;
+}
+
+.tag__checkBox{
+  padding: 1rem;
+    border: .2rem solid var(--light-color);
+    transition: .2s ease-in-out;
+}
+
+.tag__input:checked ~ .tag__checkBox{
+  background-color: var(--highlight-color);
+  border-color: transparent;
 }

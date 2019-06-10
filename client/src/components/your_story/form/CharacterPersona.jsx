@@ -17,37 +17,50 @@ const CharacterPersona = ({ name, nextForm, store }) => {
 
   return (
     <form onSubmit={nextPage}>
-      <h2 className={styles.tagline}>03 Karakter </h2>
-      <p className={styles.pageTitle}>
-        {name} is{" "}
-        <input
-          type="text"
-          id="personality1"
-          min="1"
-          required
-          placeholder="Vul een karaktereigenschap in"
-          onChange={e => setPersonalities(e, 1)}
-        />{" "}
-        ,{" "}
-        <input
-          type="text"
-          id="personality2"
-          required
-          placeholder="Vul nog een karaktereigenschap in"
-          onChange={e => setPersonalities(e, 2)}
-        />{" "}
-        , maar vooral{" "}
-        <input
-          type="text"
-          id="personality3"
-          required
-          placeholder="Vul nog een karaktereigenschap in"
-          onChange={e => setPersonalities(e, 3)}
-        />
-      </p>
-      <button type="submit" className={styles.button}>
-        Volgende
-      </button>
+      <div className={styles.margin_left}>
+        <h2 className={styles.part__title}>
+          <span className={styles.part__step}>03</span> Karakter{" "}
+        </h2>
+        <div>
+          <p className={styles.pageTitle}>
+            {name} is <br />
+            <span className={styles.moveUp}>
+              <input
+                type="text"
+                id="personality1"
+                min="1"
+                required
+                placeholder="Vul een karaktereigenschap in"
+                onChange={e => setPersonalities(e, 1)}
+                className={styles.inputfield}
+              />
+              {" ,"}
+              <input
+                type="text"
+                id="personality2"
+                required
+                placeholder="Vul nog een karaktereigenschap in"
+                onChange={e => setPersonalities(e, 2)}
+                className={styles.inputfield}
+              />
+              {" ,"}
+            </span>
+            <br />
+            maar vooral <br />
+            <input
+              type="text"
+              id="personality3"
+              required
+              placeholder="Vul nog een karaktereigenschap in"
+              onChange={e => setPersonalities(e, 3)}
+              className={styles.inputfield}
+            />
+          </p>
+        </div>
+        <button type="submit" className={styles.button}>
+          Volgende
+        </button>
+      </div>
     </form>
   );
 };

@@ -41,7 +41,7 @@ class CreateStory extends Component {
     const { customStory } = this.props.store;
     return (
       <>
-        <CreateTimeline step={step} />
+        {step < 6 ? <CreateTimeline step={step} /> : " "}
 
         <section className={`container ${styles.margin_top}`}>
           {step === 1 ? (
@@ -56,47 +56,41 @@ class CreateStory extends Component {
           ) : (
             <>
               <div className={styles.split_grid}>
-                <div className={styles.margin_left}>
-                  {step === 2 ? (
-                    <CharacterInfo
-                      step={step}
-                      name={customStory.name}
-                      nextForm={this.nextForm}
-                    />
-                  ) : step === 3 ? (
-                    <CharacterPersona
-                      step={step}
-                      name={customStory.name}
-                      nextForm={this.nextForm}
-                    />
-                  ) : step === 4 ? (
-                    <StoryInfo
-                      name={customStory.name}
-                      nextForm={this.nextForm}
-                    />
-                  ) : step === 5 ? (
-                    <div className={styles.margin_left}>
-                      <h2 className={`${styles.part__title} `}>
-                        <span className={styles.part__step}>05</span> Leeftijd &
-                        Locatie{" "}
-                      </h2>
-                      <p className={`${styles.pageTitle}`}>
-                        {" "}
-                        Tijd om {customStory.name} op avontuur te sturen{" "}
-                      </p>
-                      <button onClick={this.nextForm} className={styles.button}>
-                        volgende
-                      </button>
-                    </div>
-                  ) : step === 6 ? (
-                    <StoryEditor
-                      step={step}
-                      submitForm={this.handleSubmitForm}
-                    />
-                  ) : (
-                    <p>Er is iets misgelopen</p>
-                  )}
-                </div>
+                {step === 2 ? (
+                  <CharacterInfo
+                    step={step}
+                    name={customStory.name}
+                    nextForm={this.nextForm}
+                  />
+                ) : step === 3 ? (
+                  <CharacterPersona
+                    step={step}
+                    name={customStory.name}
+                    nextForm={this.nextForm}
+                  />
+                ) : step === 4 ? (
+                  <StoryInfo name={customStory.name} nextForm={this.nextForm} />
+                ) : step === 5 ? (
+                  <div className={styles.margin_left}>
+                    <h2 className={`${styles.part__title} `}>
+                      <span className={styles.part__step}>05</span> Leeftijd &
+                      Locatie{" "}
+                    </h2>
+                    <p className={`${styles.pageTitle}`}>
+                      {" "}
+                      Tijd om {customStory.name} op avontuur te sturen{" "}
+                    </p>
+                    <button onClick={this.nextForm} className={styles.button}>
+                      volgende
+                    </button>
+                  </div>
+                ) : step === 6 ? (
+                  <StoryEditor step={step} submitForm={this.handleSubmitForm} />
+                ) : (
+                  <p>Er is iets misgelopen</p>
+                )}
+              </div>
+              {step !== 6 ? (
                 <CharacterImage
                   head={customStory.head}
                   eyes={customStory.eyes}
@@ -105,7 +99,9 @@ class CreateStory extends Component {
                   name={customStory.name}
                   full={true}
                 />
-              </div>
+              ) : (
+                ""
+              )}
             </>
           )}
         </section>
