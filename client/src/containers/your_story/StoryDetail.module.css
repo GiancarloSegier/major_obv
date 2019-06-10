@@ -1,33 +1,106 @@
-.story{
+/* .story{
     display: grid;
     grid-gap: 10rem;
     grid-template-columns: 1fr 4fr;
+} */
+
+.button_back {
+    margin: 2rem 0 2rem 5rem;
+    background: none;
+    border: none;
+    color: var(--light-color);
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 1.5rem 0;
+    padding-right: 4rem;
+    text-align: left;
+    position: relative;
+    composes: oakes from "../../styles/typo.module.css";
+  }
+
+  .button_back:after {
+    content: "";
+    display: block;
+    height: 0.2rem;
+    width: 2.7rem;
+    background-color: var(--highlight-color);
+    position: absolute;
+    left: -5rem;
+    top: 50%;
+  }
+  
+  .button_back::before {
+    content: "";
+    display: block;
+    border: 0.2rem solid var(--highlight-color);
+    border-left: none;
+    border-bottom: none;
+    height: 1.2rem;
+    width: 1.2rem;
+    position: absolute;
+    left: -5rem;
+    top: calc(50% - 0.5rem);
+    transform: rotate(225deg);
+  }
+
+/* .story__about{
+    grid: 1 / 2;
+}
+*/
+
+.story__infoGrid {
+    display: grid;
+    grid-template-columns: 12.5rem 1fr;
+    grid-template-rows: 16rem;
+    margin-bottom: 5rem;
 }
 
-.story__about{
-    grid: 1 / 2;
+.characterImage {
+    width: 2rem;
+}
+
+.story__info {
+    background-color: var(--highlight-color);
+    padding: 2.5rem;
+}
+
+.story__author {
+    composes: heading-3 from "../../styles/typo.module.css";
+    color: var(--dark-color);
+    margin-bottom: 1.3rem
 }
 
 .story__tags{
     display: flex;
-}
+} 
 
 .story__tag{
-    composes: filter__tag from "../Home.module.css";
+    font-size: 1.2rem;
+    font-family: "oakes", sans-serif;
+    font-weight: 500;
+    color: var(--grey-color);
+    
 }
 
-.story__author{
-    composes: heading-3 from "../../styles/typo.module.css"
-}
 .story__title{
-    composes: heading-2 from "../../styles/typo.module.css"
+    composes: heading-2 from "../../styles/typo.module.css";
+    margin-top: 1.5rem;
 }
 
 .story__text{
     composes: body from "../../styles/typo.module.css";
+    color: var(--light-grey-color);
     margin-bottom: 2rem;
-    font-size: 2.2rem;
 }
 .story__introduction{
-        composes: body from "../../styles/typo.module.css";
+    font-size: 1.4rem;
+    color: var(--light-color);
+    font-family: "oakes", sans-serif;
+    line-height: 1.5;
+}
+
+@media only screen and (min-width:400px){
+    .button_back {
+      
+    }
 }
