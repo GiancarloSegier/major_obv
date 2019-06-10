@@ -31,7 +31,7 @@ const StoryDetail = ({ storyId, store }) => {
 
   return (
     <section id="story" className={styles.story}>
-      <div className={`container`}>
+      <div className={`container ${styles.story__backButton}`}>
         <Link to={`/`}>
           <button className={styles.button_back}>Alle verhalen</button>
         </Link>
@@ -71,7 +71,7 @@ const StoryDetail = ({ storyId, store }) => {
         </div>
       </div>
 
-      <div className={`container`}>
+      <div className={`container ${styles.story__content}`}>
         <div className={styles.story__tags}>
           {Object.keys(tags).map(key => (
             <p key={key} className={styles.story__tag}>
