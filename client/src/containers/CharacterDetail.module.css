@@ -78,7 +78,7 @@
   width: 1.4rem;
   position: absolute;
   left: -5rem;
-  top: calc(50% - 0.5rem);
+  top: calc(50% - 0.6rem);
   transform: rotate(225deg);
 }
 
