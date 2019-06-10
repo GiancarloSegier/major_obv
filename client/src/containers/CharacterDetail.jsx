@@ -29,7 +29,7 @@ const CharacterDetail = ({ characterId, store }) => {
         </div>
         <div className={styles.character__image}>
           <img
-            src="../assets/img/almaviva.jpg"
+            src={`../assets/img/${current.name}.jpg`}
             alt=""
             className={styles.image}
           />

@@ -13,15 +13,12 @@ class CharacterStory extends Component {
   clearAuto = () => {
     clearInterval(this.timerAuto);
   };
-  lauchSounds = () => {
-    // this.audio = new Audio("../assets/sounds/background.mp3");
-    // this.audio.play();
-  };
+  lauchSounds = () => {};
   componentDidMount = () => {
     console.log("component mount");
 
-    this.timerAuto = setInterval(this.goToNextPart, 5000);
-    this.timerClearAuto = setInterval(this.clearAuto, 25000);
+    this.timerAuto = setInterval(this.goToNextPart, 10000);
+    // this.timerClearAuto = setInterval(this.clearAuto, 128000);
   };
   hide = () => {
     this.setState({ show: false });
@@ -40,9 +37,15 @@ class CharacterStory extends Component {
   };
 
   goToNextPart = () => {
-    this.timerHide = setInterval(this.hide, 100);
-    this.timerText = setInterval(this.changetext, 300);
-    this.timerShow = setInterval(this.show, 500);
+    if (!this.justClicked) {
+      this.justClicked = true;
+      this.timerHide = setInterval(this.hide, 100);
+      this.timerText = setInterval(this.changetext, 500);
+      this.timerShow = setInterval(this.show, 700);
+      this.justClickedTimeout = setTimeout(() => {
+        this.justClicked = false;
+      }, 500);
+    }
   };
 
   render() {
@@ -52,6 +55,10 @@ class CharacterStory extends Component {
     const current = characters.find(character => character.id === characterId);
     if (!current) {
       return null;
+    }
+    if (this.state.part === 15) {
+      console.log("ting");
+      this.clearAuto();
     }
 
     return (
