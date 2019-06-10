@@ -51,10 +51,27 @@ const StoryDetail = ({ storyId, store }) => {
             {name} is een {age}-jarige {gender} uit {location}. {name} is{" "}
             {personality[0]}, {personality[1]}, maar vooral {personality[2]}.
           </p>
+          <div className={styles.story__socialMedia1}>
+            <h2 className={styles.story__shareStory}>Deel dit verhaal</h2>
+            <ul className={styles.social_iconslist}>
+              <a href="http://www.facebook.com">
+                <li className={styles.social_facebook} />
+              </a>
+              <a href="http://www.instagram.com">
+                <li className={styles.social_instagram} />{" "}
+              </a>
+              <a href="http://www.twitter.com">
+                <li className={styles.social_twitter} />{" "}
+              </a>
+              <a href="http://www.spotify.com">
+                <li className={styles.social_spotify} />
+              </a>
+            </ul>
+          </div>
         </div>
       </div>
 
-      <div className={`container ${styles.story__block}`}>
+      <div className={`container`}>
         <div className={styles.story__tags}>
           {Object.keys(tags).map(key => (
             <p key={key} className={styles.story__tag}>
@@ -69,6 +86,23 @@ const StoryDetail = ({ storyId, store }) => {
             {p}
           </p>
         ))}
+        <div className={styles.story__socialMedia2}>
+          <h2 className={styles.story__shareStory}>Deel dit verhaal</h2>
+          <ul className={styles.social_iconslist}>
+            <a href="http://www.facebook.com">
+              <li className={styles.social_facebook} />
+            </a>
+            <a href="http://www.instagram.com">
+              <li className={styles.social_instagram} />{" "}
+            </a>
+            <a href="http://www.twitter.com">
+              <li className={styles.social_twitter} />{" "}
+            </a>
+            <a href="http://www.spotify.com">
+              <li className={styles.social_spotify} />
+            </a>
+          </ul>
+        </div>
       </div>
     </section>
   );
