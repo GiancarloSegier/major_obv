@@ -57,7 +57,7 @@ const StoryInfo = ({ name, nextForm, store }) => {
                       type="checkbox"
                       id={`tag${i}`}
                       onClick={setTags}
-                      value={tag}
+                      value={`#${tag}`}
                       className={styles.tag__input}
                     />
                     <div className={styles.tag__checkBox}>{tag}</div>

@@ -101,25 +101,25 @@ class CreateCharacter extends Component {
               value="man"
               onChange={this.genderChange}
               required
+              className={styles.gender__check}
             />
-            man
             <input
               type="radio"
               name="gender"
               value="transgender"
               onChange={this.genderChange}
               required
+              className={styles.gender__check}
               defaultChecked
             />
-            transgender
             <input
               type="radio"
               name="gender"
               value="vrouw"
               onChange={this.genderChange}
               required
+              className={styles.gender__check}
             />
-            vrouw
           </div>
         </div>
       </form>

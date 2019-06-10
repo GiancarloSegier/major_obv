@@ -34,7 +34,51 @@
   justify-self: center;
   bottom: 0;
   position: absolute;
+  background-color: var(--dark-color);
+  padding: .5rem;
+  border-radius: 10rem;
+  bottom: 5%;
 }
+
+.gender__check{
+  appearance: none;
+}
+.gender__check:hover{
+  cursor: pointer;
+}
+
+
+.gender__check:after{
+  content: "";
+  display: block;
+  height: 2.6rem;
+  width: 2.6rem;
+  opacity: .65;
+  background-size: contain;
+  margin: 0 .5rem;
+  transition: .2s ease-in-out;
+}
+.gender__check[value="man"]:after{
+  background-image: url('../../../styles/assets/icons/male.png');
+  opacity: .35;
+}
+.gender__check[value="transgender"]:after{
+  background-image: url('../../../styles/assets/icons/trans.png');
+  opacity: .35;
+}
+.gender__check[value="vrouw"]:after{
+  background-image: url('../../../styles/assets/icons/female.png');
+  opacity: .35;
+}
+
+.gender__check:checked:after{
+  opacity: 1;
+}
+.gender__check:focus{
+  outline: none;
+}
+
+
 
 .margin_left{
   height: 60vh;
