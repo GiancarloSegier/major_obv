@@ -87,6 +87,39 @@
   border-color: var(--light-color);
 }
 
+.loadButton{
+  background: none;
+  border: none;
+    composes: oakes from "./typo.module.css";
+  font-size: 1.6rem;
+  color: var(--light-color);
+    cursor: pointer;
+}
+
+.addsign{
+    color: var(--highlight-color);
+    -webkit-text-stroke: .16rem var(--highlight-color);
+    transition: .2s ease-in-out;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -2rem;
+    line-height: 1;
+
+}
+.loadButton:hover{
+  cursor: pointer;
+}
+.loadButton:focus{
+  outline: none;
+}
+.loadButton:hover .addsign{
+  transform-origin: center;
+  transform: rotate(180deg) translateY(.15rem);
+}
+
+
+
 
 .split_grid {
   display: grid;

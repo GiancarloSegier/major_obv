@@ -10,8 +10,20 @@
     padding: 3rem 0;
     border-bottom: .2rem solid var(--grey-color)
 }
+.hint:last-child{
+    border: none;
+}
 
 .button {
    composes: check__button from '../../../styles/ui.module.css';
    width: 20rem;
+}
+.loadButton{
+       composes: loadButton from '../../../styles/ui.module.css';
+           margin-top: 5rem;
+           position: relative;
+}
+.addsign{
+composes: addsign from '../../../styles/ui.module.css';
+
 }
