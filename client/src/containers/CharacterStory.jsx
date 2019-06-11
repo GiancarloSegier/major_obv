@@ -3,6 +3,11 @@ import { inject, observer } from "mobx-react";
 import StoryPart from "../components/StoryPart";
 import StoryTimeline from "../components/StoryTimeline";
 import styles from "../containers/CharacterStory.module.css";
+import clicksound from "../styles/assets/sounds/click.wav";
+import backgroundsound from "../styles/assets/sounds/background1.mp3";
+//
+const click = new Audio(clicksound);
+const background = new Audio(backgroundsound);
 
 class CharacterStory extends Component {
   constructor(props) {
@@ -16,8 +21,8 @@ class CharacterStory extends Component {
   lauchSounds = () => {};
   componentDidMount = () => {
     console.log("component mount");
-
-    this.timerAuto = setInterval(this.goToNextPart, 10000);
+    this.playMusic();
+    // this.timerAuto = setInterval(this.goToNextPart, 10000);
     // this.timerClearAuto = setInterval(this.clearAuto, 128000);
   };
   hide = () => {
@@ -36,8 +41,16 @@ class CharacterStory extends Component {
     clearInterval(this.timerText);
   };
 
+  playMusic = () => {
+    if (this.state.music === true) {
+      background.play();
+    } else {
+      console.log("mute");
+    }
+  };
   goToNextPart = () => {
     if (!this.justClicked) {
+      click.play();
       this.justClicked = true;
       this.timerHide = setInterval(this.hide, 100);
       this.timerText = setInterval(this.changetext, 500);
@@ -70,6 +83,7 @@ class CharacterStory extends Component {
               story={current.story}
               handleClick={this.goToNextPart}
             />
+
             <StoryTimeline state={this.state} story={current.story} />
           </div>
         </div>

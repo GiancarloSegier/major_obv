@@ -36,6 +36,7 @@
 
 .button {
   composes: button from "../styles/ui.module.css";
+  margin-top: 5rem;
 }
 
 .margin_left {
@@ -77,6 +78,66 @@
   width: 1.4rem;
   position: absolute;
   left: -5rem;
-  top: calc(50% - 0.5rem);
+  top: calc(50% - 0.6rem);
   transform: rotate(225deg);
+}
+
+.social {
+  background-color: #e4003f;
+  position: absolute;
+  bottom: 20rem;
+  width: 10rem;
+  height: 20rem;
+  display: flex;
+}
+
+.social_followme {
+  writing-mode: vertical-rl;
+  transform: scale(-1);
+  text-orientation: mixed;
+
+  width: 30%;
+  margin-left: 20px;
+  margin-top: 20px;
+  align-self: flex-start;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  composes: oakes from "../styles/typo.module.css";
+  letter-spacing: 4px;
+}
+
+.social_followme:before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: white;
+  width: 2px;
+  height: 70px;
+  margin-top: -90px;
+  right: 5px;
+}
+.social_iconslist {
+  width: 50%;
+  top: 0;
+
+  align-self: center;
+}
+.social_iconslist li {
+  width: 15px;
+  height: 15px;
+  margin-bottom: 22px;
+  margin-left: 10px;
+}
+
+.social_instagram {
+  background-image: url("../styles/assets/icons/instagram.svg");
+}
+.social_twitter {
+  background-image: url("../styles/assets/icons/twitter.svg");
+}
+.social_facebook {
+  background-image: url("../styles/assets/icons/facebook.svg");
+}
+.social_spotify {
+  background-image: url("../styles/assets/icons/spotify.svg");
 }
