@@ -12,9 +12,9 @@ const CharacterDetail = ({ characterId, store }) => {
   }
 
   return (
-    <section className="container ">
+    <section className={`container ${styles.wrapper}`}>
       <div className={styles.split_grid}>
-        <div>
+        <div className={styles.character__text}>
           <Link to={`/`}>
             <button className={styles.button_back}>Alle verhalen</button>
           </Link>

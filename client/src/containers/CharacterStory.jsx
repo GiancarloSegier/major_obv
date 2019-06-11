@@ -4,44 +4,39 @@ import { Link } from "react-router-dom";
 import StoryPart from "../components/StoryPart";
 import StoryTimeline from "../components/StoryTimeline";
 import styles from "../containers/CharacterStory.module.css";
-import clicksound from "../styles/assets/sounds/click.wav";
-import backgroundsound from "../styles/assets/sounds/background1.mp3";
+import music from "../styles/assets/sounds/background1.mp3";
+
 //
-const click = new Audio(clicksound);
-const background = new Audio(backgroundsound);
 
 class CharacterStory extends Component {
   constructor(props) {
     super(props);
     this.state = { part: 0, show: true, music: true };
+    this.audioRef = React.createRef();
+    this.background = new Audio(music);
   }
 
-  clearAuto = () => {
-    clearInterval(this.timerAuto);
+  componentDidMount() {
+    setTimeout(() => this.playFirst(), 500);
+    console.log("mounted");
+    // window.addEventListener("onbeforeunload", this.reset());
+  }
+
+  reset = () => {
+    console.log("reset");
+    this.lauchSounds();
   };
-  lauchSounds = () => {};
-  componentWillMount = () => {
-    window.document.body.classList.add("navigation-hidden");
-    console.log("component mount");
-    this.playMusic();
+
+  lauchSounds = () => {
+    console.log(this.state.music);
+    const timerId = setInterval(this.playFirst(), 1000);
   };
-  componentWillUnmount = () => {
-    window.document.body.classList.remove("navigation-hidden");
-  };
-  componentDidMount = () => {
-    // this.timerAuto = setInterval(this.goToNextPart, 10000);
-    // this.timerClearAuto = setInterval(this.clearAuto, 128000);
-  };
-  hide = () => {
-    this.setState({ show: false });
-    clearInterval(this.timerHide);
-  };
-  show = () => {
-    this.setState({ show: true });
-    clearInterval(this.timerShow);
+
+  playFirst = () => {
+    this.background.play();
+    clearInterval(this.timerId);
   };
   changetext = () => {
-    console.log("change text");
     this.currentpage = this.state.part;
     this.currentpage++;
     this.setState({ part: this.currentpage });
@@ -49,18 +44,19 @@ class CharacterStory extends Component {
   };
 
   playMusic = () => {
-    if (this.state.music === true) {
+    console.log("test", this.state.music);
+    if (this.state.music === false) {
       console.log("play");
-      background.play();
+      this.background.play();
     } else {
       console.log("pause");
-      background.pause();
+      this.background.pause();
     }
   };
 
   goToNextPart = () => {
     if (!this.justClicked) {
-      click.play();
+      // click.play();
       this.justClicked = true;
       this.timerHide = setInterval(this.hide, 100);
       this.timerText = setInterval(this.changetext, 500);
@@ -71,14 +67,16 @@ class CharacterStory extends Component {
     }
   };
   handleGoBack = () => {
-    // console.log("testere");
-    // background.pause();
+    this.background.pause();
   };
 
   toggleSound = () => {
     this.setState({ music: !this.state.music });
+
+    console.log(this.state.music);
     this.playMusic();
   };
+
   render() {
     const { characterId, store } = this.props;
     const { characters } = store;
@@ -89,7 +87,6 @@ class CharacterStory extends Component {
     }
     if (this.state.part === 15) {
       console.log("ting");
-      this.clearAuto();
     }
 
     return (
@@ -98,11 +95,8 @@ class CharacterStory extends Component {
           <div className="container full_view">
             <div className={styles.flexer}>
               <p className={styles.storyname}>{current.name}'s verhaal</p>
-              <Link
-                onClick={this.handleGoBack()}
-                to="/character/5cf78413e35fc80995d4ebce"
-              >
-                <button className={styles.close} />
+              <Link to={`/character/${characterId}`}>
+                <button onClick={this.handleGoBack} className={styles.close} />
               </Link>
             </div>
 
@@ -117,22 +111,22 @@ class CharacterStory extends Component {
                 <div className={styles.mutebars}>
                   <div
                     className={`${styles.rect} ${styles.rect1} ${
-                      !this.state.music ? "" : styles.no_animation
+                      this.state.music ? "" : styles.no_animation
                     }`}
                   />
                   <div
                     className={`${styles.rect} ${styles.rect2} ${
-                      !this.state.music ? "" : styles.no_animation
+                      this.state.music ? "" : styles.no_animation
                     }`}
                   />
                   <div
                     className={`${styles.rect} ${styles.rect3} ${
-                      !this.state.music ? "" : styles.no_animation
+                      this.state.music ? "" : styles.no_animation
                     }`}
                   />
                   <div
                     className={`${styles.rect} ${styles.rect4} ${
-                      !this.state.music ? "" : styles.no_animation
+                      this.state.music ? "" : styles.no_animation
                     }`}
                   />
                 </div>

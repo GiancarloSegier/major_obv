@@ -75,7 +75,7 @@
 .tagline {
   font-size: 1.4rem;
   color: var(--grey-color);
-  font-family: 'oakes'
+  font-family: "oakes";
 }
 
 .body {
@@ -88,7 +88,7 @@
   font-family: "oakes", sans-serif;
 }
 
-@media only screen and (min-width:700px){
+@media only screen and (min-width: 700px) {
   .heading-2 {
     font-size: 4rem;
   }
@@ -98,7 +98,7 @@
   }
 }
 
-@media only screen and (min-width:1200px){
+@media only screen and (min-width: 1200px) {
   .heading-2 {
     font-size: 4.5rem;
   }
