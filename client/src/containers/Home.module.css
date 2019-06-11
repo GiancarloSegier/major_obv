@@ -2,8 +2,11 @@
     composes: heading-1 from '../styles/typo.module.css';
 }
 
-.section__title{
+.section__title, .largeText{
     composes: heading-2 from '../styles/typo.module.css';
+    line-height: 1.4;
+    margin-bottom: 1rem;
+
 }
 
 .characters{
@@ -51,37 +54,78 @@
 }
 
 .description{
-    width: 50%;
-
     composes: body from '../styles/typo.module.css';
+    font-size: 2rem;
+    color: var(--light-grey-color)
 }
-
-.filter{
-    margin-top: 5rem;
-}
-.filter__title{
+.filter__title, .subTitle{
     composes: heading-3 from '../styles/typo.module.css';
 }
 .filter__tags{
-    display: flex;
-    flex-wrap: wrap;
 
 }
-.filter__tag{
-    composes: body from '../styles/typo.module.css';
-    color: #b8b8b8;
-    padding: 1rem 2rem;
-    border: .2rem solid #b8b8b8;
-    border-radius: 5rem;
-    margin-right: 1.2rem;
-    margin-bottom: 1.2rem;
+.tag{
+composes: tag from '../styles/ui.module.css';
+}
+.tag__input{
+    composes: tag__input from '../styles/ui.module.css';
 }
 
-.filter__active{
-    background-color: #b8b8b8;
-    color: #fff;
-}
+.tag__checkBox{
+        composes: tag__checkBox from '../styles/ui.module.css';
 
+}
 .split_grid{
-composes: split_grid from "../styles/ui.module.css"
+composes: split_grid from "../styles/grids.module.css"
+}
+
+.grid__half{
+    composes: grid__half from "../styles/grids.module.css";
+    align-items: center;
+}
+.searchField{
+    composes: searchField from '../styles/ui.module.css';
+}
+.searchField__icon{
+    composes: searchField__icon from '../styles/ui.module.css';
+}
+.border__bottom{
+       border-bottom: .2rem solid var(--grey-color);
+}
+.grid__half img{
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.button{
+    composes: button from "../styles/ui.module.css";
+    margin-left: 10rem;
+    margin-top: 5rem;
+}
+
+.loadButton{
+    composes: loadButton from '../styles/ui.module.css';
+    margin-top: 5rem;
+    position: relative;
+    grid-column: 1 / -1;
+    width: 18rem;
+    justify-self: center;
+    margin-left: -3rem;
+    transition: all .2s ease-in-out;
+    transition-delay: .7s;
+}
+.addsign{
+    composes: addsign from '../styles/ui.module.css';
+}
+
+.hideButton{
+    opacity: 0;
+}
+.hideButton:hover{
+    cursor: auto;
+}
+.hideButton.addsign{
+    opacity: 0;
 }

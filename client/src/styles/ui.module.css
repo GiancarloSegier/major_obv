@@ -120,23 +120,6 @@
 
 
 
-
-.split_grid {
-  display: grid;
-  grid-template-columns: 1fr 38%;
-  grid-gap: 5rem;
-}
-
-.character__image {
-  height: 100vh;
-  composes: character__image from "./grids.module.css";
-  position: absolute;
-  width: 40%;
-  top: 0;
-  right: 0;
-  object-fit: contain;
-}
-
 /* Form elements */
 
 .inputField, .storyTitle {
@@ -181,11 +164,11 @@
 .textField::placeholder{
   color: var(--light-grey-color);
 }
-.storyTitle::placeholder{
+.storyTitle::placeholderÒ{
   color: var(--light-color)
 }
 
-.inputField:focus, .storyTitle:focus{
+.inputField:focus, .storyTitle:focus, .searchField:focus{
   outline: none;
   border-color: var(--highlight-color)
 }
@@ -197,16 +180,39 @@
   padding-right: 0;
 }
 
+.searchField{
+  background: none;
+  border: none;
+  border: 0.2rem solid var(--light-color);
+  padding: 1.2rem .5rem 1.1rem 4rem ;
+  composes: tagline from "./typo.module.css";
+  width: 100%;
+  transition: .2s ease-in-out;
+}
 
+.searchField__icon{
+  position: relative;
+}
+
+.searchField__icon:before{
+    content: "";
+    position: absolute;
+  display: block;
+  height: 1.5rem;
+    left: 1.2rem;
+    top: 1.2rem;
+  width: 1.5rem;
+  background-image: url('./assets/icons/search.png');
+  background-size: cover;
+}
 
 /* tags */
 
 .tag{
   display: inline-block;
-    composes: oakes from "./typo.module.css";
+    composes: tagline from "./typo.module.css";
   margin-right: 1.5rem;
   margin-bottom: 1.5rem;
-  font-size: 1.4rem;
 }
 
 .tag:hover .tag__checkBox{
@@ -231,4 +237,14 @@
 .tag__input:checked ~ .tag__checkBox{
   background-color: var(--highlight-color);
   border-color: transparent;
+}
+
+.character__image {
+  height: 100vh;
+  composes: character__image from "./grids.module.css";
+  position: absolute;
+  width: 40%;
+  top: 0;
+  right: 0;
+  object-fit: contain;
 }
