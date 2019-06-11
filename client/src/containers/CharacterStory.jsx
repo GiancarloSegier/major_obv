@@ -22,14 +22,13 @@ class CharacterStory extends Component {
   lauchSounds = () => {};
   componentWillMount = () => {
     window.document.body.classList.add("navigation-hidden");
+    console.log("component mount");
+    this.playMusic();
   };
   componentWillUnmount = () => {
     window.document.body.classList.remove("navigation-hidden");
   };
   componentDidMount = () => {
-    console.log("component mount");
-
-    this.playMusic();
     // this.timerAuto = setInterval(this.goToNextPart, 10000);
     // this.timerClearAuto = setInterval(this.clearAuto, 128000);
   };
@@ -58,6 +57,7 @@ class CharacterStory extends Component {
       background.pause();
     }
   };
+
   goToNextPart = () => {
     if (!this.justClicked) {
       click.play();
@@ -71,11 +71,11 @@ class CharacterStory extends Component {
     }
   };
   handleGoBack = () => {
-    console.log("back");
-    background.pause();
+    // console.log("testere");
+    // background.pause();
   };
 
-  toggelSound = () => {
+  toggleSound = () => {
     this.setState({ music: !this.state.music });
     this.playMusic();
   };
@@ -113,12 +113,28 @@ class CharacterStory extends Component {
             />
             <div className={styles.flexer}>
               <StoryTimeline state={this.state} story={current.story} />
-              <div onClick={this.toggelSound} className={styles.mute}>
+              <div onClick={this.toggleSound} className={styles.mute}>
                 <div className={styles.mutebars}>
-                  <div className={`${styles.rect} ${styles.rect1}`} />
-                  <div className={`${styles.rect} ${styles.rect2}`} />
-                  <div className={`${styles.rect} ${styles.rect3}`} />
-                  <div className={`${styles.rect} ${styles.rect4}`} />
+                  <div
+                    className={`${styles.rect} ${styles.rect1} ${
+                      !this.state.music ? "" : styles.no_animation
+                    }`}
+                  />
+                  <div
+                    className={`${styles.rect} ${styles.rect2} ${
+                      !this.state.music ? "" : styles.no_animation
+                    }`}
+                  />
+                  <div
+                    className={`${styles.rect} ${styles.rect3} ${
+                      !this.state.music ? "" : styles.no_animation
+                    }`}
+                  />
+                  <div
+                    className={`${styles.rect} ${styles.rect4} ${
+                      !this.state.music ? "" : styles.no_animation
+                    }`}
+                  />
                 </div>
               </div>
             </div>

@@ -45,6 +45,9 @@ const CharacterDetail = ({ characterId, store }) => {
               <a href="http://www.twitter.com">
                 <li className={styles.social_twitter} />{" "}
               </a>
+              <a href="http://www.spotify.com">
+                <li className={styles.social_spotify} />
+              </a>
             </ul>
           </div>
         </div>

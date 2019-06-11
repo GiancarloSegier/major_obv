@@ -12,11 +12,9 @@
 
 .intro {
   composes: body from "../styles/typo.module.css";
-  font-size: 2rem;
   color: var(--light-grey-color);
   margin-bottom: 5rem;
   width: 80%;
-  line-height: 3.2rem;
 }
 
 .split_grid {
@@ -140,4 +138,130 @@
 }
 .social_spotify {
   background-image: url("../styles/assets/icons/spotify.svg");
+}
+
+@media only screen and (min-width: 700px) {
+  .story__infoGrid {
+    grid-template-columns: 21.4rem 1fr;
+    grid-template-rows: 26.2rem;
+    margin-bottom: 5rem;
+  }
+
+  .story__introduction {
+    font-size: 1.6rem;
+  }
+
+  .story__info {
+    background-color: var(--highlight-color);
+    padding: 4rem;
+  }
+
+  .story__tag {
+    font-size: 1.4rem;
+  }
+
+  .story__text {
+    margin: 3rem 0 8rem 6rem;
+  }
+
+  .story__socialMedia1 {
+    display: initial;
+  }
+
+  .story__socialMedia2 {
+    display: none;
+  }
+
+  .story__socialMedia1 h2 {
+    color: var(--dark-color);
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .story {
+    display: grid;
+    grid-template-columns: 1fr 34rem;
+    grid-template-rows: 8rem auto;
+
+    grid-template-areas:
+      "back info"
+      "story info";
+  }
+
+  .story__infoGrid {
+    grid-area: info;
+    grid-template-columns: 100%;
+    grid-template-rows: 48.8rem 100%;
+    width: 34rem;
+    position: fixed;
+    right: 0;
+  }
+
+  .story__content {
+    margin: 0 10rem 0 5vw;
+    grid-area: story;
+  }
+
+  .story__backButton {
+    width: 100%;
+    grid-area: back;
+    margin-left: 5vw;
+    margin-top: 2rem;
+  }
+
+  .story__text {
+    margin-left: 4.5rem;
+  }
+
+  .story__tags {
+    margin-top: 7rem;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .story__text {
+    margin-left: 8rem;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  /* .story {
+      grid-template-columns: 1fr 38.6rem;
+
+  }
+
+  .story__infoGrid {
+      grid-template-rows: 55.4rem 100%;
+      width: 38.6rem;
+  } */
+
+  .story__text {
+    width: 68.6rem;
+  }
+
+  .story__content {
+    margin-left: 10vw;
+    grid-area: story;
+  }
+
+  .story__backButton {
+    margin-left: calc(10vw - 5rem);
+    margin-top: 6rem;
+  }
+
+  .story__content {
+    margin-top: 2rem;
+    grid-area: story;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .story {
+    grid-template-columns: 1fr 38.6rem;
+  }
+
+  .story__infoGrid {
+    grid-template-rows: 55.4rem 100%;
+    width: 38.6rem;
+  }
 }
