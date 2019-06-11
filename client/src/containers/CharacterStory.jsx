@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
+import { Link } from "react-router-dom";
 import StoryPart from "../components/StoryPart";
 import StoryTimeline from "../components/StoryTimeline";
 import styles from "../containers/CharacterStory.module.css";
@@ -19,8 +20,15 @@ class CharacterStory extends Component {
     clearInterval(this.timerAuto);
   };
   lauchSounds = () => {};
+  componentWillMount = () => {
+    window.document.body.classList.add("navigation-hidden");
+  };
+  componentWillUnmount = () => {
+    window.document.body.classList.remove("navigation-hidden");
+  };
   componentDidMount = () => {
     console.log("component mount");
+
     this.playMusic();
     // this.timerAuto = setInterval(this.goToNextPart, 10000);
     // this.timerClearAuto = setInterval(this.clearAuto, 128000);
@@ -43,9 +51,11 @@ class CharacterStory extends Component {
 
   playMusic = () => {
     if (this.state.music === true) {
+      console.log("play");
       background.play();
     } else {
-      console.log("mute");
+      console.log("pause");
+      background.pause();
     }
   };
   goToNextPart = () => {
@@ -60,7 +70,15 @@ class CharacterStory extends Component {
       }, 500);
     }
   };
+  handleGoBack = () => {
+    console.log("back");
+    background.pause();
+  };
 
+  toggelSound = () => {
+    this.setState({ music: !this.state.music });
+    this.playMusic();
+  };
   render() {
     const { characterId, store } = this.props;
     const { characters } = store;
@@ -78,13 +96,32 @@ class CharacterStory extends Component {
       <>
         <div className={styles.background}>
           <div className="container full_view">
+            <div className={styles.flexer}>
+              <p className={styles.storyname}>{current.name}'s verhaal</p>
+              <Link
+                onClick={this.handleGoBack()}
+                to="/character/5cf78413e35fc80995d4ebce"
+              >
+                <button className={styles.close} />
+              </Link>
+            </div>
+
             <StoryPart
               state={this.state}
               story={current.story}
               handleClick={this.goToNextPart}
             />
-
-            <StoryTimeline state={this.state} story={current.story} />
+            <div className={styles.flexer}>
+              <StoryTimeline state={this.state} story={current.story} />
+              <div onClick={this.toggelSound} className={styles.mute}>
+                <div className={styles.mutebars}>
+                  <div className={`${styles.rect} ${styles.rect1}`} />
+                  <div className={`${styles.rect} ${styles.rect2}`} />
+                  <div className={`${styles.rect} ${styles.rect3}`} />
+                  <div className={`${styles.rect} ${styles.rect4}`} />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </>

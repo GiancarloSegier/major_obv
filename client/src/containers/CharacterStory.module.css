@@ -1,3 +1,92 @@
 .background {
   background-color: #11141b;
 }
+/* .mute {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: solid 0.2rem white;
+  position: absolute;
+  right: 10%;
+  bottom: 8%;
+  background: none;
+} */
+
+.close {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: solid 0.2rem white;
+  background: none;
+  position: relative;
+}
+
+.close:before,
+.close:after {
+  position: absolute;
+  left: 1.7rem;
+  top: 0.8rem;
+  content: " ";
+  height: 2rem;
+  width: 0.2rem;
+  background-color: white;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+
+.flexer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.timelinebutton {
+  border: solid red 0.2rem;
+}
+
+.storyname {
+  composes: oakes from "../styles/typo.module.css";
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.4rem;
+}
+.mute {
+  width: 60px;
+  height: 60px;
+  border: solid 2px white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transform: scale(0.8);
+}
+.mutebars {
+  width: 30px;
+  height: 30px;
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+.rect {
+  background-color: white;
+  width: 2px;
+}
+.rect1 {
+  height: 10px;
+}
+.rect2 {
+  height: 15px;
+}
+.rect3 {
+  height: 20px;
+}
+.rect4 {
+  height: 9px;
+}
