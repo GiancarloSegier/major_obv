@@ -1,9 +1,12 @@
 import React from "react";
 import styles from "./About.module.css";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../constants";
+
 const About = () => {
   return (
     <>
-      <div className="container">
+      <div className="container margin-bottom">
         <div className={styles.about_opera}>
           <p className={styles.subTitle}>
             Opera ballet <br /> vlaanderen
@@ -17,7 +20,13 @@ const About = () => {
               Waargebeurd of verzonnen? Romantisch of vol actie? Aangrijpend of
               vrolijk? Jij bepaalt het plot.
             </p>
-            <button className={styles.button}>Bezoek website</button>
+            <a
+              className={styles.button}
+              target="_blank"
+              href="https://operaballet.be/en"
+            >
+              Bezoek website
+            </a>
           </div>
         </div>
         <div className={styles.about_opera}>
@@ -33,7 +42,9 @@ const About = () => {
               Waargebeurd of verzonnen? Romantisch of vol actie? Aangrijpend of
               vrolijk? Jij bepaalt het plot.
             </p>
-            <button className={styles.button}>Aan de slag</button>
+            <Link className={styles.button} to={ROUTES.create}>
+              Aan de slag
+            </Link>
           </div>
         </div>
       </div>

@@ -12,6 +12,7 @@
     position: relative;
     z-index: 1;
     line-height: .9;
+    height: 10vmin;
 }
 
 
@@ -250,6 +251,11 @@ composes: split_grid from "../styles/grids.module.css"
         grid-template-columns: repeat(auto-fit, minmax(13%, 1fr));
     }
 
+            .title{
+font-size: 12vmin;
+    margin-bottom: 4vh;
+    }
+
 
 
 }
@@ -269,8 +275,10 @@ composes: split_grid from "../styles/grids.module.css"
         margin-bottom: 10rem;
     }
     .title{
-            grid-column: 1 / span 2;
+
+    grid-column: 1 / span 2;
     grid-row: 1;
+
     }
     .CTA__tag{
         font-size: 2.8rem;
@@ -283,6 +291,11 @@ composes: split_grid from "../styles/grids.module.css"
 }
 
 @media only screen and (max-width:1000px){
+
+        .title{
+    font-size: 11vmin;
+
+    }
 
     .filter__button:checked + .filter__block{
     transform-origin: top;
@@ -344,13 +357,15 @@ composes: split_grid from "../styles/grids.module.css"
     }
 }
 
+@media only screen and (max-width:800px){
+    .intro__grid{
+        margin-bottom: 10rem;
+    }
+}
 
 
 @media only screen and (min-width:761px){
-    .title{
-    font-size: 10vmin;
-    margin-bottom: -10vh;
-    }
+
     .characters a:nth-child(1){
         grid-row: 2  / span 2;
         grid-column: 1;
@@ -405,6 +420,10 @@ grid-row: 1  / span 2;
         .stories__about{
         display: block;
     }
+
+    .title{
+        margin-bottom: 9vh;
+    }
 }
 
 @media only screen and (max-width: 600px){
@@ -437,6 +456,9 @@ grid-row: 1  / span 2;
     .stories{
         grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
     }
+    .title{
+        margin-bottom: 7vh
+    }
 }
 
 
@@ -449,6 +471,7 @@ grid-row: 1  / span 2;
     }
     .title{
         font-size: 5.5rem;
+        margin-bottom: 9rem;
     }
 }
 

@@ -5,7 +5,8 @@
   top: 0;
   z-index: 1;
   margin-bottom: 2rem;
-  background-color: var(--dark-color)
+  background-color: var(--dark-color);
+  z-index: 10;
 }
 .navbar {
   display: flex;

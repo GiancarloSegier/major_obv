@@ -12,6 +12,7 @@
   text-align: left;
   position: relative;
   composes: oakes from "./typo.module.css";
+  text-decoration: none;
 }
 .button:hover{
   cursor: pointer;
