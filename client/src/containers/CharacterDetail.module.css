@@ -1,5 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display&display=swap");
+
+/*typo*/
+
 .pageTitle {
   composes: heading-3 from "../styles/typo.module.css";
+  font-size: 1rem;
 }
 
 .subTitle {
@@ -7,85 +12,47 @@
   -webkit-text-stroke: 0.2rem;
   -webkit-text-stroke-color: var(--light-color);
   color: transparent;
-  font-size: 12.1rem;
+  margin-bottom: 1rem;
+  font-size: 5rem;
 }
-
 .intro {
   composes: body from "../styles/typo.module.css";
   color: var(--light-grey-color);
   margin-bottom: 5rem;
-  width: 80%;
+  width: 100%;
 }
 
 .split_grid {
-  composes: split_grid from "../styles/ui.module.css";
-  height: 100vh;
-  align-content: center;
+  display: grid;
+  grid-template-rows: 45vmin auto;
+  grid-template-columns: 1fr;
+}
+
+.character__text {
+  grid-row: 2;
 }
 
 .character__image {
-  composes: character__image from "../styles/ui.module.css";
+  top: 0;
+  position: absolute;
+  right: 0;
+  overflow: hidden;
+  height: 45vmin;
 }
-.image {
-  width: 100%;
-  height: 100%;
+.character__image img {
   object-fit: cover;
+  width: 100vw;
+  /* max-height: 18.4rem; */
+  object-position: top center;
 }
 
-.button {
-  composes: button from "../styles/ui.module.css";
-  margin-top: 5rem;
-}
-
-.margin_left {
-  margin-left: 10rem;
-}
-/**/
-.button_back {
-  margin-bottom: 5rem;
-  background: none;
-  border: none;
-  color: var(--light-color);
-  font-size: 1.6rem;
-  padding: 1.5rem 0;
-  padding-right: 4rem;
-  width: auto + 5rem;
-  text-align: left;
-  position: relative;
-  composes: oakes from "../styles/typo.module.css";
-}
-
-.button_back:after {
-  content: "";
-  display: block;
-  height: 0.2rem;
-  width: 2.7rem;
-  background-color: var(--highlight-color);
-  position: absolute;
-  left: -5rem;
-  top: 50%;
-}
-
-.button_back::before {
-  content: "";
-  display: block;
-  border: 0.2rem solid var(--highlight-color);
-  border-left: none;
-  border-bottom: none;
-  height: 1.4rem;
-  width: 1.4rem;
-  position: absolute;
-  left: -5rem;
-  top: calc(50% - 0.6rem);
-  transform: rotate(225deg);
-}
-
+/*social*/
 .social {
   background-color: #e4003f;
   position: absolute;
-  bottom: 20rem;
+  bottom: calc(50% - 9.2rem);
   width: 10rem;
-  height: 20rem;
+  height: 18.4rem;
   display: flex;
 }
 
@@ -110,8 +77,8 @@
   position: absolute;
   background-color: white;
   width: 2px;
-  height: 70px;
-  margin-top: -90px;
+  height: 50px;
+  margin-top: -75px;
   right: 5px;
 }
 .social_iconslist {
@@ -139,129 +106,232 @@
 .social_spotify {
   background-image: url("../styles/assets/icons/spotify.svg");
 }
+/*button*/
+.button {
+  composes: button from "../styles/ui.module.css";
+}
+.button_back {
+  margin: 2rem 0 2rem 5rem;
+  background: none;
+  border: none;
+  color: var(--light-color);
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 1.5rem 0;
+  padding-right: 4rem;
+  text-align: left;
+  position: relative;
+}
+
+.button_back:after {
+  content: "";
+  display: block;
+  height: 0.2rem;
+  width: 2.7rem;
+  background-color: var(--highlight-color);
+  position: absolute;
+  left: -5rem;
+  top: 50%;
+}
+
+.button_back::before {
+  content: "";
+  display: block;
+  border: 0.2rem solid var(--highlight-color);
+  border-left: none;
+  border-bottom: none;
+  height: 1.2rem;
+  width: 1.2rem;
+  position: absolute;
+  left: -5rem;
+  top: calc(50% - 0.5rem);
+  transform: rotate(225deg);
+}
 
 @media only screen and (min-width: 700px) {
-  .story__infoGrid {
-    grid-template-columns: 21.4rem 1fr;
-    grid-template-rows: 26.2rem;
-    margin-bottom: 5rem;
-  }
-
-  .story__introduction {
-    font-size: 1.6rem;
-  }
-
-  .story__info {
-    background-color: var(--highlight-color);
-    padding: 4rem;
-  }
-
-  .story__tag {
-    font-size: 1.4rem;
-  }
-
-  .story__text {
-    margin: 3rem 0 8rem 6rem;
-  }
-
-  .story__socialMedia1 {
-    display: initial;
-  }
-
-  .story__socialMedia2 {
-    display: none;
-  }
-
-  .story__socialMedia1 h2 {
-    color: var(--dark-color);
+  .subTitle {
+    composes: heading-1 from "../styles/typo.module.css";
+    -webkit-text-stroke: 0.2rem;
+    -webkit-text-stroke-color: var(--light-color);
+    color: transparent;
+    margin-bottom: 0;
+    font-size: 9rem;
   }
 }
 
 @media only screen and (min-width: 900px) {
-  .story {
-    display: grid;
-    grid-template-columns: 1fr 34rem;
-    grid-template-rows: 8rem auto;
+  .intro {
+    composes: body from "../styles/typo.module.css";
+    color: var(--light-grey-color);
+    margin-bottom: 5rem;
+    width: 70%;
+    margin-left: 5rem;
+  }
+  .button {
+    margin-left: 5rem;
+  }
+  .wrapper {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
 
-    grid-template-areas:
-      "back info"
-      "story info";
+@media only screen and (min-width: 1024px) {
+  .pageTitle {
+    composes: heading-3 from "../styles/typo.module.css";
   }
 
-  .story__infoGrid {
-    grid-area: info;
-    grid-template-columns: 100%;
-    grid-template-rows: 48.8rem 100%;
-    width: 34rem;
-    position: fixed;
-    right: 0;
-  }
-
-  .story__content {
-    margin: 0 10rem 0 5vw;
-    grid-area: story;
-  }
-
-  .story__backButton {
+  .intro {
+    composes: body from "../styles/typo.module.css";
+    color: var(--light-grey-color);
+    margin-bottom: 5rem;
+    margin-left: 0;
     width: 100%;
-    grid-area: back;
-    margin-left: 5vw;
-    margin-top: 2rem;
   }
 
-  .story__text {
-    margin-left: 4.5rem;
+  .split_grid {
+    composes: split_grid from "../styles/ui.module.css";
+    height: 100vh;
+    align-content: center;
+    grid-template-rows: none;
+    grid-template-columns: 1fr 1fr;
   }
 
-  .story__tags {
-    margin-top: 7rem;
+  .character__image {
+    /* composes: character__image from "../styles/ui.module.css";*/
+    top: 0;
+    position: absolute;
+    right: 0;
+    width: 40%;
+    overflow: hidden;
+    height: 100%;
+    grid-column: 2;
+  }
+
+  .character__image img {
+    object-fit: cover;
+    width: 100%;
+    /* max-height: 18.4rem; */
+    object-position: top center;
+  }
+
+  .image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .button {
+    composes: button from "../styles/ui.module.css";
+    margin-top: 5rem;
+    margin-left: 0;
+  }
+
+  .margin_left {
+    margin-left: 5rem;
+  }
+  .button_back {
+    margin-bottom: 5rem;
+    background: none;
+    border: none;
+    color: var(--light-color);
+    font-size: 1.6rem;
+    padding: 1.5rem 0;
+    padding-right: 4rem;
+    width: auto + 5rem;
+    text-align: left;
+    position: relative;
+    composes: oakes from "../styles/typo.module.css";
+  }
+
+  .button_back:after {
+    content: "";
+    display: block;
+    height: 0.2rem;
+    width: 2.7rem;
+    background-color: var(--highlight-color);
+    position: absolute;
+    left: -5rem;
+    top: 50%;
+  }
+
+  .button_back::before {
+    content: "";
+    display: block;
+    border: 0.2rem solid var(--highlight-color);
+    border-left: none;
+    border-bottom: none;
+    height: 1.4rem;
+    width: 1.4rem;
+    position: absolute;
+    left: -5rem;
+    top: calc(50% - 0.6rem);
+    transform: rotate(225deg);
+  }
+
+  .social {
+    background-color: #e4003f;
+    position: absolute;
+    bottom: 20rem;
+    width: 10rem;
+    height: 20rem;
+    display: flex;
+  }
+
+  .social_followme {
+    writing-mode: vertical-rl;
+    transform: scale(-1);
+    text-orientation: mixed;
+
+    width: 30%;
+    margin-left: 20px;
+    margin-top: 20px;
+    align-self: flex-start;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    composes: oakes from "../styles/typo.module.css";
+    letter-spacing: 4px;
+  }
+
+  .social_followme:before {
+    content: "";
+    display: block;
+    position: absolute;
+    background-color: white;
+    width: 2px;
+    height: 70px;
+    margin-top: -90px;
+    right: 5px;
+  }
+  .social_iconslist {
+    width: 50%;
+    top: 0;
+
+    align-self: center;
+  }
+  .social_iconslist li {
+    width: 15px;
+    height: 15px;
+    margin-bottom: 22px;
+    margin-left: 10px;
+  }
+
+  .social_instagram {
+    background-image: url("../styles/assets/icons/instagram.svg");
+  }
+  .social_twitter {
+    background-image: url("../styles/assets/icons/twitter.svg");
+  }
+  .social_facebook {
+    background-image: url("../styles/assets/icons/facebook.svg");
+  }
+  .social_spotify {
+    background-image: url("../styles/assets/icons/spotify.svg");
   }
 }
 
-@media only screen and (min-width: 1100px) {
-  .story__text {
-    margin-left: 8rem;
-  }
-}
-
-@media only screen and (min-width: 1300px) {
-  /* .story {
-      grid-template-columns: 1fr 38.6rem;
-
-  }
-
-  .story__infoGrid {
-      grid-template-rows: 55.4rem 100%;
-      width: 38.6rem;
-  } */
-
-  .story__text {
-    width: 68.6rem;
-  }
-
-  .story__content {
-    margin-left: 10vw;
-    grid-area: story;
-  }
-
-  .story__backButton {
-    margin-left: calc(10vw - 5rem);
-    margin-top: 6rem;
-  }
-
-  .story__content {
-    margin-top: 2rem;
-    grid-area: story;
-  }
-}
-
-@media only screen and (min-width: 1450px) {
-  .story {
-    grid-template-columns: 1fr 38.6rem;
-  }
-
-  .story__infoGrid {
-    grid-template-rows: 55.4rem 100%;
-    width: 38.6rem;
+@media only screen and (min-width: 1400px) {
+  .subTitle {
+    font-size: 12.1rem;
   }
 }
