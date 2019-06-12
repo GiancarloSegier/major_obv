@@ -7,10 +7,11 @@
     -webkit-text-stroke: 0.2rem;
     -webkit-text-stroke-color: var(--light-color);
     color: transparent;
-    font-size: 5.5rem;
-    margin-bottom: -3rem;
+    font-size: 12vmin;
+    margin-bottom: -4vh;
     position: relative;
     z-index: 1;
+    line-height: .9;
 }
 
 
@@ -27,8 +28,8 @@
 
 .characters{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-        grid-template-rows: 12.5rem 12.5rem 12.5rem 12.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+
     grid-gap: 3rem;
 }
 
@@ -43,10 +44,6 @@
     margin-top: -6rem;
 }
 /* CTA: Call To Action */
-
-.CTA__create{
-    background-color: var(--highlight-color);
-}
 .CTA__tag {
     composes: oakes from '../styles/typo.module.css';
     font-size: 2.4rem;
@@ -58,7 +55,7 @@
 }
 
 .CTA__block{
-    grid-column: 2;
+            background-color: var(--highlight-color);
 }
 
 .CTA__arrow{
@@ -67,26 +64,27 @@
     top: -1.5rem;
 }
 .CTA__create{
-    padding: 3rem;
+    padding: 2rem;
     padding-top: 10rem;
+            background-color: var(--highlight-color);
 }
 
 .CTA__arrow:before {
     content: "";
     display: inline-block;
-    height: 0.3rem;
-    width: 2.7rem;
+    height: 0.2rem;
+    width: 2.5rem;
     background-color: var(--light-color);
     position: absolute;
     top: 0.6rem;
-    left: 1rem;
+    left: 0;
     transition: .2s ease-in-out;
 }
 
 .CTA__arrow::after {
     content: "";
     display: inline-block;
-    border: 0.3rem solid var(--light-color);
+    border: 0.2rem solid var(--light-color);
     border-left: none;
     border-bottom: none;
     height: 1.4rem;
@@ -94,7 +92,7 @@
     transform: rotate(45deg);
     transition: .2s ease-in-out;
     position: absolute;
-    left: 2.35rem;
+    left: 1rem;
 } 
 
 .description{
@@ -185,6 +183,46 @@ composes: split_grid from "../styles/grids.module.css"
 .stories__about{
         display: block;
     }
+    .intro__grid{
+  margin-bottom: 20rem;
+}
+
+
+.scroll{
+    writing-mode: vertical-rl;
+    transform: scale(-1);
+    text-orientation: mixed;
+    align-self: flex-start;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    position: relative;
+    bottom: 25rem;
+    display: none;
+}
+
+.scroll::before{
+    content: "";
+    display: block;
+    height: 12rem;
+    background-color: var(--light-color);
+    width: .2rem;
+    position: absolute;
+    top: -13rem;
+    right: .8rem;
+    animation: scroll 5s ease-in-out infinite alternate;
+    transform-origin: bottom;
+}
+
+@keyframes scroll {
+    0%{
+        transform: scaleY(0.5)
+    }
+    100%{
+        transform: scaleY(1.5)
+    }
+}
 
     @media only screen and (max-width:1400px){
     
@@ -192,6 +230,16 @@ composes: split_grid from "../styles/grids.module.css"
     width: 100%;
 }
     
+    }
+
+
+    @media only screen and (min-width:1200px){
+
+                .characters{
+                    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(4, 50vh );
+    }
+
     }
 
 
@@ -206,11 +254,35 @@ composes: split_grid from "../styles/grids.module.css"
 
 }
 
-@media only screen and (max-width:1000px){
 
-    .characters{
-        grid-template-columns: 1fr 1fr 1fr;
+@media only screen and (min-width:1000px){
+
+    .scroll{
+        display: block;
     }
+
+
+    .intro__grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 5rem;
+        margin-bottom: 10rem;
+    }
+    .title{
+            grid-column: 1 / span 2;
+    grid-row: 1;
+    }
+    .CTA__tag{
+        font-size: 2.8rem;
+    }
+    .characters{
+        grid-column: 2 / span 3;
+    grid-row: 1;
+    grid-template-rows: repeat(4, 50vh );
+    }
+}
+
+@media only screen and (max-width:1000px){
 
     .filter__button:checked + .filter__block{
     transform-origin: top;
@@ -225,7 +297,7 @@ composes: split_grid from "../styles/grids.module.css"
     margin-bottom: 0rem;
     max-height: 0;
 }
-            .grid__stories{
+    .grid__stories{
         display: inline;
     }
 
@@ -272,23 +344,54 @@ composes: split_grid from "../styles/grids.module.css"
     }
 }
 
-@media only screen and (max-width:750px){
 
-    .characters{
-          grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
-          grid-template-rows: auto;
+
+@media only screen and (min-width:761px){
+    .title{
+    font-size: 10vmin;
+    margin-bottom: -10vh;
     }
+    .characters a:nth-child(1){
+        grid-row: 2  / span 2;
+        grid-column: 1;
+        height: 100%;
+    }
+    .characters a:nth-child(2){
+grid-row: 1  / span 2;
+        grid-column: 2;
+        height: 100%;
+    }
+    .characters a:nth-child(3){
+        grid-row: 2  / span 2;
+        grid-column: 3;
+        height: 100%;
+    }
+    .CTA__block{
+        grid-column: 2;
+    grid-row: 3 / span 2;
+    height: 100%;
+    align-self: flex-end;
+    display: flex;
+    }
+    .CTA__create{
+            align-self: flex-end;
+            padding-top: 0;
+    }
+        .characters{
+                    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(4, 16vh );
+    }
+}
+
+@media only screen and (max-width:760px){
 
     .CTA__create{
-        margin-left: -10vw;
-        margin-right: -10vw;
+        margin-left: -5vw;
+        margin-right: -5vw;
         margin-top: -8rem;
             padding: 12rem 10vw 6rem 10vw;
     }
-    .CTA__block{
-        display: inline;
-        grid-column: 1;
-    }
+
     .CTA__tag {
     font-size: 3.6rem;
     }
@@ -323,7 +426,10 @@ composes: split_grid from "../styles/grids.module.css"
         margin-left: 50%;
     }
 
-
+        .CTA__create{
+        margin-left: -10vw;
+        margin-right: -10vw;
+        }
 
 }
 
@@ -340,6 +446,9 @@ composes: split_grid from "../styles/grids.module.css"
     }
     .CTA__tag{
         font-size: 3rem;
+    }
+    .title{
+        font-size: 5.5rem;
     }
 }
 

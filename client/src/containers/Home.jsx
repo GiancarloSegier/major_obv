@@ -90,7 +90,9 @@ class Home extends Component {
       <>
         <section
           id="intro"
-          className={`container margin-bottom margin-top ${styles.four_grid}`}
+          className={`container margin-bottom margin-top ${
+            styles.intro__grid
+          } `}
         >
           <h2 className={styles.title}>
             Ontdek <br /> ons <br /> verhaal
@@ -112,6 +114,7 @@ class Home extends Component {
               </article>
             </Link>
           </div>
+          <div className={styles.scroll}>Scroll</div>
         </section>
         <section id="discover" className="container margin-bottom">
           <div className={`${styles.grid__stories} ${styles.border__bottom} `}>
