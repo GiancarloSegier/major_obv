@@ -80,7 +80,6 @@
 .story__text{
     composes: body from "../../styles/typo.module.css";
     color: var(--light-grey-color);
-    margin-bottom: 2rem;
 }
 
 .story__introduction{
@@ -143,7 +142,7 @@
     }
 
     .story__text{
-        margin: 3rem 0 8rem 6rem;
+        margin: 3rem 0 3rem 6rem;
     }
 
     .story__socialMedia1 {

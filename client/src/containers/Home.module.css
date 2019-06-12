@@ -1,6 +1,18 @@
-.title{
-    composes: heading-1 from '../styles/typo.module.css';
+.noLink{
+    text-decoration: none;
 }
+
+.title{
+    composes: heading-1 from "../styles/typo.module.css";
+    -webkit-text-stroke: 0.2rem;
+    -webkit-text-stroke-color: var(--light-color);
+    color: transparent;
+    font-size: 5.5rem;
+    margin-bottom: -3rem;
+    position: relative;
+    z-index: 1;
+}
+
 
 .section__title, .largeText{
     composes: heading-2 from '../styles/typo.module.css';
@@ -28,30 +40,55 @@
 /* CTA: Call To Action */
 
 .CTA__create{
-    background-color: #D4D4D4;
-    border-radius: 2rem;
+    background-color: var(--highlight-color);
     composes: character from '../components/MainCharacter.module.css';
-    grid-template-rows: 2rem 22rem 1.5rem 3rem 2rem 
-}
-
-.CTA__title{
-
-    grid-row: 2;
-    grid-column: 2 / -2;
-    align-self: flex-end;
-
-    composes: heading-3 from '../styles/typo.module.css';
+    grid-template-rows: 12rem 15rem 8rem;
+    grid-template-columns: 10vw 1fr 10vw;
+    letter-spacing: .05rem;
 }
 .CTA__tag {
-
-    grid-row: 4;
+    grid-row: 2;
     grid-column: 2 / -2;
-
-    composes: body from '../styles/typo.module.css';
+    composes: oakes from '../styles/typo.module.css';
+    font-size: 3.6rem;
+    line-height: 1.6;
     color: #fff;
     font-weight: bold;
-    border-bottom: .2rem solid #fff;
+    text-decoration: underline;
+    text-underline-position: under;
 }
+
+.CTA__arrow{
+    position: relative;
+    display: inline-block;
+    top: -1.5rem;
+}
+
+.CTA__arrow:before {
+    content: "";
+    display: inline-block;
+    height: 0.3rem;
+    width: 2.7rem;
+    background-color: var(--light-color);
+    position: absolute;
+    top: 0.6rem;
+    left: 1rem;
+    transition: .2s ease-in-out;
+}
+
+.CTA__arrow::after {
+    content: "";
+    display: inline-block;
+    border: 0.3rem solid var(--light-color);
+    border-left: none;
+    border-bottom: none;
+    height: 1.4rem;
+    width: 1.4rem;
+    transform: rotate(45deg);
+    transition: .2s ease-in-out;
+    position: absolute;
+    left: 2.35rem;
+} 
 
 .description{
     composes: body from '../styles/typo.module.css';
@@ -79,7 +116,7 @@ composes: tag from '../styles/ui.module.css';
 composes: split_grid from "../styles/grids.module.css"
 }
 
-.grid__half{
+.grid__stories, .grid__half{
     composes: grid__half from "../styles/grids.module.css";
     align-items: center;
 }
@@ -91,6 +128,7 @@ composes: split_grid from "../styles/grids.module.css"
 }
 .border__bottom{
        border-bottom: .2rem solid var(--grey-color);
+       padding-bottom: 4rem;
 }
 .grid__half img{
     width: 80%;
@@ -101,7 +139,7 @@ composes: split_grid from "../styles/grids.module.css"
 
 .button{
     composes: button from "../styles/ui.module.css";
-    margin-left: 10rem;
+    margin-left: 50%;
     margin-top: 5rem;
 }
 
@@ -113,8 +151,8 @@ composes: split_grid from "../styles/grids.module.css"
     width: 18rem;
     justify-self: center;
     margin-left: -3rem;
-    transition: all .2s ease-in-out;
-    transition-delay: .7s;
+    transition: all .3s ease-in-out;
+    transition-delay: .4s;
 }
 .addsign{
     composes: addsign from '../styles/ui.module.css';
@@ -122,10 +160,122 @@ composes: split_grid from "../styles/grids.module.css"
 
 .hideButton{
     opacity: 0;
+    transform: translateY(-5rem) ;
+    margin-top: 0;
 }
 .hideButton:hover{
     cursor: auto;
 }
 .hideButton.addsign{
     opacity: 0;
+}
+
+.filter__text, .filter__button{
+    display: none;
+}
+
+        .filter__button:checked + .filter__block{
+         transform-origin: top;
+        transform: scaleY(1);
+    }
+
+@media only screen and (max-width:1100px){
+    .grid__stories{
+        display: inline;
+    }
+
+    .stories{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(42%, 1fr));
+        grid-gap: 3rem;
+        margin-top: 10rem;
+    }
+
+    .CTA__create{
+        margin-left: -10vw;
+    margin-right: -10vw;
+    margin-top: -8rem;
+    }
+    .CTA__tag{
+        width: 85%;
+    }
+
+    .filter__block{
+        transform-origin: top;
+        transform: scaleY(0);
+        transition: all .5s ease-in-out;
+        height: 0;
+
+    }
+    .filter__text{
+        position: relative;
+        background: none;
+        border: none;
+        composes: heading-3 from '../styles/typo.module.css';
+        width: 100%;
+        display: block;
+        margin-top: 2rem;
+    }
+    .filter__text:after{
+        content: "";
+        display: inline-block;
+        width: 1rem;
+        height: 1rem;
+        border: .2rem solid red;
+        transform: rotate(45deg);
+        border-left: none;
+        border-top: none;
+        right: 0;
+        position: absolute;
+    }
+    .filter{
+        border-bottom: .2rem solid var(--grey-color);
+    }
+
+
+    .filter__title{
+        display: none;
+    }
+    .filter__button:checked + .filter__block{
+        height: 25rem;
+    }
+}
+
+@media only screen and (max-width: 600px){
+
+    .description{
+        font-size: 1.6rem;
+    }
+
+    .grid__half{
+        grid-template-columns: 1fr;
+    }
+
+    .grid__half img{
+        display: none;
+    }
+
+    .button{
+        margin-top: 2rem;
+        margin-left: 50%;
+    }
+
+        .filter__button:checked + .filter__block{
+
+        height: 25rem;
+    }
+}
+
+@media only screen and (max-width: 475px){
+        .filter__button:checked + .filter__block{
+        height: 30rem;
+    }
+}
+
+@media only screen and (max-width: 350px){
+
+
+        .filter__button:checked + .filter__block{
+        height: 42rem;
+    }
 }

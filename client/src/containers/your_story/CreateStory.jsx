@@ -28,12 +28,9 @@ class CreateStory extends Component {
     e.preventDefault();
     const title = this.props.store.customStory.title;
 
-    this.props.store.addStory(this.props.store.customStory);
-    this.props.history.push(
-      `/story/${
-        this.props.store.stories.find(story => story.title === title).id
-      }`
-    );
+    this.props.store
+      .addStory(this.props.store.customStory)
+      .then(story => this.props.history.push(`/story/${story.id}`));
   };
 
   render() {

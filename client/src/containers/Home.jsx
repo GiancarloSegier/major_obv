@@ -1,5 +1,5 @@
-import React, { useState, Component } from "react";
-import { inject, observer, PropTypes, renderReporter } from "mobx-react";
+import React, { Component } from "react";
+import { inject, observer, PropTypes } from "mobx-react";
 import MainCharacter from "../components/MainCharacter";
 import UserStory from "../components/your_story/UserStory";
 import styles from "./Home.module.css";
@@ -9,14 +9,13 @@ import { Link } from "react-router-dom";
 const basicTags = [
   "#Romantisch",
   "#Waargebeurd",
-  "#Ontroerend",
-  "#Spannend",
+  "#Actie",
   "#Gek",
+  "#Spannend",
   "#Mysterieus",
-  "#Grappig",
-  "#Avontuurlijk",
+  "#Ontroerend",
   "#Onverwacht",
-  "#Actievol"
+  "#Grappig"
 ];
 
 class Home extends Component {
@@ -42,18 +41,12 @@ class Home extends Component {
         }
       }
     }
-    // let newState = [...input];
     this.setState({ filters: input });
-
-    //console.log(this.state.filters);
   };
 
   setTerms = e => {
-    const { searchTerm } = this.state;
-
     this.setState({ searchTerm: this.searchRef.current.value });
 
-    // let newState = [...input];
     console.log(this.searchRef.current.value);
     console.log(this.state.searchTerm);
   };
@@ -78,6 +71,8 @@ class Home extends Component {
           .toLowerCase()
           .includes(searchTerm.toLocaleLowerCase());
       });
+    } else {
+      filterResults = this.stories;
     }
 
     return filterResults;
@@ -90,77 +85,88 @@ class Home extends Component {
   };
 
   render() {
-    console.log(this.state);
     const filteredStories = this.getFilteredStories();
     return (
       <>
-        <section id="intro" className="container margin margin-top">
+        <section
+          id="intro"
+          className={`container margin-bottom margin-top ${styles.four_grid}`}
+        >
           <h2 className={styles.title}>Ontdek ons verhaal</h2>
           <div className={styles.characters}>
             {this.characters.map(character => (
               <MainCharacter key={character.id} props={character} />
             ))}
 
-            <Link to={ROUTES.create}>
+            <Link to={ROUTES.create} className={styles.noLink}>
               <article className={styles.CTA__create}>
-                <h3 className={styles.CTA__title}>
-                  We kennen hun verhaal, nu is het aan jou
-                </h3>
-                <p className={styles.CTA__tag}>Creeër je eigen verhaal</p>
+                <p className={styles.CTA__tag}>
+                  Hun verhaal is al verteld, en dat van jou?{" "}
+                  <span className={styles.CTA__arrow} />
+                </p>
               </article>
             </Link>
           </div>
         </section>
-        <section id="discover" className="container margin">
-          <div className={`${styles.grid__half} ${styles.border__bottom}`}>
+        <section id="discover" className="container margin-bottom">
+          <div className={`${styles.grid__stories} ${styles.border__bottom} `}>
             <div>
               <h2 className={styles.section__title}>
                 Ongehoorde <br />
                 verhalen
               </h2>
               <p className={styles.description}>
-                Neus door de ingezonden personages en ontdek <br />
-                hun vertelsels in alle vormen en maten.
+                Neus door de ingezonden personages en ontdek hun vertelsels in
+                alle vormen en maten.
               </p>
             </div>
-            <div className={`${styles.filter} margin`}>
+            <div className={`${styles.filter}`}>
               <h3 className="visually-hidden">Filteren</h3>
               <p className={styles.filter__title}>Filter</p>
-
-              {/* foreach database tags --> clickevent?? return value and use it to filter to new array (filteredarray)  */}
-
-              <ul className={styles.filter__tags}>
-                {basicTags.map((tag, index) => (
-                  <label className={styles.tag} key={index}>
-                    <input
-                      type="checkbox"
-                      id={`tag${index}`}
-                      onClick={this.setTags}
-                      value={tag}
-                      className={styles.tag__input}
-                    />
-                    <div className={styles.tag__checkBox}>{tag}</div>
-                  </label>
-                ))}
-              </ul>
-              <div className={styles.searchField__icon}>
-                <input
-                  type="text"
-                  id="searchfield"
-                  onChange={this.setTerms}
-                  className={styles.searchField}
-                  placeholder="Zoek op naam personage"
-                  ref={this.searchRef}
-                />
+              <label htmlFor="filter" className={styles.filter__text}>
+                Filter
+              </label>
+              <input
+                className={`${styles.filter__button}`}
+                type="checkbox"
+                id="filter"
+              />
+              <div className={styles.filter__block}>
+                <ul className={styles.filter__tags}>
+                  {basicTags.map((tag, index) => (
+                    <label className={styles.tag} key={index}>
+                      <input
+                        type="checkbox"
+                        id={`tag${index}`}
+                        onClick={this.setTags}
+                        value={tag}
+                        className={styles.tag__input}
+                      />
+                      <div className={styles.tag__checkBox}>{tag}</div>
+                    </label>
+                  ))}
+                </ul>
+                <div className={styles.searchField__icon}>
+                  <input
+                    type="text"
+                    id="searchfield"
+                    onChange={this.setTerms}
+                    className={styles.searchField}
+                    placeholder="Zoek op naam personage"
+                    ref={this.searchRef}
+                  />
+                </div>
               </div>
             </div>
           </div>
 
           <div className={styles.stories}>
             {filteredStories.length
-              ? filteredStories.map(story => {
-                  return <UserStory id="tag" props={story} key={story.id} />;
-                })
+              ? filteredStories
+                  .slice(this.state.start, this.state.end)
+                  .map(story => {
+                    return <UserStory id="tag" props={story} key={story.id} />;
+                  })
               : this.stories
                   .slice(this.state.start, this.state.end)
                   .map(story => {
@@ -170,7 +176,7 @@ class Home extends Component {
               type="button"
               onClick={this.loadStories}
               className={
-                this.stories.length <= this.state.end
+                filteredStories.length <= this.state.end
                   ? `${styles.loadButton} ${styles.hideButton}`
                   : `${styles.loadButton}`
               }

@@ -3,6 +3,7 @@ import styles from "./StoryDetail.module.css";
 import { inject, observer } from "mobx-react";
 import CharacterImage from "../../components/your_story/CharacterImage";
 import { Link } from "react-router-dom";
+const nl2br = require("react-nl2br");
 
 const StoryDetail = ({ storyId, store }) => {
   const { stories } = store;
@@ -31,7 +32,17 @@ const StoryDetail = ({ storyId, store }) => {
     story
   } = currentStory;
 
-  const splitStory = story.split("\r\n");
+  const storyParts = [];
+
+  console.log(
+    nl2br(story).map(part => {
+      if (!part.type) {
+        storyParts.push(part);
+      }
+    })
+  );
+
+  console.log(storyParts);
 
   return (
     <section id="story" className={styles.story}>
@@ -79,11 +90,12 @@ const StoryDetail = ({ storyId, store }) => {
         </div>
         <h2 className={styles.story__title}>{title}</h2>
 
-        {splitStory.map((p, key) => (
-          <p key={key} className={styles.story__text}>
-            {p}
+        {storyParts.map((part, i) => (
+          <p key={i} className={styles.story__text}>
+            {part}
           </p>
         ))}
+
         <div className={styles.story__socialMedia2}>
           <h2 className={styles.story__shareStory}>Deel dit verhaal</h2>
           <ul className={styles.social_iconslist}>

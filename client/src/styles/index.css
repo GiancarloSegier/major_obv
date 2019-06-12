@@ -41,11 +41,11 @@ body {
 }
 
 .margin-top {
-  margin-top: 15rem;
+  margin-top: 5rem;
 }
 
 .margin-bottom {
-  margin-bottom: 15rem;
+  margin-bottom: 5rem;
 }
 
 .full_view {
@@ -59,4 +59,18 @@ body {
 
 .navigation-hidden nav {
   display: none;
+}
+
+@media only screen and (min-width:700px){
+.margin-top {
+  margin-top: 15rem;
+}
+
+.margin-bottom {
+  margin-bottom: 15rem;
+}
+}
+
+@media only screen and (min-width:1200px){
+
 }
