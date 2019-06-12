@@ -1,212 +1,217 @@
 .button_back {
-    margin: 2rem 0 2rem 5rem;
-    background: none;
-    border: none;
-    color: var(--light-color);
-    font-size: 1.4rem;
-    font-weight: bold;
-    padding: 1.5rem 0;
-    padding-right: 4rem;
-    text-align: left;
-    position: relative;
-    composes: oakes from "../../styles/typo.module.css";
-  }
+  margin: 2rem 0 2rem 5rem;
+  background: none;
+  border: none;
+  color: var(--light-color);
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 1.5rem 0;
+  padding-right: 4rem;
+  text-align: left;
+  position: relative;
+  composes: oakes from "../../styles/typo.module.css";
+}
 
-  .button_back:after {
-    content: "";
-    display: block;
-    height: 0.2rem;
-    width: 2.7rem;
-    background-color: var(--highlight-color);
-    position: absolute;
-    left: -5rem;
-    top: 50%;
-  }
-  
-  .button_back::before {
-    content: "";
-    display: block;
-    border: 0.2rem solid var(--highlight-color);
-    border-left: none;
-    border-bottom: none;
-    height: 1.2rem;
-    width: 1.2rem;
-    position: absolute;
-    left: -5rem;
-    top: calc(50% - 0.5rem);
-    transform: rotate(225deg);
-  }
+.button_back:after {
+  content: "";
+  display: block;
+  height: 0.2rem;
+  width: 2.7rem;
+  background-color: var(--highlight-color);
+  position: absolute;
+  left: -5rem;
+  top: 50%;
+}
+
+.button_back::before {
+  content: "";
+  display: block;
+  border: 0.2rem solid var(--highlight-color);
+  border-left: none;
+  border-bottom: none;
+  height: 1.2rem;
+  width: 1.2rem;
+  position: absolute;
+  left: -5rem;
+  top: calc(50% - 0.5rem);
+  transform: rotate(225deg);
+}
 
 .story__infoGrid {
-    display: grid;
-    grid-template-columns: 12.5rem 1fr;
-    grid-template-rows: 16rem;
-    margin-bottom: 5rem;
+  display: grid;
+  grid-template-columns: 12.5rem 1fr;
+  grid-template-rows: 16rem;
+  margin-bottom: 5rem;
 }
 
 .characterImage {
-    width: 2rem;
+  width: 2rem;
 }
 
 .story__info {
-    background-color: var(--highlight-color);
-    padding: 2.5rem;
+  background-color: var(--highlight-color);
+  padding: 2.5rem;
 }
 
 .story__author {
-    composes: heading-3 from "../../styles/typo.module.css";
-    color: var(--dark-color);
-    margin-bottom: 1.3rem
+  composes: heading-3 from "../../styles/typo.module.css";
+  color: var(--dark-color);
+  margin-bottom: 1.3rem;
 }
 
-.story__tags{
-    display: flex;
-} 
-
-.story__tag{
-    font-size: 1.2rem;
-    font-family: "oakes", sans-serif;
-    font-weight: 500;
-    color: var(--grey-color);
-    margin-right: 0.7rem;
-    
+.story__tags {
+  display: flex;
 }
 
-.story__title{
-    composes: heading-2 from "../../styles/typo.module.css";
-    margin-top: 1.5rem;
+.story__tag {
+  font-size: 1.2rem;
+  font-family: "oakes", sans-serif;
+  font-weight: 500;
+  color: var(--grey-color);
+  margin-right: 0.7rem;
 }
 
+.story__title {
+  composes: heading-2 from "../../styles/typo.module.css";
+  margin-top: 1.5rem;
+}
+
+<<<<<<< HEAD
 .story__text{
     composes: body from "../../styles/typo.module.css";
     color: var(--light-grey-color);
+=======
+.story__text {
+  composes: body from "../../styles/typo.module.css";
+  color: var(--light-grey-color);
+  margin-bottom: 2rem;
+>>>>>>> experience_story
 }
 
-.story__introduction{
-    font-size: 1.4rem;
-    color: var(--light-color);
-    font-family: "oakes", sans-serif;
-    line-height: 1.5;
+.story__introduction {
+  font-size: 1.4rem;
+  color: var(--light-color);
+  font-family: "oakes", sans-serif;
+  line-height: 1.5;
 }
 
 .social_iconslist {
-    display: flex;
-    margin-bottom: 4rem;
+  display: flex;
+  margin-bottom: 4rem;
 }
 
 .social_iconslist li {
-    width: 1.5rem;
-    height: 1.5rem;
-    margin-right: 2rem;
-  }
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 2rem;
+}
 
 .social_instagram {
-    width: 2rem;
-    background-image: url("../../styles/assets/icons/instagram.svg");
-  }
-  .social_twitter {
-    background-image: url("../../styles/assets/icons/twitter.svg");
-  }
-  .social_facebook {
-    background-image: url("../../styles/assets/icons/facebook.svg");
-  }
+  width: 2rem;
+  background-image: url("../../styles/assets/icons/instagram.svg");
+}
+.social_twitter {
+  background-image: url("../../styles/assets/icons/twitter.svg");
+}
+.social_facebook {
+  background-image: url("../../styles/assets/icons/facebook.svg");
+}
 
 .story__shareStory {
-    composes: heading-3 from "../../styles/typo.module.css";
-    margin-top: 4rem;
+  composes: heading-3 from "../../styles/typo.module.css";
+  margin-top: 4rem;
 }
 
 .story__socialMedia1 {
-    display: none;
+  display: none;
 }
 
+@media only screen and (min-width: 700px) {
+  .story__infoGrid {
+    grid-template-columns: 21.4rem 1fr;
+    grid-template-rows: 26.2rem;
+    margin-bottom: 5rem;
+  }
 
-@media only screen and (min-width:700px){
-    .story__infoGrid {
-        grid-template-columns: 21.4rem 1fr;
-        grid-template-rows: 26.2rem;
-        margin-bottom: 5rem;
-    }
+  .story__introduction {
+    font-size: 1.6rem;
+  }
 
-    .story__introduction{
-        font-size: 1.6rem;
-    }
+  .story__info {
+    background-color: var(--highlight-color);
+    padding: 4rem;
+  }
 
-    .story__info {
-        background-color: var(--highlight-color);
-        padding: 4rem;
-    }
-
-    .story__tag{
-        font-size: 1.4rem;
-    }
+  .story__tag {
+    font-size: 1.4rem;
+  }
 
     .story__text{
         margin: 3rem 0 3rem 6rem;
     }
 
-    .story__socialMedia1 {
-        display: initial
-    }
-
-    .story__socialMedia2 {
-        display: none;
-    }
-
-    .story__socialMedia1 h2 {
-        color: var(--dark-color);
-    }
+  .story__socialMedia1 {
+    display: initial;
   }
 
-  @media only screen and (min-width:900px){
-    .story {
-        display: grid;
-        grid-template-columns: 1fr 34rem;
-        grid-template-rows: 8rem auto;
-
-        grid-template-areas: 
-        "back info"
-        "story info"
-    }
-
-    .story__infoGrid {
-        grid-area: info;
-        grid-template-columns: 100%;
-        grid-template-rows: 48.8rem 100%;
-        width: 34rem;
-        position: fixed;
-        right: 0;
-    }
-
-    .story__content {
-        margin: 0 10rem 0 5vw;
-        grid-area: story;
-    }
-
-    .story__backButton {
-        width: 100%;
-        grid-area: back;
-        margin-left: 5vw;
-        margin-top: 2rem;
-    }
-
-    .story__text{
-        margin-left: 4.5rem;
-    }
-
-    .story__tags {
-        margin-top: 7rem;
-    }
+  .story__socialMedia2 {
+    display: none;
   }
 
-  @media only screen and (min-width:1100px) {
-    .story__text{
-        margin-left: 8rem;
-    }
+  .story__socialMedia1 h2 {
+    color: var(--dark-color);
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .story {
+    display: grid;
+    grid-template-columns: 1fr 34rem;
+    grid-template-rows: 8rem auto;
+
+    grid-template-areas:
+      "back info"
+      "story info";
   }
 
-  @media only screen and (min-width:1300px){
-    /* .story {
+  .story__infoGrid {
+    grid-area: info;
+    grid-template-columns: 100%;
+    grid-template-rows: 48.8rem 100%;
+    width: 34rem;
+    position: fixed;
+    right: 0;
+  }
+
+  .story__content {
+    margin: 0 10rem 0 5vw;
+    grid-area: story;
+  }
+
+  .story__backButton {
+    width: 100%;
+    grid-area: back;
+    margin-left: 5vw;
+    margin-top: 2rem;
+  }
+
+  .story__text {
+    margin-left: 4.5rem;
+  }
+
+  .story__tags {
+    margin-top: 7rem;
+  }
+}
+
+@media only screen and (min-width: 1100px) {
+  .story__text {
+    margin-left: 8rem;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  /* .story {
         grid-template-columns: 1fr 38.6rem;
 
     }
@@ -216,35 +221,33 @@
         width: 38.6rem;
     } */
 
-    .story__text{
-        width: 68.6rem;
-
-    }
-
-    .story__content {
-        margin-left: 10vw;
-        grid-area: story;
-    }
-
-    .story__backButton {
-        margin-left: calc(10vw - 5rem);
-        margin-top: 6rem;
-    }
-
-    .story__content {
-        margin-top: 2rem;
-        grid-area: story;
-    }
+  .story__text {
+    width: 68.6rem;
   }
 
-  @media only screen and (min-width:1450px) {
-    .story {
-        grid-template-columns: 1fr 38.6rem;
-
-    }
-
-    .story__infoGrid {
-        grid-template-rows: 55.4rem 100%;
-        width: 38.6rem;
-    }
+  .story__content {
+    margin-left: 10vw;
+    grid-area: story;
   }
+
+  .story__backButton {
+    margin-left: calc(10vw - 5rem);
+    margin-top: 6rem;
+  }
+
+  .story__content {
+    margin-top: 2rem;
+    grid-area: story;
+  }
+}
+
+@media only screen and (min-width: 1450px) {
+  .story {
+    grid-template-columns: 1fr 38.6rem;
+  }
+
+  .story__infoGrid {
+    grid-template-rows: 55.4rem 100%;
+    width: 38.6rem;
+  }
+}

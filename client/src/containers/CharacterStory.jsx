@@ -4,63 +4,45 @@ import { Link } from "react-router-dom";
 import StoryPart from "../components/StoryPart";
 import StoryTimeline from "../components/StoryTimeline";
 import styles from "../containers/CharacterStory.module.css";
-import clicksound from "../styles/assets/sounds/click.wav";
-import backgroundsound from "../styles/assets/sounds/background1.mp3";
+import music from "../styles/assets/sounds/background1.mp3";
+
+import Sound from "react-sound";
+import { get } from "https";
+
 //
-const click = new Audio(clicksound);
-const background = new Audio(backgroundsound);
 
 class CharacterStory extends Component {
   constructor(props) {
     super(props);
-    this.state = { part: 0, show: true, music: true };
+    this.state = {
+      part: 0,
+      show: true,
+      music: Sound.status.STOPPED,
+      volume: 100
+    };
+    this.audioRef = React.createRef();
   }
 
-  clearAuto = () => {
-    clearInterval(this.timerAuto);
-  };
-  lauchSounds = () => {};
-  componentWillMount = () => {
-    window.document.body.classList.add("navigation-hidden");
-    console.log("component mount");
-    this.playMusic();
-  };
-  componentWillUnmount = () => {
-    window.document.body.classList.remove("navigation-hidden");
-  };
-  componentDidMount = () => {
-    // this.timerAuto = setInterval(this.goToNextPart, 10000);
-    // this.timerClearAuto = setInterval(this.clearAuto, 128000);
-  };
-  hide = () => {
-    this.setState({ show: false });
-    clearInterval(this.timerHide);
-  };
-  show = () => {
-    this.setState({ show: true });
-    clearInterval(this.timerShow);
-  };
+  componentDidMount() {
+    if (music !== null) {
+      this.setState({ music: Sound.status.PLAYING, volume: 100 });
+    }
+    document.body.classList.add("navigation-hidden");
+  }
+
+  componentWillUnmount() {
+    document.body.classList.remove("navigation-hidden");
+  }
   changetext = () => {
-    console.log("change text");
     this.currentpage = this.state.part;
     this.currentpage++;
     this.setState({ part: this.currentpage });
     clearInterval(this.timerText);
   };
 
-  playMusic = () => {
-    if (this.state.music === true) {
-      console.log("play");
-      background.play();
-    } else {
-      console.log("pause");
-      background.pause();
-    }
-  };
-
   goToNextPart = () => {
     if (!this.justClicked) {
-      click.play();
+      // click.play();
       this.justClicked = true;
       this.timerHide = setInterval(this.hide, 100);
       this.timerText = setInterval(this.changetext, 500);
@@ -71,14 +53,18 @@ class CharacterStory extends Component {
     }
   };
   handleGoBack = () => {
-    // console.log("testere");
-    // background.pause();
+    this.setState({ music: Sound.status.STOPPED });
   };
 
   toggleSound = () => {
-    this.setState({ music: !this.state.music });
-    this.playMusic();
+    if (this.state.volume === 100) {
+      this.setState({ volume: 0 });
+    }
+    if (this.state.volume === 0) {
+      this.setState({ volume: 100 });
+    }
   };
+
   render() {
     const { characterId, store } = this.props;
     const { characters } = store;
@@ -89,20 +75,31 @@ class CharacterStory extends Component {
     }
     if (this.state.part === 15) {
       console.log("ting");
-      this.clearAuto();
     }
 
     return (
       <>
+        {music !== null ? (
+          <Sound
+            url={"/assets/sounds/background1.mp3"}
+            // playStatus="true"
+            playStatus={this.state.music}
+            volume={this.state.volume}
+            // autoLoad="true"
+            // playFromPosition={300 /* in milliseconds */}
+            // onLoading={this.handleSongLoading}
+            // onPlaying={this.handleSongPlaying}
+            // onFinishedPlaying={this.handleSongFinishedPlaying}
+          />
+        ) : (
+          " "
+        )}
         <div className={styles.background}>
           <div className="container full_view">
             <div className={styles.flexer}>
               <p className={styles.storyname}>{current.name}'s verhaal</p>
-              <Link
-                onClick={this.handleGoBack()}
-                to="/character/5cf78413e35fc80995d4ebce"
-              >
-                <button className={styles.close} />
+              <Link to={`/character/${characterId}`}>
+                <button onClick={this.handleGoBack} className={styles.close} />
               </Link>
             </div>
 
@@ -117,22 +114,22 @@ class CharacterStory extends Component {
                 <div className={styles.mutebars}>
                   <div
                     className={`${styles.rect} ${styles.rect1} ${
-                      !this.state.music ? "" : styles.no_animation
+                      this.state.volume === 100 ? "" : styles.no_animation
                     }`}
                   />
                   <div
                     className={`${styles.rect} ${styles.rect2} ${
-                      !this.state.music ? "" : styles.no_animation
+                      this.state.volume === 100 ? "" : styles.no_animation
                     }`}
                   />
                   <div
                     className={`${styles.rect} ${styles.rect3} ${
-                      !this.state.music ? "" : styles.no_animation
+                      this.state.volume === 100 ? "" : styles.no_animation
                     }`}
                   />
                   <div
                     className={`${styles.rect} ${styles.rect4} ${
-                      !this.state.music ? "" : styles.no_animation
+                      this.state.volume === 100 ? "" : styles.no_animation
                     }`}
                   />
                 </div>
