@@ -6,52 +6,38 @@ import StoryTimeline from "../components/StoryTimeline";
 import styles from "../containers/CharacterStory.module.css";
 import music from "../styles/assets/sounds/background1.mp3";
 
+import Sound from "react-sound";
+import { get } from "https";
+
 //
 
 class CharacterStory extends Component {
   constructor(props) {
     super(props);
-    this.state = { part: 0, show: true, music: true };
+    this.state = {
+      part: 0,
+      show: true,
+      music: Sound.status.STOPPED,
+      volume: 100
+    };
     this.audioRef = React.createRef();
-    this.background = new Audio(music);
   }
 
   componentDidMount() {
-    setTimeout(() => this.playFirst(), 500);
-    console.log("mounted");
-    // window.addEventListener("onbeforeunload", this.reset());
+    if (music !== null) {
+      this.setState({ music: Sound.status.PLAYING, volume: 100 });
+    }
+    document.body.classList.add("navigation-hidden");
   }
 
-  reset = () => {
-    console.log("reset");
-    this.lauchSounds();
-  };
-
-  lauchSounds = () => {
-    console.log(this.state.music);
-    const timerId = setInterval(this.playFirst(), 1000);
-  };
-
-  playFirst = () => {
-    this.background.play();
-    clearInterval(this.timerId);
-  };
+  componentWillUnmount() {
+    document.body.classList.remove("navigation-hidden");
+  }
   changetext = () => {
     this.currentpage = this.state.part;
     this.currentpage++;
     this.setState({ part: this.currentpage });
     clearInterval(this.timerText);
-  };
-
-  playMusic = () => {
-    console.log("test", this.state.music);
-    if (this.state.music === false) {
-      console.log("play");
-      this.background.play();
-    } else {
-      console.log("pause");
-      this.background.pause();
-    }
   };
 
   goToNextPart = () => {
@@ -67,14 +53,16 @@ class CharacterStory extends Component {
     }
   };
   handleGoBack = () => {
-    this.background.pause();
+    this.setState({ music: Sound.status.STOPPED });
   };
 
   toggleSound = () => {
-    this.setState({ music: !this.state.music });
-
-    console.log(this.state.music);
-    this.playMusic();
+    if (this.state.volume === 100) {
+      this.setState({ volume: 0 });
+    }
+    if (this.state.volume === 0) {
+      this.setState({ volume: 100 });
+    }
   };
 
   render() {
@@ -91,6 +79,21 @@ class CharacterStory extends Component {
 
     return (
       <>
+        {music !== null ? (
+          <Sound
+            url={"/assets/sounds/background1.mp3"}
+            // playStatus="true"
+            playStatus={this.state.music}
+            volume={this.state.volume}
+            // autoLoad="true"
+            // playFromPosition={300 /* in milliseconds */}
+            // onLoading={this.handleSongLoading}
+            // onPlaying={this.handleSongPlaying}
+            // onFinishedPlaying={this.handleSongFinishedPlaying}
+          />
+        ) : (
+          " "
+        )}
         <div className={styles.background}>
           <div className="container full_view">
             <div className={styles.flexer}>
@@ -111,22 +114,22 @@ class CharacterStory extends Component {
                 <div className={styles.mutebars}>
                   <div
                     className={`${styles.rect} ${styles.rect1} ${
-                      this.state.music ? "" : styles.no_animation
+                      this.state.volume === 100 ? "" : styles.no_animation
                     }`}
                   />
                   <div
                     className={`${styles.rect} ${styles.rect2} ${
-                      this.state.music ? "" : styles.no_animation
+                      this.state.volume === 100 ? "" : styles.no_animation
                     }`}
                   />
                   <div
                     className={`${styles.rect} ${styles.rect3} ${
-                      this.state.music ? "" : styles.no_animation
+                      this.state.volume === 100 ? "" : styles.no_animation
                     }`}
                   />
                   <div
                     className={`${styles.rect} ${styles.rect4} ${
-                      this.state.music ? "" : styles.no_animation
+                      this.state.volume === 100 ? "" : styles.no_animation
                     }`}
                   />
                 </div>
