@@ -101,7 +101,7 @@ class CharacterStory extends Component {
               </Link>
             </div>
 
-            {this.state.part < 16 ? (
+            {this.state.part < current.story.parts.length ? (
               <StoryPart
                 state={this.state}
                 story={current.story}
