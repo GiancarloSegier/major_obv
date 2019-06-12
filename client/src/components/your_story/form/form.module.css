@@ -22,7 +22,8 @@
   top:0;
   right: 0;
   object-fit: contain;
-  width: 35%;
+  width: 45%;
+  z-index: 15;
 }
 
 .button {

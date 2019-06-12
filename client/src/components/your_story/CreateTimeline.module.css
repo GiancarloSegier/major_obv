@@ -77,3 +77,23 @@ position: relative;
     background-position: center center;
     background-size: contain;
 }
+
+
+  @media screen and (max-width: 1050px) {
+.timeline{
+  transform: rotate(-90deg);
+      height: 50%;
+      top: -12vh;
+      left: 32vw;
+  }
+
+  .bulletpoint{
+    transform: rotate(90deg);
+  }
+
+  .active{
+    transform: rotate(90deg) scale(2.6)
+  }
+
+
+  }
