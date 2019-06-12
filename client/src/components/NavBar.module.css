@@ -34,6 +34,10 @@
   justify-content: flex-end;
 }
 
+.logo .menu__item{
+  margin: 0;
+}
+
 .active, .navLink:hover{
   color: var(--light-color)
 }

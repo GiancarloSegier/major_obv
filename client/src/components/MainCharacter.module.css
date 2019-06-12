@@ -4,7 +4,8 @@
 .character {
   display: grid;
   grid-template-columns: 2rem 1fr 2rem;
-  grid-template-rows: 2rem 26rem 6rem 2rem 2rem;
+    grid-template-rows: 2rem 15rem 6rem 3rem 2rem;
+  position: relative;
 }
 .character__overlay{
   grid-column: 1 / -1;
@@ -45,22 +46,26 @@
     font-size: 1.2rem;
     letter-spacing: .1rem;
     position: relative;
+    width: 80%;
+    align-self: center;
 }
 
 
-.character__tagline:before {
+.character:before {
     content: "";
     display: inline-block;
     height: 0.2rem;
     width: 2.7rem;
     background-color: var(--light-color);
     position: absolute;
-    top: 0.6rem;
-    right: 1rem;
+    bottom: 3.2rem;
+    right: 2rem;
+    -webkit-transition: .2s ease-in-out;
     transition: .2s ease-in-out;
+    z-index: 1;
 }
 
-.character__tagline::after {
+.character::after {
     content: "";
     display: inline-block;
     border: 0.2rem solid var(--light-color);
@@ -71,5 +76,14 @@
     transform: rotate(45deg);
     transition: .2s ease-in-out;
     position: absolute;
-    right: 1rem;
+    right: 2rem;
+    bottom: 2.6rem;
+    z-index: 1;
+}
+
+
+@media only screen and (max-width:750px){
+  .character{
+  grid-template-rows: 2rem 26rem 6rem 2rem 2rem;
+  }
 }

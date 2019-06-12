@@ -92,13 +92,18 @@ class Home extends Component {
           id="intro"
           className={`container margin-bottom margin-top ${styles.four_grid}`}
         >
-          <h2 className={styles.title}>Ontdek ons verhaal</h2>
+          <h2 className={styles.title}>
+            Ontdek <br /> ons <br /> verhaal
+          </h2>
           <div className={styles.characters}>
             {this.characters.map(character => (
               <MainCharacter key={character.id} props={character} />
             ))}
 
-            <Link to={ROUTES.create} className={styles.noLink}>
+            <Link
+              to={ROUTES.create}
+              className={`${styles.noLink} ${styles.CTA__block}`}
+            >
               <article className={styles.CTA__create}>
                 <p className={styles.CTA__tag}>
                   Hun verhaal is al verteld, en dat van jou?{" "}
@@ -110,7 +115,7 @@ class Home extends Component {
         </section>
         <section id="discover" className="container margin-bottom">
           <div className={`${styles.grid__stories} ${styles.border__bottom} `}>
-            <div>
+            <div className={styles.stories__about}>
               <h2 className={styles.section__title}>
                 Ongehoorde <br />
                 verhalen
