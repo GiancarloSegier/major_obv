@@ -14,8 +14,9 @@ const StoryPart = ({ story, state, handleClick }) => {
     transform: "translateY(2rem)",
     transform: "scale(0.8)"
   };
-  ////
+
   let vis = show ? show_text : hide_text;
+
   return (
     <div className={styles.story}>
       <h3 style={vis} className={`${styles.story__text}`}>
