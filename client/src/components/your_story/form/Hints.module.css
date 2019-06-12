@@ -25,5 +25,4 @@
 }
 .addsign{
 composes: addsign from '../../../styles/ui.module.css';
-
 }

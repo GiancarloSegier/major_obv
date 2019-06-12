@@ -12,9 +12,9 @@ const CharacterDetail = ({ characterId, store }) => {
   }
 
   return (
-    <section className="container ">
+    <section className={`container ${styles.wrapper}`}>
       <div className={styles.split_grid}>
-        <div>
+        <div className={styles.character__text}>
           <Link to={`/`}>
             <button className={styles.button_back}>Alle verhalen</button>
           </Link>
@@ -33,6 +33,23 @@ const CharacterDetail = ({ characterId, store }) => {
             alt=""
             className={styles.image}
           />
+          <div className={styles.social}>
+            <p className={styles.social_followme}>volg mij</p>
+            <ul className={styles.social_iconslist}>
+              <a href="http://www.facebook.com">
+                <li className={styles.social_facebook} />
+              </a>
+              <a href="http://www.instagram.com">
+                <li className={styles.social_instagram} />{" "}
+              </a>
+              <a href="http://www.twitter.com">
+                <li className={styles.social_twitter} />{" "}
+              </a>
+              <a href="http://www.spotify.com">
+                <li className={styles.social_spotify} />
+              </a>
+            </ul>
+          </div>
         </div>
       </div>
     </section>

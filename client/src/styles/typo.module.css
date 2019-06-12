@@ -27,22 +27,36 @@
   font-weight: bold;
 }
 
+@font-face {
+  font-family: "oakes";
+  src: url("./assets/fonts/oakes/semibold") format("woff");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "oakes";
+  src: url("./assets/fonts/oakes/regular.woff") format("woff");
+  font-weight: normal;
+}
+
 .navbar {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.05rem;
   color: var(--grey-color);
   font-family: "oakes", sans-serif;
 }
 
 .heading-1 {
-  font-size: 8rem;
+  font-size: 5.5rem;
   font-weight: 900;
-  line-height: 1.5;
+  line-height: 1;
   margin-bottom: 4rem;
   font-family: "oakes", sans-serif;
 }
 
 .heading-2 {
-  font-size: 3rem;
+  font-size: 2.5rem;
+  line-height: 1.6;
   font-weight: 900;
   margin-bottom: 2rem;
   font-family: "oakes", sans-serif;
@@ -50,6 +64,7 @@
 
 .heading-3 {
   font-size: 1rem;
+  letter-spacing: 0.2rem;
   font-weight: bold;
   margin-bottom: 2rem;
   text-transform: uppercase;
@@ -59,16 +74,40 @@
 
 .tagline {
   font-size: 1.4rem;
-  color: var(--grey-color);
-  font-family: 'oakes'
+  color: var(--light-color);
+  font-family: "oakes";
+  font-weight: bold;
 }
 
 .body {
   font-family: "charter", serif;
   font-size: 1.6rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .oakes {
   font-family: "oakes", sans-serif;
+}
+
+@media only screen and (min-width: 700px) {
+  .heading-1 {
+    font-size: 7.5;
+  }
+  .heading-2 {
+    font-size: 4rem;
+  }
+
+  .body {
+    font-size: 1.8rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .heading-2 {
+    font-size: 4.5rem;
+  }
+
+  .body {
+    font-size: 2rem;
+  }
 }

@@ -11,8 +11,8 @@
   composes: body from "../styles/typo.module.css";
   font-style: normal;
   font-weight: normal;
-  font-size: 37px;
-  line-height: 50px;
+  font-size: 3.7rem;
+  line-height: 5rem;
   /* or 135% */
   text-align: center;
   transition: all 0.3s ease-in;

@@ -28,14 +28,15 @@ class Store {
     this.customStory[dataname] = value;
   };
 
-  addStory = data => {
+  addStory = async data => {
     const newStory = new Story();
     newStory.updateFromServer(data);
     this.stories.push(newStory);
 
-    this.storyApi
-      .create(newStory)
-      .then(storyValues => newStory.updateFromServer(storyValues));
+    const storyValues = await this.storyApi.create(newStory);
+    newStory.updateFromServer(storyValues);
+
+    return newStory;
   };
 
   _addStory = values => {

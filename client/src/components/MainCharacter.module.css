@@ -1,27 +1,106 @@
+.character__link{
+    text-decoration: none;
+    overflow: hidden;
+}
 .character {
   display: grid;
   grid-template-columns: 2rem 1fr 2rem;
-  grid-template-rows: 2rem 22rem 3rem 1.5rem 2rem;
+    grid-template-rows: 2rem 15rem 6rem 3rem 2rem;
+  position: relative;
 }
-
-.character__image {
-  border-radius: 2rem;
+.character__overlay{
   grid-column: 1 / -1;
   grid-row: 1 / -1;
+  position: relative;
+}
+.character__image {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  transition: .2s ease-in-out;
 }
-
+.character__overlay:after{
+  content: "";
+  height: 100%;
+  width: 100%;
+  display: block;
+  background: linear-gradient(0deg, #000 0%, transparent 50%);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
 .character__name {
   grid-row: 3;
   grid-column: 2 / -2;
-
-  composes: heading-3 from "../styles/typo.module.css";
+  composes: heading-2 from "../styles/typo.module.css";
+  color: var(--light-color);
+  font-size: 3.6rem;
+  transition: .2s ease-in-out;
+  z-index: 1;
+  margin: 0;
 }
-
 .character__tagline {
   grid-row: 4;
   grid-column: 2 / -2;
+    composes: oakes from "../styles/typo.module.css";
+    text-transform: uppercase;
+    font-weight: normal;
+    color: var(--light-color);
+    font-size: 1.2rem;
+    letter-spacing: .1rem;
+    position: relative;
+    width: 80%;
+    align-self: center;
+}
 
-  composes: tagline from "../styles/typo.module.css";
+
+.character:before {
+    content: "";
+    display: inline-block;
+    height: 0.2rem;
+    width: 2.7rem;
+    background-color: var(--light-color);
+    position: absolute;
+    bottom: 3.2rem;
+    right: 2rem;
+    -webkit-transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
+    z-index: 1;
+}
+
+.character__link:hover img{
+  transform: scale(1.2);
+}
+
+.character::after {
+    content: "";
+    display: inline-block;
+    border: 0.2rem solid var(--light-color);
+    border-left: none;
+    border-bottom: none;
+    height: 1.4rem;
+    width: 1.4rem;
+    transform: rotate(45deg);
+    transition: .2s ease-in-out;
+    position: absolute;
+    right: 2rem;
+    bottom: 2.6rem;
+    z-index: 1;
+}
+
+
+
+
+
+@media only screen and (min-width:761px){
+  .character{
+    grid-template-rows: 2fr 18fr 3fr 3fr 2fr;
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width:760px){
+  .character{
+  grid-template-rows: 2rem 26rem 6rem 2rem 2rem;
+  }
 }

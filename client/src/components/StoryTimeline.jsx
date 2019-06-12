@@ -6,13 +6,14 @@ const StoryTimeline = ({ story, state }) => {
   const { parts } = story;
   let i = -1;
   return (
-    <div className="container">
+    <div className="">
       <ul className={styles.timeline}>
         {parts.map(item => {
           i++;
 
           return (
             <div
+              key={i}
               className={`${styles.line} ${
                 i <= part ? styles.active_line : ""
               }`}

@@ -68,7 +68,10 @@ class Story {
   // };
 
   updateFromServer = values => {
-    this.setId(values._id);
+    if (values._id !== null) {
+      this.setId(values._id);
+    }
+
     this.setTitle(values.title);
     this.setName(values.name);
     this.setTags(values.tags);
