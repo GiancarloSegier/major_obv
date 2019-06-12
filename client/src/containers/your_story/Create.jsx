@@ -6,9 +6,9 @@ import { inject, observer } from "mobx-react";
 
 const Create = ({ store }) => {
   return (
-    <section className="container ">
+    <section className={`container ${styles.wrapper}`}>
       <div className={styles.split_grid}>
-        <div>
+        <div className={styles.character__text}>
           <h2 className={styles.pageTitle}>Vertel jouw verhaal</h2>
           <p className={styles.subTitle}>We're all just stories in the end</p>
           <div className={styles.margin_left}>

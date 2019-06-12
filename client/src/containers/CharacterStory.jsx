@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import { Link } from "react-router-dom";
 import StoryPart from "../components/StoryPart";
+import StoryEnd from "../components/StoryEnd";
 import StoryTimeline from "../components/StoryTimeline";
 import styles from "../containers/CharacterStory.module.css";
 import music from "../styles/assets/sounds/background1.mp3";
@@ -42,7 +43,6 @@ class CharacterStory extends Component {
 
   goToNextPart = () => {
     if (!this.justClicked) {
-      // click.play();
       this.justClicked = true;
       this.timerHide = setInterval(this.hide, 100);
       this.timerText = setInterval(this.changetext, 500);
@@ -70,11 +70,15 @@ class CharacterStory extends Component {
     const { characters } = store;
 
     const current = characters.find(character => character.id === characterId);
+
     if (!current) {
       return null;
     }
-    if (this.state.part === 15) {
-      console.log("ting");
+
+    if (current) {
+      if (this.state.part === current.story.parts.length) {
+        console.log("the end");
+      }
     }
 
     return (
@@ -82,14 +86,8 @@ class CharacterStory extends Component {
         {music !== null ? (
           <Sound
             url={"/assets/sounds/background1.mp3"}
-            // playStatus="true"
             playStatus={this.state.music}
             volume={this.state.volume}
-            // autoLoad="true"
-            // playFromPosition={300 /* in milliseconds */}
-            // onLoading={this.handleSongLoading}
-            // onPlaying={this.handleSongPlaying}
-            // onFinishedPlaying={this.handleSongFinishedPlaying}
           />
         ) : (
           " "
@@ -103,11 +101,16 @@ class CharacterStory extends Component {
               </Link>
             </div>
 
-            <StoryPart
-              state={this.state}
-              story={current.story}
-              handleClick={this.goToNextPart}
-            />
+            {this.state.part < 16 ? (
+              <StoryPart
+                state={this.state}
+                story={current.story}
+                handleClick={this.goToNextPart}
+              />
+            ) : (
+              <StoryEnd />
+            )}
+
             <div className={styles.flexer}>
               <StoryTimeline state={this.state} story={current.story} />
               <div onClick={this.toggleSound} className={styles.mute}>

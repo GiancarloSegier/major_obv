@@ -1,0 +1,72 @@
+.button {
+  composes: button from "../styles/ui.module.css";
+}
+.about_opera {
+  margin-top: 10rem;
+}
+.pageTitle {
+  composes: heading-3 from "../styles/typo.module.css";
+  font-size: 1rem;
+}
+
+.subTitle {
+  composes: heading-1 from "../styles/typo.module.css";
+  -webkit-text-stroke: 0.2rem;
+  -webkit-text-stroke-color: var(--light-color);
+  color: transparent;
+  margin-bottom: 3rem;
+  font-size: 5rem;
+}
+.body_text {
+  composes: body from "../styles/typo.module.css";
+  color: var(--light-grey-color);
+  margin-bottom: 5rem;
+}
+
+@media only screen and (min-width: 700px) {
+  .subTitle {
+    font-size: 6.5rem;
+  }
+  .body_text {
+    color: var(--light-grey-color);
+    margin-left: 5rem;
+    width: 80%;
+  }
+  .pageTitle {
+    margin-left: 5rem;
+  }
+  .button {
+    margin-left: 5rem;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .about_opera {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+  }
+  .subTitle {
+    font-size: 5rem;
+  }
+  .body_text {
+    width: 100%;
+  }
+  .about_opera:first-of-type {
+    margin-top: 15rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .about_opera {
+    display: grid;
+    grid-template-columns: 50% 1fr;
+  }
+  .subTitle {
+    font-size: 8rem;
+  }
+  .body_text {
+    width: 100%;
+  }
+  .about_opera:first-of-type {
+    margin-top: 20rem;
+  }
+}
