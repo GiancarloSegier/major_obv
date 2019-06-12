@@ -76,16 +76,10 @@
   margin-top: 1.5rem;
 }
 
-<<<<<<< HEAD
-.story__text{
-    composes: body from "../../styles/typo.module.css";
-    color: var(--light-grey-color);
-=======
 .story__text {
   composes: body from "../../styles/typo.module.css";
   color: var(--light-grey-color);
   margin-bottom: 2rem;
->>>>>>> experience_story
 }
 
 .story__introduction {
@@ -146,9 +140,9 @@
     font-size: 1.4rem;
   }
 
-    .story__text{
-        margin: 3rem 0 3rem 6rem;
-    }
+  .story__text {
+    margin: 3rem 0 3rem 6rem;
+  }
 
   .story__socialMedia1 {
     display: initial;
