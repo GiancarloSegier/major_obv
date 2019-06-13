@@ -36,16 +36,16 @@ const CharacterDetail = ({ characterId, store }) => {
           <div className={styles.social}>
             <p className={styles.social_followme}>volg mij</p>
             <ul className={styles.social_iconslist}>
-              <a href="http://www.facebook.com">
+              <a href={current.facebook}>
                 <li className={styles.social_facebook} />
               </a>
-              <a href="http://www.instagram.com">
+              <a href={current.instagram}>
                 <li className={styles.social_instagram} />{" "}
               </a>
-              <a href="http://www.twitter.com">
+              <a href={current.twitter}>
                 <li className={styles.social_twitter} />{" "}
               </a>
-              <a href="http://www.spotify.com">
+              <a href={current.spotify}>
                 <li className={styles.social_spotify} />
               </a>
             </ul>
