@@ -62,10 +62,18 @@ const StoryDetail = ({ storyId, store }) => {
         />
         <div className={styles.story__info}>
           <h2 className={styles.story__author}>Over de hoofdrol</h2>
-          <p className={styles.story__introduction}>
-            {name} is een {age}-jarige {gender} uit {location}. {name} is{" "}
-            {personality[0]}, {personality[1]}, maar vooral {personality[2]}.
-          </p>
+
+          {gender !== "transgender" ? (
+            <p className={styles.story__introduction}>
+              {name} is een {age}-jarige {gender} uit {location}. {name} is{" "}
+              {personality[0]}, {personality[1]}, maar vooral {personality[2]}.
+            </p>
+          ) : (
+            <p className={styles.story__introduction}>
+              {name} is {age} jaar en komt uit {location}. {name} is{" "}
+              {personality[0]}, {personality[1]}, maar vooral {personality[2]}.
+            </p>
+          )}
           <div className={styles.story__socialMedia1}>
             <h2 className={styles.story__shareStory}>Deel dit verhaal</h2>
             <ul className={styles.social_iconslist}>
