@@ -41,7 +41,10 @@ class StoryEditor extends Component {
   render() {
     return (
       <>
-        <form onSubmit={this.submitStory} className={styles.editorGrid}>
+        <form
+          onSubmit={this.submitStory}
+          className={`${styles.editorGrid} fadeIn`}
+        >
           <div className={styles.textEditor}>
             <h2 className={styles.part__title}>
               <span className={styles.part__step}>05</span> Jouw verhaal

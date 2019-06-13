@@ -8,7 +8,17 @@
 .hint{
     composes: tagline from '../../../styles/typo.module.css';
     padding: 3rem 0;
-    border-bottom: .2rem solid var(--grey-color)
+    border-bottom: .2rem solid var(--grey-color);
+    animation: hint 1s ease-in-out;
+}
+
+@keyframes hint {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
 .hint:last-child{
     border: none;
@@ -20,7 +30,8 @@
 }
 .loadButton{
        composes: loadButton from '../../../styles/ui.module.css';
-           margin-top: 5rem;
+           margin-top: 2.5rem;
+           margin-bottom: 2.5rem;
            position: relative;
 }
 .addsign{

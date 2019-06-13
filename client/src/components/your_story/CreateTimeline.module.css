@@ -89,7 +89,7 @@
   transform: rotate(-90deg);
       height: 45%;
       top: -12vh;
-      left: 30vw;
+      left: 25vw;
   }
 
   .bulletpoint{
@@ -115,8 +115,8 @@
    @media screen and (max-width: 650px) {
 .timeline{
 
-     top: -12vh;
-    left: 35vh;
+     top: -22vh;
+    left: 48vh;
         height: 80vw;
   }
 
@@ -124,7 +124,7 @@
 
    @media screen and (max-width: 600px) {
 .timeline{
-   left: 32vh;
+   left: 45vh;
 
   
 

@@ -11,7 +11,7 @@ import CreateTimeline from "../../components/your_story/CreateTimeline";
 class CreateStory extends Component {
   constructor(props) {
     super(props);
-    this.state = { step: 1 };
+    this.state = { step: 1, fadeOut: false };
 
     this.characterRef = React.createRef();
     this.characterInfoRef = React.createRef();
@@ -20,7 +20,15 @@ class CreateStory extends Component {
   nextForm = () => {
     this.currentstep = this.state.step;
     this.currentstep++;
-    this.setState({ step: this.currentstep });
+
+    if (this.currentstep === 6) {
+      this.setState({ fadeOut: true });
+      setTimeout(() => {
+        this.setState({ step: this.currentstep });
+      }, 500);
+    } else {
+      this.setState({ step: this.currentstep });
+    }
   };
 
   // send everything to the database
@@ -68,7 +76,13 @@ class CreateStory extends Component {
                 ) : step === 4 ? (
                   <StoryInfo name={customStory.name} nextForm={this.nextForm} />
                 ) : step === 5 ? (
-                  <div className={styles.margin_left}>
+                  <div
+                    className={
+                      !this.state.fadeOut
+                        ? `${styles.margin_left} fadeIn `
+                        : `${styles.margin_left} fadeOut `
+                    }
+                  >
                     <h2 className={`${styles.part__title} `}>
                       <span className={styles.part__step}>05</span> Jouw Verhaal{" "}
                     </h2>
@@ -77,7 +91,7 @@ class CreateStory extends Component {
                       Tijd om {customStory.name} op avontuur te sturen{" "}
                     </p>
                     <button onClick={this.nextForm} className={styles.button}>
-                      volgende
+                      Volgende
                     </button>
                   </div>
                 ) : step === 6 ? (

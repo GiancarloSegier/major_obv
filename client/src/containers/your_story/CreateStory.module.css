@@ -51,20 +51,26 @@
 }
 
   @media screen and (max-width: 1100px) {
-.split_grid{
-        grid-template-columns: 1fr 50%;
-}
+  .split_grid{
+          grid-template-columns: 1fr 50%;
+  }
     .margin_left{
       padding-left: 3.5vw
     }
+    .margin_top{
+      margin-top: 12%;
+    } 
   }
 
 
        @media screen and (max-width: 800px) {
-             .margin_top{
-      margin-top: 22%;
-    } 
 
+.split_grid{
+        grid-template-columns: 1fr 40%;
+}
+      .margin_top{
+      margin-top: 25%;
+    } 
 
    }
 
@@ -82,9 +88,7 @@
         .button{
     margin: 0 auto;
   }
-      .margin_top{
-      margin-top: 30%;
-    } 
+
 }
    @media screen and (max-width: 550px) {
 

@@ -6,7 +6,7 @@ import { inject, observer } from "mobx-react";
 class CreateCharacter extends Component {
   constructor(props) {
     super(props);
-    this.state = { visible: false };
+    this.state = { visible: false, fadeOut: false };
 
     this.index = 1;
     this.gender = "transgender";
@@ -38,14 +38,23 @@ class CreateCharacter extends Component {
   };
 
   nextPage = e => {
+    this.setState({ fadeOut: true });
     e.preventDefault();
-    this.props.nextForm();
+    setTimeout(() => {
+      this.props.nextForm();
+    }, 500);
   };
 
   render() {
     return (
-      <form onSubmit={this.nextPage} className={styles.centerBlock}>
-        <div className={styles.margin_left}>
+      <form onSubmit={this.nextPage} className={`${styles.centerBlock}`}>
+        <div
+          className={
+            !this.state.fadeOut
+              ? `${styles.margin_left} fadeIn `
+              : `${styles.margin_left} fadeOut `
+          }
+        >
           <h2 className={styles.part__title}>
             <span className={styles.part__step}>01</span> Jouw personage{" "}
           </h2>
@@ -71,7 +80,7 @@ class CreateCharacter extends Component {
               className={styles.character__open}
               onClick={() => this.setState({ visible: !this.state.visible })}
             >
-              creëer karakter
+              Creëer karakter
             </button>
             <button type="submit" className={styles.button}>
               Volgende

@@ -11,7 +11,7 @@ const CharacterImage = ({
   full = false
 }) => {
   return (
-    <div className={full ? styles.full : styles.story__image}>
+    <div className={full ? `${styles.full}  fadeIn` : `${styles.story__image}`}>
       <div
         className={
           // (editor ? "editor" : " ")`${styles.story__imagepart}`

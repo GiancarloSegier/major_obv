@@ -16,7 +16,7 @@ const CharacterPersona = ({ name, nextForm, store }) => {
   };
 
   return (
-    <form onSubmit={nextPage} className={styles.fullForm}>
+    <form onSubmit={nextPage} className={`${styles.fullForm} fadeIn `}>
       <div className={styles.margin_left}>
         <h2 className={styles.part__title}>
           <span className={styles.part__step}>03</span> Karakter{" "}

@@ -25,7 +25,10 @@
   object-fit: contain;
   width: 45%;
   z-index: 15;
+
 }
+
+
 
 .button {
    composes: button from '../../../styles/ui.module.css';
@@ -92,6 +95,7 @@
 }
 .textEditor{
 padding-left: 33px;
+margin-bottom: 10vh;
 }
 
 .inputfield{
@@ -149,7 +153,7 @@ padding-left: 33px;
     width: 20%;
     display: flex;
     flex-direction: column;
-    height: 60vh;
+    height: 60%;
     justify-content: space-between;
 }
   .character__open{
@@ -158,12 +162,24 @@ padding-left: 33px;
   .character__checkBox{
     display: none;
   }
+
+  @media screen and (max-width: 1200px) {
+  
+      .hints{
+      height: 75%;
+    }
+
+  }
+
   @media screen and (max-width: 1100px) {
     .character__image{
-      width: 50%;
+      width: 50vw;
     }
     .margin_left{
       padding-left: 3.5vw
+    }
+    .hints{
+      height: 75%;
     }
 
 
@@ -249,6 +265,18 @@ padding-left: 33px;
     margin-left: 1rem;
   }
 
+  .pageTitle{
+    font-size: 3.5rem;
+  }
+
+  .hints{
+    display: none;
+  }
+
+  .editorGrid{
+    grid-template-columns: 1fr;
+  }
+
  }
 
  @media screen and (max-width: 650px) {
@@ -283,15 +311,16 @@ padding-left: 33px;
     margin-left: .1rem;
   }
 
-
-
-}
-
- @media screen and (max-width: 650px) {
-  .centerContent, .fullForm{
-    width: 100%;
+  .centerBlock{
+    width: 70%;
+    justify-self: center;
+    display: block;
   }
 
+  .centerContent, .fullForm{
+        width: 60%;
+    justify-self: center;
+  }
 
   .tags{
         display: flex;
@@ -307,8 +336,6 @@ padding-left: 33px;
     margin-left: .5rem;
 
   }
-
-
 
   .margin_left{
     height: 60vh;
@@ -332,11 +359,15 @@ padding-left: 33px;
   @media screen and (max-width: 500px) {
 
   .margin_left{
-    height: 80vh;
+    height: 75vh;
   }
  }
   @media screen and (max-width: 350px) {
   .centerContent{
+    width: 100%;
+  }
+
+  .fullForm{
     width: 100%;
   }
  }

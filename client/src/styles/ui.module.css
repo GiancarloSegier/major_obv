@@ -145,7 +145,7 @@
 .storyTitle{
   border-color: transparent;
   margin-bottom: 3rem;
-      font-size: 4.5rem;
+  font-size: 4.5rem;
 }
 .textField{
   width: 100%;
@@ -165,7 +165,7 @@
 .textField::placeholder{
   color: var(--light-grey-color);
 }
-.storyTitle::placeholderÒ{
+.storyTitle::placeholder{
   color: var(--light-color)
 }
 
@@ -248,4 +248,13 @@
   top: 0;
   right: 0;
   object-fit: contain;
+}
+
+@media only screen and (max-width: 1100px){
+  .storyTitle{
+  font-size: 4rem;
+}
+.textField{
+  font-size: 1.8rem;
+}
 }

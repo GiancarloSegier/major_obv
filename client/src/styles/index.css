@@ -61,6 +61,34 @@ body {
   display: none;
 }
 
+.fadeIn{
+  animation: fadeIn .5s ease-in-out;
+}
+@keyframes fadeIn{
+  0%{
+    opacity: 0;
+    filter: blur(3rem)
+  }
+  100%{
+    opacity: 1;
+    filter: blur(0)
+  }
+}
+
+.fadeOut{
+  animation: fadeOut .5s ease-in-out;
+}
+@keyframes fadeOut{
+  0%{
+    opacity: 1;
+    filter: blur(0)
+  }
+  100%{
+    opacity: 0;
+    filter: blur(3rem)
+  }
+}
+
 @media only screen and (max-width:1400px){
   .container{
     max-width: 80vw;
