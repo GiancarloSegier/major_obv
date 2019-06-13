@@ -6,7 +6,7 @@ import { inject, observer } from "mobx-react";
 class CreateCharacter extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { visible: false };
 
     this.index = 1;
     this.gender = "transgender";
@@ -44,12 +44,12 @@ class CreateCharacter extends Component {
 
   render() {
     return (
-      <form onSubmit={this.nextPage}>
+      <form onSubmit={this.nextPage} className={styles.centerBlock}>
         <div className={styles.margin_left}>
           <h2 className={styles.part__title}>
             <span className={styles.part__step}>01</span> Jouw personage{" "}
           </h2>
-          <div>
+          <div className={styles.centerContent}>
             <h2 className={`${styles.pageTitle}`}>
               Hallo wereld, <br />
               hier is{" "}
@@ -65,11 +65,27 @@ class CreateCharacter extends Component {
               className={styles.inputfield}
             />
           </div>
-          <button type="submit" className={styles.button}>
-            Volgende
-          </button>
+          <div className={styles.centerButtons}>
+            <button
+              type="button"
+              className={styles.character__open}
+              onClick={() => this.setState({ visible: !this.state.visible })}
+            >
+              creëer karakter
+            </button>
+            <button type="submit" className={styles.button}>
+              Volgende
+            </button>
+          </div>
         </div>
-        <div className={styles.character__image}>
+
+        <div
+          className={
+            this.state.visible
+              ? `${styles.character__image} ${styles.visible}`
+              : `${styles.character__image}`
+          }
+        >
           <CreatePortrait
             part="bodies"
             dataname="chest"
@@ -94,7 +110,13 @@ class CreateCharacter extends Component {
             gender={this.gender}
             ref={this.headRef}
           />
-          <div className={styles.character__genders}>
+          <div
+            className={
+              this.state.visible
+                ? `${styles.character__genders} ${styles.visible}`
+                : `${styles.character__genders}`
+            }
+          >
             <input
               type="radio"
               name="gender"
@@ -120,6 +142,15 @@ class CreateCharacter extends Component {
               required
               className={styles.gender__check}
             />
+          </div>
+          <div className={styles.SM__buttons}>
+            <button
+              type="button"
+              className={`${styles.character__open} ${styles.character__close}`}
+              onClick={() => this.setState({ visible: !this.state.visible })}
+            >
+              karakter klaar
+            </button>
           </div>
         </div>
       </form>

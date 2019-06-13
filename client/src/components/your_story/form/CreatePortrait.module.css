@@ -76,3 +76,25 @@
     grid-row: 6 / 8;
     grid-column: 1
 }
+
+
+@media screen and (max-width: 1000px) {
+    .buttonLeft, .buttonRight{
+        width: 4rem;
+        height: 4rem;
+        border-width: .3rem;
+    }
+    .buttonLeft::after, .buttonRight:after{
+
+        height: 1.4rem;
+        width: 1.4rem;
+        border-width: .3rem;
+    }
+    .buttonLeft::after{
+        margin-left: .5rem;
+        transform: scale(-1) rotate(45deg);
+    }
+    .buttonRight::after{
+        margin-left: .4rem;
+    }
+}

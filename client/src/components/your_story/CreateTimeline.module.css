@@ -115,25 +115,28 @@
    @media screen and (max-width: 650px) {
 .timeline{
 
-top: -18vh;
+     top: -12vh;
     left: 35vh;
-    height: 60vh;
+        height: 80vw;
   }
 
 }
 
    @media screen and (max-width: 600px) {
 .timeline{
+   left: 32vh;
 
-    top: -12vh;
-    left: 35vh;
-    height: 48vh;
-  }
+  
+
+}
+
+
 
 }
 
    @media screen and (max-width: 550px) {
 .timeline{
+
 
 display: none;
   }

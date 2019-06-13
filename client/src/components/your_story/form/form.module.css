@@ -57,8 +57,9 @@
   width: 2.6rem;
   opacity: .65;
   background-size: contain;
-  margin: 0 .5rem;
+  margin: 0 .1vw;
   transition: .2s ease-in-out;
+  background-repeat: no-repeat;
 }
 .gender__check[value="man"]:after{
   background-image: url('../../../styles/assets/icons/male.png');
@@ -151,7 +152,12 @@ padding-left: 33px;
     height: 60vh;
     justify-content: space-between;
 }
-
+  .character__open{
+    display: none;
+  }
+  .character__checkBox{
+    display: none;
+  }
   @media screen and (max-width: 1100px) {
     .character__image{
       width: 50%;
@@ -163,12 +169,95 @@ padding-left: 33px;
 
   }
 
+   @media screen and (max-width: 1000px) {
+      .gender__check:after{
+    width: 3vw;
+    height: 3vw;
+  }
+   }
+
+ @media screen and (max-width: 800px) {
+  .character__image{
+    opacity: 0;
+    transition: opacity .2s ease-in-out;
+    top: -13%;
+    left: 0;
+    height: 113%;
+    width: 100%;
+    pointer-events: none;
+
+  }
+  .character__open{
+    display: block;
+   composes: check__button from '../../../styles/ui.module.css';
+       width: 15rem;
+       padding-left: 1rem;
+       padding-right: 1rem;
+       text-align: center;
+       margin-bottom: 3rem;
+  }
+  .SM__buttons{
+    background-color: var(--dark-color);
+    position: relative;
+    z-index: 5;
+    height: 11rem;
+    margin-top: -6rem;
+  }
+  .character__close{
+    position: absolute;
+    right: 5vw;
+    bottom: 0
+  }
+  .character__open::before{
+    content: none;
+  }
+  .visible{
+    opacity: 1;
+    pointer-events: all;
+  }
+  .character__open:hover, .character__open:focus{
+    background-color: transparent;
+  }
+
+  .centerBlock{
+    grid-column: 1 / -1;
+    justify-items: center;
+  }
+  .centerContent{
+    align-self: center;
+  width: 50vw;
+  text-align: center;
+  }
+  .centerContent .inputfield::placeholder, .centerContent .inputfield {
+    text-align: center;
+  }
+  .centerButtons{
+    align-self: center;
+  }
+
+  .character__genders{
+    position: absolute;
+    bottom: 0;
+    left: 5vw;
+    z-index: 6;
+    margin-bottom: 3rem;
+  }
+
+  .gender__check:after{
+    width: 4rem;
+    height: 4rem;
+    margin-left: 1rem;
+  }
+
+ }
+
  @media screen and (max-width: 650px) {
 
 
   .pageTitle{
     text-align: center;
     line-height: 1.6;
+    font-size: 3rem;
   }
 
   .inputfield{
@@ -184,11 +273,70 @@ padding-left: 33px;
   }
   .margin_left{
     padding-left: 0;
+    height: 80vh;
   }
   .part__title{
     margin-left: 0;
   }
 
+    .gender__check:after{
+    margin-left: .1rem;
+  }
+
 
 
 }
+
+ @media screen and (max-width: 650px) {
+  .centerContent, .fullForm{
+    width: 100%;
+  }
+
+
+  .tags{
+        display: flex;
+
+    flex-wrap: wrap;
+    justify-content: center;
+
+    align-content: center;
+  }
+
+  .tag {
+        margin-right: .5rem;
+    margin-left: .5rem;
+
+  }
+
+
+
+  .margin_left{
+    height: 60vh;
+  }
+
+  .inputfield[id='name'], .inputfield[id='location']{
+  width: 90%;
+}
+.inputfield[id='age']{
+  width: 40%;
+  text-align: center;
+}
+
+.inputfield[id='personality1'], .inputfield[id='personality2'], .inputfield[id='personality3']{
+  width: 90%;
+}
+
+
+
+ }
+  @media screen and (max-width: 500px) {
+
+  .margin_left{
+    height: 80vh;
+  }
+ }
+  @media screen and (max-width: 350px) {
+  .centerContent{
+    width: 100%;
+  }
+ }

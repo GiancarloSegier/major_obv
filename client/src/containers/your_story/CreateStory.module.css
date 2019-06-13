@@ -61,12 +61,20 @@
 
 
        @media screen and (max-width: 800px) {
+             .margin_top{
+      margin-top: 22%;
+    } 
 
 
    }
 
    @media screen and (max-width: 650px) {
 
+      .pageTitle{
+    text-align: center;
+    line-height: 1.6;
+    font-size: 3rem;
+  }
 
       .split_grid{
               grid-template-columns: 1fr;
@@ -74,5 +82,13 @@
         .button{
     margin: 0 auto;
   }
-
+      .margin_top{
+      margin-top: 30%;
+    } 
 }
+   @media screen and (max-width: 550px) {
+
+    .margin_top{
+      margin-top: 20%;
+    } 
+   }

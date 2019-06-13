@@ -13,7 +13,7 @@ const CharacterInfo = ({ name, store, nextForm }) => {
   };
 
   return (
-    <form onSubmit={nextPage}>
+    <form onSubmit={nextPage} className={styles.fullForm}>
       <div className={styles.margin_left}>
         <h2 className={styles.part__title}>
           <span className={styles.part__step}>02</span> Leeftijd & Locatie{" "}
