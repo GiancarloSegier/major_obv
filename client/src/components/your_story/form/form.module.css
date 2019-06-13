@@ -163,6 +163,12 @@ margin-bottom: 10vh;
     display: none;
   }
 
+   .SM__editor_buttons, .close{
+    display: none;
+  }
+
+
+
   @media screen and (max-width: 1200px) {
   
       .hints{
@@ -270,12 +276,106 @@ margin-bottom: 10vh;
   }
 
   .hints{
-    display: none;
+    opacity: 0;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: var(--dark-color);
+    padding: 25vh 20vh;
+    transition: .2s ease-in-out;
+    pointer-events: none;
+  }
+  .openHints{
+    opacity: 1;
+    pointer-events: all;
   }
 
   .editorGrid{
     grid-template-columns: 1fr;
   }
+
+  .SM__editor_buttons{
+    display: block;
+    position: absolute;
+    right: 10vw;
+        margin-top: -1rem;
+  }
+.saveButton, .hintButton {
+  composes: check__button from '../../../styles/ui.module.css';
+    padding: 2rem;
+    border-radius: 4rem;
+}
+.saveButton:before{
+  top: 1.5rem;
+
+}
+.saveButton{
+  margin-left: 1rem;
+}
+.hintButton:hover, .saveButton:focus{
+  background: transparent;
+}
+
+.hintButton::before{
+  content: "?";
+    color: var(--highlight-color);
+  font-weight: bold;
+  font-size: 1.6rem;
+  border: none;
+  transform: none;
+top: 1.3rem;
+    left: 1.5rem;
+}
+
+.close {
+  position: absolute;
+      top: 16vh;
+    right: 20vh;
+  display: inline;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: solid 0.2rem #585f71;
+  background: none;
+  transition: all 0.3s;
+}
+
+.close:before,
+.close:after {
+  position: absolute;
+  left: 1.7rem;
+  top: 0.8rem;
+  content: " ";
+  height: 2rem;
+  width: 0.2rem;
+  background-color: #585f71;
+}
+.close:before {
+  transform: rotate(45deg);
+  transition: all 0.3s;
+}
+.close:after {
+  transform: rotate(-45deg);
+  transition: all 0.3s;
+}
+
+.close:hover:before {
+  transform: rotate(225deg);
+  transition: all 0.3s;
+  background-color: white;
+}
+.close:hover:after {
+  transform: rotate(135deg);
+  transition: all 0.3s;
+  background-color: white;
+}
+.close:hover {
+  border: solid 0.2rem white;
+  transition: all 0.3s;
+}
+  
 
  }
 
@@ -352,6 +452,13 @@ margin-bottom: 10vh;
 .inputfield[id='personality1'], .inputfield[id='personality2'], .inputfield[id='personality3']{
   width: 90%;
 }
+      .SM__editor_buttons{
+
+        margin-top: -1.5rem;
+  }
+  .textEditor{
+    padding-left: 0;
+  }
 
 
 
@@ -363,6 +470,17 @@ margin-bottom: 10vh;
 
   }
   @media screen and (max-width: 500px) {
+      .SM__editor_buttons{
+
+        bottom: 5rem;
+  }
+
+    .openHints{
+      padding: 20vh 13vw;
+    }
+    .close{
+      right: 13vw;;
+    }
 
 
   .margin_left{

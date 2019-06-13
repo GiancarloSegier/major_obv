@@ -37,3 +37,11 @@
 .addsign{
 composes: addsign from '../../../styles/ui.module.css';
 }
+
+ @media screen and (max-width: 800px) {
+
+    .button{
+        display: none;
+    }
+
+ }
