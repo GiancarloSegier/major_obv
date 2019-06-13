@@ -18,33 +18,145 @@
   composes: navbar from "../styles/typo.module.css";
   font-weight: bold;
 }
-.nav__menu{
+.nav__menu {
   display: flex;
 }
 
 .logo__image {
   width: 4rem;
-
 }
 
-.menu__item{
+.menu__item {
   margin-right: 4rem;
 }
-.logo{
-
+.logo {
   justify-content: flex-end;
 }
 
-.logo .menu__item{
+.logo .menu__item {
   margin: 0;
 }
 
-.active, .navLink:hover{
-  color: var(--light-color)
+.active,
+.navLink:hover {
+  color: var(--light-color);
 }
 
-@media only screen and (max-width:1100px){
-  .navWrapper{
-    display: none;
+.close {
+  display: none;
+}
+
+@media only screen and (max-width: 1100px) {
+  .mover {
+    transform: translateX(100%);
+  }
+  .navWrapper {
+    background-color: #0a0f19;
+    height: 100vh;
+    z-index: 18;
+    transition: all 0.5s;
+    /*transform: translateX(100%);*/
+  }
+
+  .hamburger {
+    width: 4rem;
+    height: 4rem;
+    background-color: none;
+    background: none;
+    position: absolute;
+    top: 3rem;
+    right: 7rem;
+    z-index: 15;
+    border: none;
+  }
+  .hamburgerRect {
+    width: 3.5rem;
+    height: 0.3rem;
+    margin: 0.5rem;
+    background-color: white;
+    margin-left: 0;
+  }
+  .nav__menu {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    /* margin-top: 20%; */
+  }
+  .nav__menu::before {
+    content: "navigatie";
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    color: var(--highlight-color);
+    font-family: "oakes", sans-serif;
+  }
+  .navLink {
+    text-decoration: none;
+    composes: navbar from "../styles/typo.module.css";
+    font-weight: bold;
+    font-size: 10vmin;
+  }
+  .logo {
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .navbar {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+  }
+  .menu__item {
+    margin-bottom: 3rem;
+  }
+  .close {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: solid 0.2rem #585f71;
+    background: none;
+    transition: all 0.3s;
+    position: relative;
+    display: block;
+  }
+
+  .close:before,
+  .close:after {
+    position: absolute;
+    left: 1.7rem;
+    top: 0.8rem;
+    content: " ";
+    height: 2rem;
+    width: 0.2rem;
+    background-color: #585f71;
+  }
+  .close:before {
+    transform: rotate(45deg);
+    transition: all 0.3s;
+  }
+  .close:after {
+    transform: rotate(-45deg);
+    transition: all 0.3s;
+  }
+
+  .close:hover:before {
+    transform: rotate(225deg);
+    transition: all 0.3s;
+    background-color: white;
+  }
+  .close:hover:after {
+    transform: rotate(135deg);
+    transition: all 0.3s;
+    background-color: white;
+  }
+  .close:hover {
+    border: solid 0.2rem white;
+    transition: all 0.3s;
+    cursor: pointer;
   }
 }

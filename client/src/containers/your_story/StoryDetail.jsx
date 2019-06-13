@@ -103,10 +103,10 @@ const StoryDetail = ({ storyId, store }) => {
               <li className={styles.social_facebook} />
             </a>
             <a href="http://www.instagram.com">
-              <li className={styles.social_instagram} />{" "}
+              <li className={styles.social_instagram} />
             </a>
             <a href="http://www.twitter.com">
-              <li className={styles.social_twitter} />{" "}
+              <li className={styles.social_twitter} />
             </a>
             <a href="http://www.spotify.com">
               <li className={styles.social_spotify} />
