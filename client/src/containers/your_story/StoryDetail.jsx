@@ -103,17 +103,11 @@ const StoryDetail = ({ storyId, store }) => {
         <div className={styles.story__socialMedia2}>
           <h2 className={styles.story__shareStory}>Deel dit verhaal</h2>
           <ul className={styles.social_iconslist}>
-            <a href="http://www.facebook.com">
+            <a href={fbLink} target="_blank" rel="noopener noreferrer">
               <li className={styles.social_facebook} />
             </a>
-            <a href="http://www.instagram.com">
-              <li className={styles.social_instagram} />
-            </a>
-            <a href="http://www.twitter.com">
-              <li className={styles.social_twitter} />
-            </a>
-            <a href="http://www.spotify.com">
-              <li className={styles.social_spotify} />
+            <a href={twitterLink} target="_blank" rel="noopener noreferrer">
+              <li className={styles.social_twitter} />{" "}
             </a>
           </ul>
         </div>

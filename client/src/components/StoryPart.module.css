@@ -2,7 +2,7 @@
   margin: 0 auto;
   text-align: center;
   display: grid;
-  grid-template-rows: 40rem 3rem;
+  grid-template-rows: 25rem 3rem;
 }
 
 .story__text {
