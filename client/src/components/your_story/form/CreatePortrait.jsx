@@ -9,7 +9,7 @@ class CreatePortrait extends Component {
       gender: this.props.gender,
       index: 1,
       part: this.props.part,
-      max: 4,
+      max: 8,
       min: 1
     };
     this.props.store.getInfo("gender", this.props.gender);
@@ -27,8 +27,8 @@ class CreatePortrait extends Component {
 
   getValues = gender => {
     if (gender === "vrouw") {
-      this.max = 4;
-      this.min = 3;
+      this.max = 8;
+      this.min = 5;
       this.setState({
         index: this.min,
         max: this.max,
@@ -36,7 +36,7 @@ class CreatePortrait extends Component {
       });
       this.imageNumber = this.min;
     } else if (gender === "man") {
-      this.max = 2;
+      this.max = 4;
       this.min = 1;
       this.setState({
         index: this.min,
@@ -45,7 +45,7 @@ class CreatePortrait extends Component {
       });
       this.imageNumber = this.min;
     } else if (gender === "transgender") {
-      this.max = 4;
+      this.max = 8;
       this.min = 1;
       this.setState({
         index: this.min,
