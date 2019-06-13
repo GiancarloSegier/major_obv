@@ -59,7 +59,7 @@ const Almaviva = ({ store }) => {
             </a>
           </li>
           <li>
-            <Link className={styles.link} to="/">
+            <Link className={styles.link} to={`/character/${current.id}`}>
               Bekijk mijn verhaal
               <div className={`${styles.social__icon} ${styles.social_obv}`} />
             </Link>
