@@ -121,8 +121,19 @@
   padding-right: 4rem;
   text-align: left;
   position: relative;
+  transition: all 0.2s ease-in-out;
 }
-
+.button_back:hover {
+  cursor: pointer;
+}
+.button_back:hover:after {
+  left: -7rem;
+  transition: all 0.2s ease-in-out;
+}
+.button_back:hover:before {
+  left: -7rem;
+  transition: all 0.2s ease-in-out;
+}
 .button_back:after {
   content: "";
   display: block;
@@ -132,6 +143,7 @@
   position: absolute;
   left: -5rem;
   top: 50%;
+  transition: all 0.2s ease-in-out;
 }
 
 .button_back::before {
@@ -146,6 +158,7 @@
   left: -5rem;
   top: calc(50% - 0.5rem);
   transform: rotate(225deg);
+  transition: all 0.2s ease-in-out;
 }
 
 @media only screen and (min-width: 700px) {

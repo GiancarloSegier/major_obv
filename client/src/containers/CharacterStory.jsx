@@ -40,6 +40,13 @@ class CharacterStory extends Component {
     this.setState({ part: this.currentpage });
     clearInterval(this.timerText);
   };
+  changetext = () => {
+    console.log("change text");
+    this.currentpage = this.state.part;
+    this.currentpage++;
+    this.setState({ part: this.currentpage });
+    clearInterval(this.timerText);
+  };
 
   goToNextPart = () => {
     if (!this.justClicked) {
@@ -55,7 +62,14 @@ class CharacterStory extends Component {
   handleGoBack = () => {
     this.setState({ music: Sound.status.STOPPED });
   };
-
+  hide = () => {
+    this.setState({ show: false });
+    clearInterval(this.timerHide);
+  };
+  show = () => {
+    this.setState({ show: true });
+    clearInterval(this.timerShow);
+  };
   toggleSound = () => {
     if (this.state.volume === 100) {
       this.setState({ volume: 0 });
@@ -90,18 +104,25 @@ class CharacterStory extends Component {
             volume={this.state.volume}
           />
         ) : (
-          " "
+          ""
         )}
         <div className={styles.background}>
           <div className="container full_view">
-            <div className={styles.flexer}>
-              <p className={styles.storyname}>{current.name}'s verhaal</p>
-              <Link to={`/character/${characterId}`}>
-                <button onClick={this.handleGoBack} className={styles.close} />
-              </Link>
-            </div>
-
-            {this.state.part < current.story.parts.length ? (
+            {this.state.part < 2 ? (
+              <div className={styles.flexer}>
+                <p className={styles.storyname}>{current.name}'s verhaal</p>
+                <Link to={`/character/${characterId}`}>
+                  <button
+                    onClick={this.handleGoBack}
+                    className={styles.close}
+                  />
+                </Link>
+              </div>
+            ) : (
+              ""
+            )}
+            {/*current.story.parts.length*/}
+            {this.state.part < 2 ? (
               <StoryPart
                 state={this.state}
                 story={current.story}
@@ -110,34 +131,37 @@ class CharacterStory extends Component {
             ) : (
               <StoryEnd />
             )}
-
-            <div className={styles.flexer}>
-              <StoryTimeline state={this.state} story={current.story} />
-              <div onClick={this.toggleSound} className={styles.mute}>
-                <div className={styles.mutebars}>
-                  <div
-                    className={`${styles.rect} ${styles.rect1} ${
-                      this.state.volume === 100 ? "" : styles.no_animation
-                    }`}
-                  />
-                  <div
-                    className={`${styles.rect} ${styles.rect2} ${
-                      this.state.volume === 100 ? "" : styles.no_animation
-                    }`}
-                  />
-                  <div
-                    className={`${styles.rect} ${styles.rect3} ${
-                      this.state.volume === 100 ? "" : styles.no_animation
-                    }`}
-                  />
-                  <div
-                    className={`${styles.rect} ${styles.rect4} ${
-                      this.state.volume === 100 ? "" : styles.no_animation
-                    }`}
-                  />
+            {this.state.part < 2 ? (
+              <div className={styles.flexer}>
+                <StoryTimeline state={this.state} story={current.story} />
+                <div onClick={this.toggleSound} className={styles.mute}>
+                  <div className={styles.mutebars}>
+                    <div
+                      className={`${styles.rect} ${styles.rect1} ${
+                        this.state.volume === 100 ? "" : styles.no_animation
+                      }`}
+                    />
+                    <div
+                      className={`${styles.rect} ${styles.rect2} ${
+                        this.state.volume === 100 ? "" : styles.no_animation
+                      }`}
+                    />
+                    <div
+                      className={`${styles.rect} ${styles.rect3} ${
+                        this.state.volume === 100 ? "" : styles.no_animation
+                      }`}
+                    />
+                    <div
+                      className={`${styles.rect} ${styles.rect4} ${
+                        this.state.volume === 100 ? "" : styles.no_animation
+                      }`}
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </>

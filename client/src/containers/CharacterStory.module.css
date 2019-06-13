@@ -54,6 +54,7 @@
 .close:hover {
   border: solid 0.2rem white;
   transition: all 0.3s;
+  cursor: pointer;
 }
 .flexer {
   display: flex;
@@ -83,6 +84,9 @@
   border-radius: 50%;
   transform: scale(0.8);
 }
+.mute:hover {
+  cursor: pointer;
+}
 .mutebars {
   width: 30px;
   height: 30px;
@@ -94,7 +98,7 @@
 .rect {
   background-color: white;
   width: 2px;
-  transition: all 1s;
+  transition: all 0.3s;
 }
 .rect1 {
   animation: rectAnimation-1 1s infinite;
@@ -114,7 +118,8 @@
 }
 .no_animation {
   animation: none;
-  transition: all 1s;
+  transition: all 0.3s;
+  background-color: var(--grey-color);
 }
 
 @keyframes rectAnimation-1 {
