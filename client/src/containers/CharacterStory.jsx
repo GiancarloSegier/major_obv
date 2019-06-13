@@ -40,6 +40,13 @@ class CharacterStory extends Component {
     this.setState({ part: this.currentpage });
     clearInterval(this.timerText);
   };
+  changetext = () => {
+    console.log("change text");
+    this.currentpage = this.state.part;
+    this.currentpage++;
+    this.setState({ part: this.currentpage });
+    clearInterval(this.timerText);
+  };
 
   goToNextPart = () => {
     if (!this.justClicked) {
@@ -55,7 +62,14 @@ class CharacterStory extends Component {
   handleGoBack = () => {
     this.setState({ music: Sound.status.STOPPED });
   };
-
+  hide = () => {
+    this.setState({ show: false });
+    clearInterval(this.timerHide);
+  };
+  show = () => {
+    this.setState({ show: true });
+    clearInterval(this.timerShow);
+  };
   toggleSound = () => {
     if (this.state.volume === 100) {
       this.setState({ volume: 0 });

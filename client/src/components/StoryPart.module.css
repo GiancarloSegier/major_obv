@@ -29,5 +29,10 @@
   cursor: pointer;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  color: var(--grey-color);
+  transition: all 0.2s;
+}
+.story__button:hover {
   color: white;
+  transition: all 0.2s;
 }

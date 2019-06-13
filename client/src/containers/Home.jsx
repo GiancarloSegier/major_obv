@@ -3,6 +3,7 @@ import { inject, observer, PropTypes } from "mobx-react";
 import MainCharacter from "../components/MainCharacter";
 import UserStory from "../components/your_story/UserStory";
 import styles from "./Home.module.css";
+import Footer from "../components/Footer";
 import { ROUTES } from "../constants";
 import { Link } from "react-router-dom";
 
@@ -210,6 +211,8 @@ class Home extends Component {
             </div>
           </div>
         </section>
+        {}
+        <Footer props={this.characters} />
       </>
     );
   }
