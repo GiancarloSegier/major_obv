@@ -6,7 +6,7 @@
   "author": "Giancarlo Segier <giancarlo.segier@hotmail.com>, Laurens Segaert <laurens.segaert@student.howest.be>, Linde Raats",
   "license": "MIT",
   "scripts": {
-    "start": "cd server/ && yarn && yarn start",
+    "start": "node app.js",
     "build": "cd client/ && yarn && yarn build"
   },
   "cacheDirectories": [

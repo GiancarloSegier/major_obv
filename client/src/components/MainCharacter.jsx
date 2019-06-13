@@ -11,7 +11,7 @@ const MainCharacter = ({ props }) => {
         <div className={styles.character__overlay}>
           <img
             className={styles.character__image}
-            src={`./assets/img/${name.toLowerCase()}.jpg`}
+            src={`./assets/img/${name}.jpg`}
             alt={`foto van ${name}`}
           />
         </div>
