@@ -48,3 +48,44 @@
   right: 0;
   object-fit: contain;
 }
+
+
+@media screen and (max-width: 1100px) {
+    .full{
+        width: 50%;
+        margin: 0;
+    }
+}
+
+     @media screen and (max-width: 800px) {
+
+    .full{
+    width: 40vw;
+    }
+
+    /* .fullImage{
+        object-position: left;
+    } */
+
+
+    .story__imagepart:nth-child(4) img{
+        object-position: -5rem;
+    }
+    .story__imagepart:nth-child(3) img{
+        object-position: -7rem;
+    }
+    .story__imagepart:nth-child(2) img{
+        object-position: -6rem;
+    }
+    .story__imagepart:nth-child(1) img{
+        object-position: -13rem;
+    }
+   }
+
+   @media screen and (max-width: 650px) {
+
+    .full{
+        display: none;
+    }
+
+   }

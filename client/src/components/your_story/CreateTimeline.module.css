@@ -84,12 +84,12 @@
 }
 
 
-  @media screen and (max-width: 1050px) {
+  @media screen and (max-width: 1100px) {
 .timeline{
   transform: rotate(-90deg);
-      height: 50%;
+      height: 45%;
       top: -12vh;
-      left: 32vw;
+      left: 30vw;
   }
 
   .bulletpoint{
@@ -102,3 +102,41 @@
 
 
   }
+
+   @media screen and (max-width: 800px) {
+.timeline{
+
+    top: -12vh;
+    left: 35vw;
+  }
+
+}
+
+   @media screen and (max-width: 650px) {
+.timeline{
+
+top: -18vh;
+    left: 35vh;
+    height: 60vh;
+  }
+
+}
+
+   @media screen and (max-width: 600px) {
+.timeline{
+
+    top: -12vh;
+    left: 35vh;
+    height: 48vh;
+  }
+
+}
+
+   @media screen and (max-width: 550px) {
+.timeline{
+
+display: none;
+  }
+
+}
+

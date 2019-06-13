@@ -42,7 +42,9 @@ const StoryInfo = ({ name, nextForm, store }) => {
   return (
     <form onSubmit={nextPage}>
       <div className={styles.margin_left}>
-        <h2 className={styles.tagline}>02 Leeftijd & Locatie </h2>
+        <h2 className={styles.part__title}>
+          <span className={styles.part__step}>04</span> Genres{" "}
+        </h2>
         <div>
           <p className={styles.pageTitle}>
             {name}'s <br /> verhaal is

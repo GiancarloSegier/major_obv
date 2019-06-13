@@ -70,8 +70,7 @@ class CreateStory extends Component {
                 ) : step === 5 ? (
                   <div className={styles.margin_left}>
                     <h2 className={`${styles.part__title} `}>
-                      <span className={styles.part__step}>05</span> Leeftijd &
-                      Locatie{" "}
+                      <span className={styles.part__step}>05</span> Jouw Verhaal{" "}
                     </h2>
                     <p className={`${styles.pageTitle}`}>
                       {" "}
