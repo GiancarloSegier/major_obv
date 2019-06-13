@@ -4,6 +4,7 @@ import styles from "./StoryPart.module.css";
 const StoryPart = ({ story, state, handleClick }) => {
   const { part, show } = state;
 
+  let handle = true;
   let show_text = {
     opacity: "1"
   };

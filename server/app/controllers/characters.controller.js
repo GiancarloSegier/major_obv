@@ -5,7 +5,10 @@ exports.create = (req, res) => {
     name: req.body.name,
     nickname: req.body.nickname,
     about: req.body.about,
-    story: req.body.story
+    story: req.body.story,
+    facebook: req.body.facebook,
+    twitter: req.body.twitter,
+    instagram: req.body.instagram
   });
 
   character

@@ -1,0 +1,72 @@
+.profile__picture img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 3rem;
+}
+.profile__picture {
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.link {
+  width: 100%;
+  display: flex;
+  background-color: var(--highlight-color);
+  margin-bottom: 2rem;
+  padding: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  composes: oakes from "../../styles/typo.module.css";
+  font-weight: 500;
+  color: white;
+  font-size: 2rem;
+}
+
+.profile__name {
+  font-size: 3rem;
+  margin: 0 auto;
+  composes: heading-1 from "../../styles/typo.module.css";
+  padding-top: 2rem;
+}
+.social__links {
+  margin-top: 3rem;
+}
+.tagline {
+  text-align: center;
+  margin: 0 auto;
+  composes: oakes from "../../styles/typo.module.css";
+  font-weight: 500;
+  color: var(--grey-color);
+  font-size: 1.6rem;
+  margin-top: 5rem;
+}
+.social__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.social_instagram {
+  background-image: url("../../styles/assets/icons/instagram.svg");
+}
+.social_twitter {
+  background-image: url("../../styles/assets/icons/twitter.svg");
+}
+.social_facebook {
+  background-image: url("../../styles/assets/icons/facebook.svg");
+}
+.social_spotify {
+  background-image: url("../../styles/assets/icons/spotify.svg");
+}
+.social_obv {
+  background-image: url("../../styles/assets/icons/obv.svg");
+  background-repeat: no-repeat;
+  height: 2rem;
+}
+
+.profile__nickname {
+  composes: heading-3 from "../../styles/typo.module.css";
+}

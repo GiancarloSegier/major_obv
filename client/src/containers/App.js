@@ -9,6 +9,9 @@ import StoryDetail from "./your_story/StoryDetail";
 import CharacterDetail from "./CharacterDetail";
 import CreateStory from "./your_story/CreateStory";
 import CharacterStory from "./CharacterStory";
+import Almaviva from "./social/Almaviva";
+import Pamina from "./social/Pamina";
+import Clara from "./social/Clara";
 
 function App() {
   return (
@@ -38,6 +41,9 @@ function App() {
             <CharacterStory characterId={match.params.id} />
           )}
         />
+        <Route path={ROUTES.almaviva} component={Almaviva} />
+        <Route path={ROUTES.pamina} component={Pamina} />
+        <Route path={ROUTES.clara} component={Clara} />
       </Switch>
     </main>
   );

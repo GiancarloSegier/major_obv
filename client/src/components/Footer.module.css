@@ -1,0 +1,61 @@
+.social__icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-left: 1.7rem;
+}
+.footer__title {
+  composes: heading-3 from "../styles/typo.module.css";
+  color: white;
+  font-size: 1rem;
+}
+.characterlist {
+  display: flex;
+  margin-bottom: 0.5rem;
+  color: var(--grey-color);
+}
+.social_instagram {
+  background-color: var(--grey-color);
+  -webkit-mask: url("../styles/assets/icons/instagram.svg") no-repeat 50% 50%;
+  mask: url("../styles/assets/icons/instagram.svg") no-repeat 50% 50%;
+}
+.social_twitter {
+  background-color: var(--grey-color);
+  -webkit-mask: url("../styles/assets/icons/twitter.svg") no-repeat 50% 50%;
+  mask: url("../styles/assets/icons/twitter.svg") no-repeat 50% 50%;
+}
+.social_facebook {
+  background-color: var(--grey-color);
+  -webkit-mask: url("../styles/assets/icons/facebook.svg") no-repeat 50% 50%;
+  mask: url("../styles/assets/icons/facebook.svg") no-repeat 50% 50%;
+}
+.social_spotify {
+  background-color: var(--grey-color);
+  -webkit-mask: url("../styles/assets/icons/spotify.svg") no-repeat 50% 50%;
+  mask: url("../styles/assets/icons/spotify.svg") no-repeat 50% 50%;
+}
+.character__name {
+  composes: oakes from "../styles/typo.module.css";
+  font-size: 1.4rem;
+  color: var(--grey-color);
+}
+
+.footer__follow {
+  margin-bottom: 6rem;
+}
+footer {
+  padding-top: 10rem;
+}
+.character__name strong {
+  color: white;
+}
+.footer__grid {
+  border-top: solid 0.1rem var(--grey-color);
+  padding-top: 5rem;
+}
+
+@media only screen and (min-width: 700px) {
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
