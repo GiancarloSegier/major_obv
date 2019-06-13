@@ -23,11 +23,7 @@ const Create = ({ store }) => {
           </div>
         </div>
         <div className={styles.character__image}>
-          <img
-            src="../assets/img/almaviva.jpg"
-            alt=""
-            className={styles.image}
-          />
+          <img src="../assets/img/create.png" alt="" className={styles.image} />
         </div>
       </div>
     </section>

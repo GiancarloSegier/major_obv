@@ -196,7 +196,7 @@ class Home extends Component {
 
         <section className={`container margin-top margin-bottom`}>
           <div className={styles.grid__half}>
-            <img src="./assets/img/almaviva.jpg" alt="" />
+            <img src="./assets/img/create.png" alt="" />
             <div>
               <h2 className={styles.subTitle}>Nu is het aan jou</h2>
               <p className={styles.largeText}>
