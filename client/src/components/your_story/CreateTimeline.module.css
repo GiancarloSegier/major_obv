@@ -115,8 +115,8 @@
    @media screen and (max-width: 650px) {
 .timeline{
 
-     top: -22vh;
-    left: 48vh;
+top: -20vh;
+    left: 40vh;
         height: 80vw;
   }
 
@@ -124,7 +124,7 @@
 
    @media screen and (max-width: 600px) {
 .timeline{
-   left: 45vh;
+   left: 37vh;
 
   
 

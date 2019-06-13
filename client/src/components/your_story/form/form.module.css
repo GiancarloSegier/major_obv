@@ -318,7 +318,7 @@ margin-bottom: 10vh;
   }
 
   .centerContent, .fullForm{
-        width: 60%;
+        width: 100%;
     justify-self: center;
   }
 
@@ -355,8 +355,15 @@ margin-bottom: 10vh;
 
 
 
+
+
  }
+   @media screen and (max-width: 550px) {
+   
+
+  }
   @media screen and (max-width: 500px) {
+
 
   .margin_left{
     height: 75vh;
