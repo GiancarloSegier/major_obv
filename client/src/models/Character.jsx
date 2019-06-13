@@ -10,6 +10,9 @@ class Character {
     facebook,
     twitter,
     instagram,
+    spotify,
+    title,
+    author,
     id = uuid.v4()
   ) {
     this.id = id;
@@ -20,6 +23,9 @@ class Character {
     this.facebook = facebook;
     this.twitter = twitter;
     this.instagram = instagram;
+    this.spotify = spotify;
+    this.title = title;
+    this.author = author;
   }
 
   get values() {
@@ -30,7 +36,10 @@ class Character {
       story: this.story,
       facebook: this.facebook,
       twitter: this.twitter,
-      instagram: this.instagram
+      instagram: this.instagram,
+      spotify: this.spotify,
+      title: this.title,
+      author: this.author
     };
   }
 
@@ -42,6 +51,9 @@ class Character {
   setFacebook = facebook => (this.facebook = facebook);
   setTwitter = twitter => (this.twitter = twitter);
   setInstagram = instagram => (this.instagram = instagram);
+  setSpotify = spotify => (this.spotify = spotify);
+  setTitle = title => (this.title = title);
+  setAuthor = author => (this.author = author);
 
   updateFromServer = values => {
     this.setId(values._id);
@@ -52,6 +64,9 @@ class Character {
     this.setFacebook(values.facebook);
     this.setTwitter(values.twitter);
     this.setInstagram(values.instagram);
+    this.setSpotify(values.spotify);
+    this.setTitle(values.title);
+    this.setAuthor(values.author);
   };
 }
 
@@ -66,6 +81,9 @@ decorate(Character, {
   setFacebook: action,
   setTwitter: action,
   setInstagram: action,
+  setSpotify: action,
+  setTitle: action,
+  setAuthor: action,
   values: computed
 });
 

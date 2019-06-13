@@ -38,6 +38,13 @@ const Footer = ({ store }) => {
                     } `}
                   />
                 </a>
+                <a href={character.spotify}>
+                  <li
+                    className={`${styles.social__icon} ${
+                      styles.social_spotify
+                    } `}
+                  />
+                </a>
               </ul>
             ))}
           </div>
@@ -56,7 +63,11 @@ const Footer = ({ store }) => {
             <p className={styles.character__name}>
               Een project van <br />
               Opera Ballet Vlaanderen
-              <br /> Meer info: www.operaballet.be
+              <br /> Meer info:{" "}
+              <a href="www.operaballet.be" className={styles.url__link}>
+                {" "}
+                www.operaballet.be
+              </a>
             </p>
           </div>
         </div>

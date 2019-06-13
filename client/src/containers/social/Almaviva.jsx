@@ -15,7 +15,10 @@ const Almaviva = ({ store }) => {
   return (
     <div className="container">
       <div className={styles.profile__picture}>
-        <img src={`../assets/img/${current.name}.jpg`} />
+        <img
+          src={`../assets/img/${current.name}.jpg`}
+          alt={`foto van ${current.name}`}
+        />
         <div>
           <h2 className={styles.profile__name}>{current.name}</h2>
           <p className={styles.profile__nickname}>{current.nickname}</p>

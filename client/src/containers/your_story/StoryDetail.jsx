@@ -34,15 +34,11 @@ const StoryDetail = ({ storyId, store }) => {
 
   const storyParts = [];
 
-  console.log(
-    nl2br(story).map(part => {
-      if (!part.type) {
-        storyParts.push(part);
-      }
-    })
-  );
-
-  console.log(storyParts);
+  nl2br(story).map(part => {
+    if (!part.type) {
+      storyParts.push(part);
+    }
+  });
 
   return (
     <section id="story" className={styles.story}>

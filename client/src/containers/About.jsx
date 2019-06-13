@@ -24,6 +24,7 @@ const About = () => {
               className={styles.button}
               target="_blank"
               href="https://operaballet.be/en"
+              rel="noopener noreferrer"
             >
               Bezoek website
             </a>

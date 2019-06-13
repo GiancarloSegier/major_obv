@@ -8,7 +8,10 @@ const CharacterSchema = mongoose.Schema(
     story: Object,
     facebook: String,
     twitter: String,
-    instagram: String
+    instagram: String,
+    spotify: String,
+    title: String,
+    author: String
   },
   {
     timestamps: true

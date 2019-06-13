@@ -14,7 +14,6 @@ const basicTags = [
   "Onverwacht",
   "Actievol"
 ];
-let i = 0;
 
 // const StoryInfo = ({ name, nextForm, store }) => {
 class StoryInfo extends Component {
@@ -66,23 +65,18 @@ class StoryInfo extends Component {
               {this.props.name}'s <br /> verhaal is
             </p>
             <div className={styles.tags}>
-              {basicTags.map(
-                tag => (
-                  i++,
-                  (
-                    <label key={i} className={styles.tag}>
-                      <input
-                        type="checkbox"
-                        id={`tag${i}`}
-                        onClick={this.setTags}
-                        value={`#${tag}`}
-                        className={styles.tag__input}
-                      />
-                      <div className={styles.tag__checkBox}>{tag}</div>
-                    </label>
-                  )
-                )
-              )}
+              {basicTags.map((tag, i) => (
+                <label key={i} className={styles.tag}>
+                  <input
+                    type="checkbox"
+                    id={`tag${i}`}
+                    onClick={this.setTags}
+                    value={`#${tag}`}
+                    className={styles.tag__input}
+                  />
+                  <div className={styles.tag__checkBox}>{tag}</div>
+                </label>
+              ))}
             </div>
           </div>
           <button type="submit" className={styles.button}>

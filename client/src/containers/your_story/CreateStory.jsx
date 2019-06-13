@@ -34,7 +34,6 @@ class CreateStory extends Component {
   // send everything to the database
   handleSubmitForm = e => {
     e.preventDefault();
-    const title = this.props.store.customStory.title;
 
     this.props.store
       .addStory(this.props.store.customStory)

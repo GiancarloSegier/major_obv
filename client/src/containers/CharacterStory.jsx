@@ -8,7 +8,6 @@ import styles from "../containers/CharacterStory.module.css";
 import music from "../styles/assets/sounds/background1.mp3";
 
 import Sound from "react-sound";
-import { get } from "https";
 
 //
 
@@ -108,7 +107,7 @@ class CharacterStory extends Component {
         )}
         <div className={styles.background}>
           <div className="container full_view">
-            {this.state.part < 2 ? (
+            {this.state.part < current.story.parts.length ? (
               <div className={styles.flexer}>
                 <p className={styles.storyname}>{current.name}'s verhaal</p>
                 <Link to={`/character/${characterId}`}>
@@ -121,17 +120,17 @@ class CharacterStory extends Component {
             ) : (
               ""
             )}
-            {/*current.story.parts.length*/}
-            {this.state.part < 2 ? (
+
+            {this.state.part < current.story.parts.length ? (
               <StoryPart
                 state={this.state}
                 story={current.story}
                 handleClick={this.goToNextPart}
               />
             ) : (
-              <StoryEnd />
+              <StoryEnd id={characterId} />
             )}
-            {this.state.part < 2 ? (
+            {this.state.part < current.story.parts.length ? (
               <div className={styles.flexer}>
                 <StoryTimeline state={this.state} story={current.story} />
                 <div onClick={this.toggleSound} className={styles.mute}>

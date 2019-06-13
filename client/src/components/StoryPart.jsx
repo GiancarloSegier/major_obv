@@ -4,7 +4,6 @@ import styles from "./StoryPart.module.css";
 const StoryPart = ({ story, state, handleClick }) => {
   const { part, show } = state;
 
-  let handle = true;
   let show_text = {
     opacity: "1"
   };
@@ -12,8 +11,7 @@ const StoryPart = ({ story, state, handleClick }) => {
   let hide_text = {
     opacity: "0",
     filter: "blur(20px)",
-    transform: "translateY(2rem)",
-    transform: "scale(0.8)"
+    transform: "translateY(2rem) scale(0.8)"
   };
 
   let vis = show ? show_text : hide_text;

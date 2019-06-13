@@ -2,6 +2,10 @@
   justify-content: center;
 }
 
+.noLink{
+  text-decoration: none;
+}
+
 .end__text {
   composes: oakes from "../styles/typo.module.css";
   font-size: 3.7rem;

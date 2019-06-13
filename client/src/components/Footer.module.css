@@ -3,6 +3,13 @@
   height: 1.2rem;
   margin-left: 1.7rem;
 }
+.url__link{
+  text-decoration: none;
+  color: var(--light-color);
+}
+.url__link:hover{
+  color: var(--highlight-color);
+}
 .footer__title {
   composes: heading-3 from "../styles/typo.module.css";
   color: white;

@@ -8,7 +8,10 @@ exports.create = (req, res) => {
     story: req.body.story,
     facebook: req.body.facebook,
     twitter: req.body.twitter,
-    instagram: req.body.instagram
+    instagram: req.body.instagram,
+    spotify: req.body.spotify,
+    title: req.body.title,
+    author: req.body.author
   });
 
   character
