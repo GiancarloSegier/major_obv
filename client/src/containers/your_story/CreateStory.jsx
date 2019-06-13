@@ -94,6 +94,7 @@ class CreateStory extends Component {
                   chest={customStory.chest}
                   name={customStory.name}
                   full={true}
+                  editor={true}
                 />
               ) : (
                 ""
